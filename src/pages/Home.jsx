@@ -1,4 +1,5 @@
 import '../styles/style.css'
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -23,8 +24,8 @@ function Home() {
         <div className="logo">TogetherForHelp</div>
 
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#volunteer">Volunteer</a></li>
           <li><a href="#contact">Contact</a></li>

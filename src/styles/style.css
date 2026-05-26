@@ -1585,3 +1585,219 @@ hr{
     height:350px;
   }
 }
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-page{
+
+  background:#f7f3eb;
+  min-height:100vh;
+
+}
+
+/* HERO */
+
+.about-hero{
+
+  padding:160px 8% 80px;
+  text-align:center;
+  background:#f7f3eb;
+
+}
+
+.about-hero h1{
+
+  font-size:64px;
+  font-weight:800;
+  color:#111;
+  margin-bottom:25px;
+  line-height:1.2;
+
+}
+
+.about-hero p{
+
+  max-width:850px;
+  margin:auto;
+  font-size:20px;
+  line-height:1.8;
+  color:#555;
+
+}
+
+/* ABOUT STORY SECTION */
+
+.about-story{
+
+  padding:100px 8%;
+
+}
+
+.about-story-layout{
+
+  max-width:1300px;
+  margin:auto;
+  display:flex;
+  gap:60px;
+  align-items:center;
+  justify-content:space-between;
+
+}
+
+/* LEFT IMAGES */
+
+.about-story-left{
+
+  width:48%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+
+}
+
+.about-story-left img{
+
+  width:100%;
+  border-radius:22px;
+  object-fit:cover;
+  display:block;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  transition:0.3s ease;
+
+}
+
+.about-story-left img:hover{
+
+  transform:scale(1.02);
+
+}
+
+.about-story-left img:first-child{
+
+  height:420px;
+
+}
+
+.about-story-left img:last-child{
+
+  height:260px;
+
+}
+
+/* RIGHT CONTENT */
+
+.about-story-right{
+
+  width:48%;
+
+}
+
+.about-story-tag{
+
+  color:#ff6b00;
+  font-size:17px;
+  font-weight:700;
+  display:block;
+  margin-bottom:18px;
+
+}
+
+.about-story-right h2{
+
+  font-size:52px;
+  font-weight:800;
+  color:#111;
+  margin-bottom:25px;
+  line-height:1.2;
+
+}
+
+.about-story-right p{
+
+  font-size:18px;
+  line-height:1.9;
+  color:#444;
+  margin-bottom:22px;
+
+}
+
+/* MISSION CARDS */
+
+.mission-grid{
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:60px;
+
+}
+
+.mission-card{
+
+  background:white;
+  padding:35px 25px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s ease;
+
+}
+
+.mission-card:hover{
+
+  transform:translateY(-8px);
+
+}
+
+.mission-card h3{
+
+  font-size:26px;
+  color:#111;
+  margin-bottom:15px;
+
+}
+
+.mission-card p{
+
+  color:#555;
+  line-height:1.8;
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .about-story-layout{
+
+    flex-direction:column;
+
+  }
+
+  .about-story-left,
+  .about-story-right{
+
+    width:100%;
+
+  }
+
+  .about-hero h1{
+
+    font-size:42px;
+
+  }
+
+  .about-story-right h2{
+
+    font-size:38px;
+
+  }
+
+  .mission-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
