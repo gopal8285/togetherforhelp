@@ -1,5 +1,6 @@
 import '../styles/style.css'
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function About() {
 
@@ -118,7 +119,11 @@ function About() {
 
       </div>
 
+      <Footer />
+
     </div>
+
+    
 
   )
 }

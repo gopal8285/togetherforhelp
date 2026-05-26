@@ -1,6 +1,7 @@
 import '../styles/style.css'
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Home() {
 
@@ -355,44 +356,9 @@ function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" >
 
-        <div className="footer-grid">
-
-          <div>
-
-            <h3>TogetherForHelp</h3>
-
-            <p>
-              Creating smiles and spreading hope
-              across India.
-            </p>
-
-          </div>
-
-          <div>
-
-            <h3>Quick Links</h3>
-
-            <p><a href="#home">Home</a></p>
-            <p><a href="#about">About</a></p>
-            <p><a href="#volunteer">Volunteer</a></p>
-            <p><a href="#donate">Donate</a></p>
-
-          </div>
-
-          <div>
-
-            <h3>Contact</h3>
-
-            <p>📞 +91 9876543210</p>
-            <p>📧 together4help@gmail.com</p>
-
-          </div>
-
-        </div>
-
-      </footer>
+      <Footer />
+     
 
     </>
   )
