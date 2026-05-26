@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Volunteer from "./pages/Volunteer";
 import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -35,6 +36,11 @@ function App() {
   path="/gallery"
   element={<Gallery />}
 />
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
 
       </Routes>
 

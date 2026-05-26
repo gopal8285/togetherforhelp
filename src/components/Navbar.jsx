@@ -33,7 +33,7 @@ function Navbar() {
         </li>
 
         <li>
-          <a href="#contact">Contact</a>
+          <Link to="/contact">Contact</Link>
         </li>
 
       </ul>
