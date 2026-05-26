@@ -1801,3 +1801,61 @@ hr{
   }
 
 }
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+/* desktop */
+.hamburger{
+  display:none;
+  font-size:32px;
+  cursor:pointer;
+  color:#111;
+}
+
+/* mobile */
+@media(max-width:768px){
+
+  nav{
+    padding:18px 8%;
+  }
+
+  /* hamburger visible */
+  .hamburger{
+    display:block;
+    z-index:2001;
+  }
+
+  /* mobile nav */
+  .nav-links{
+
+    position:absolute;
+
+    top:80px;
+    left:0;
+
+    width:100%;
+
+    background:white;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    padding:35px 0;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    display:none;
+
+  }
+
+  /* when active */
+  .nav-links.active{
+    display:flex;
+  }
+
+}

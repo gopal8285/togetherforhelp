@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
 
@@ -10,7 +12,16 @@ function Navbar() {
         TogetherForHelp
       </div>
 
-      <ul>
+      <div
+  className="hamburger"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+
+  ☰
+
+</div>
+
+      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
 
         <li>
           <Link to="/">Home</Link>
