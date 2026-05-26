@@ -21,11 +21,11 @@ function Navbar() {
         </li>
 
         <li>
-          <a href="#impact">Impact</a>
+          <Link to="/impact">Impact</Link>
         </li>
 
         <li>
-          <a href="#volunteer">Volunteer</a>
+          <Link to="/volunteer">Volunteer</Link>
         </li>
 
         <li>
