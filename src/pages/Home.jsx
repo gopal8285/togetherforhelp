@@ -1,82 +1,129 @@
 import '../styles/style.css'
-import { Link } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+import { motion } from "framer-motion";
 
 function Home() {
 
   const toggleDrives = () => {
-    const section = document.getElementById("recent-drives");
+
+    const section =
+      document.getElementById("recent-drives");
 
     if (section.style.display === "block") {
+
       section.style.display = "none";
+
     } else {
+
       section.style.display = "block";
+
       section.scrollIntoView({
         behavior: "smooth",
       });
+
     }
+
   };
 
   return (
+
     <>
 
+      {/* NAVBAR */}
       <Navbar />
 
       {/* HERO */}
       <section className="hero" id="home">
 
-        <div className="hero-content">
+        <motion.div
 
-          <h1>Together We Can Change Lives</h1>
+          className="hero-content"
+
+          initial={{
+            opacity: 0,
+            y: 80
+          }}
+
+          animate={{
+            opacity: 1,
+            y: 0
+          }}
+
+          transition={{
+            duration: 1
+          }}
+
+        >
+
+          <h1>
+            Together We Can Change Lives
+          </h1>
 
           <p>
             Helping communities through food drives,
             education, health camps and hope.
           </p>
 
-          <button
-            className="btn primary"
-            onClick={() =>
-              document
-                .getElementById('volunteer')
-                .scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            Join Volunteer
-          </button>
+          {/* HERO BUTTONS */}
+          <div className="hero-buttons">
 
-          <button
-            className="btn secondary"
-            onClick={() =>
-              document
-                .getElementById('impact')
-                .scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            View Our Work
-          </button>
+            <button
+              className="btn primary"
+              onClick={() =>
+                document
+                  .getElementById('volunteer')
+                  .scrollIntoView({
+                    behavior: 'smooth'
+                  })
+              }
+            >
+              Join Volunteer
+            </button>
 
-          <button
-            className="btn secondary"
-            onClick={() =>
-              document
-                .getElementById('donate')
-                .scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            Donate Now
-          </button>
+            <button
+              className="btn secondary"
+              onClick={() =>
+                document
+                  .getElementById('impact')
+                  .scrollIntoView({
+                    behavior: 'smooth'
+                  })
+              }
+            >
+              View Our Work
+            </button>
 
-        </div>
+            <button
+              className="btn secondary"
+              onClick={() =>
+                document
+                  .getElementById('donate')
+                  .scrollIntoView({
+                    behavior: 'smooth'
+                  })
+              }
+            >
+              Donate Now
+            </button>
+
+          </div>
+
+        </motion.div>
 
       </section>
 
       {/* ABOUT */}
-      <section className="about-new" id="about" >
+      <section
+        className="about-new"
+        id="about"
+      >
 
         <div className="about-layout">
 
+          {/* LEFT */}
           <div className="about-left">
 
             <img
@@ -91,13 +138,16 @@ function Home() {
 
           </div>
 
+          {/* RIGHT */}
           <div className="about-right">
 
             <span className="about-small">
               About Together4Help
             </span>
 
-            <h2>Together, We Create Change</h2>
+            <h2>
+              Together, We Create Change
+            </h2>
 
             <p>
               Together4Help is a community-driven initiative
@@ -106,9 +156,11 @@ function Home() {
             </p>
 
             <p>
-              From blanket distribution in winter to food drives,
-              teaching children every Sunday, and standing with
-              families during emergencies — we believe kindness creates impact.
+              From blanket distribution in winter
+              to food drives,
+              teaching children every Sunday,
+              and standing with families during emergencies —
+              we believe kindness creates impact.
             </p>
 
             <button
@@ -130,10 +182,13 @@ function Home() {
         className="recent-drives"
       >
 
-        <h2>Our Recent Community Drives</h2>
+        <h2>
+          Our Recent Community Drives
+        </h2>
 
         <div className="drive-grid">
 
+          {/* CARD 1 */}
           <div className="drive-card">
 
             <img
@@ -141,7 +196,9 @@ function Home() {
               alt="Winter Drive"
             />
 
-            <h3>Winter Blanket Distribution</h3>
+            <h3>
+              Winter Blanket Distribution
+            </h3>
 
             <p>
               Helping people survive harsh winters
@@ -150,6 +207,7 @@ function Home() {
 
           </div>
 
+          {/* CARD 2 */}
           <div className="drive-card">
 
             <img
@@ -157,7 +215,9 @@ function Home() {
               alt="Food Drive"
             />
 
-            <h3>Food Distribution Drive</h3>
+            <h3>
+              Food Distribution Drive
+            </h3>
 
             <p>
               Providing warm meals and food support
@@ -171,7 +231,10 @@ function Home() {
       </section>
 
       {/* IMPACT */}
-      <section className="fade-in" id="impact">
+      <section
+        className="fade-in"
+        id="impact"
+      >
 
         <div className="stats">
 
@@ -202,7 +265,9 @@ function Home() {
       {/* GALLERY */}
       <section className="fade-in">
 
-        <h2>Our Events</h2>
+        <h2>
+          Our Events
+        </h2>
 
         <div className="gallery">
 
@@ -247,9 +312,14 @@ function Home() {
       </section>
 
       {/* VIDEO */}
-      <section className="fade-in" id="journey-video">
+      <section
+        className="fade-in"
+        id="journey-video"
+      >
 
-        <h2>Our Journey in Action</h2>
+        <h2>
+          Our Journey in Action
+        </h2>
 
         <p className="journey-subtext">
           Real moments from our community work.
@@ -263,10 +333,12 @@ function Home() {
             loop
             playsInline
           >
+
             <source
               src="https://www.w3schools.com/html/mov_bbb.mp4"
               type="video/mp4"
             />
+
           </video>
 
         </div>
@@ -281,13 +353,16 @@ function Home() {
 
         <div className="volunteer-layout">
 
+          {/* LEFT */}
           <div className="volunteer-left">
 
             <span className="volunteer-tag">
               Join Our Volunteer Family
             </span>
 
-            <h2>Become A Volunteer</h2>
+            <h2>
+              Become A Volunteer
+            </h2>
 
             <p>
               Your effort can bring hope
@@ -301,6 +376,7 @@ function Home() {
 
           </div>
 
+          {/* FORM */}
           <div className="volunteer-form-box">
 
             <iframe
@@ -332,8 +408,8 @@ function Home() {
         <div className="card donate-card">
 
           <p className="donate-message">
-            Every contribution helps us provide food,
-            education and care.
+            Every contribution helps us provide
+            food, education and care.
           </p>
 
           <div className="qr-box">
@@ -345,7 +421,9 @@ function Home() {
 
           </div>
 
-          <h3>UPI ID: together4help@upi</h3>
+          <h3>
+            UPI ID: together4help@upi
+          </h3>
 
           <p className="paytm-info">
             📱 Paytm: +91 9876543210
@@ -356,11 +434,10 @@ function Home() {
       </section>
 
       {/* FOOTER */}
-
       <Footer />
-     
 
     </>
+
   )
 }
 
