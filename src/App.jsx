@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Volunteer from "./pages/Volunteer";
+import Gallery from "./pages/Gallery";
+
 
 function App() {
 
@@ -29,6 +31,10 @@ function App() {
       path="/volunteer"
       element={<Volunteer />}
        />
+       <Route
+  path="/gallery"
+  element={<Gallery />}
+/>
 
       </Routes>
 

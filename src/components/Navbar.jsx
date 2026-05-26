@@ -29,6 +29,10 @@ function Navbar() {
         </li>
 
         <li>
+          <Link to="/gallery">Gallery</Link>
+        </li>
+
+        <li>
           <a href="#contact">Contact</a>
         </li>
 
