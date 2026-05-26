@@ -32,7 +32,7 @@ function Navbar() {
         </li>
 
         <li>
-          <Link to="/impact">Impact</Link>
+         <Link to="/team">Team</Link>
         </li>
 
         <li>
