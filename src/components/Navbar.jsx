@@ -44,6 +44,10 @@ function Navbar() {
         </li>
 
         <li>
+  <Link to="/faq">FAQs</Link>
+</li>
+
+        <li>
           <Link to="/contact">Contact</Link>
         </li>
         <li>
