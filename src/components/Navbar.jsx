@@ -1,8 +1,47 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+const [darkMode,
+setDarkMode]
+= useState(
+
+  localStorage.getItem("theme")
+  === "dark"
+
+);
+
+useEffect(() => {
+
+  if(darkMode){
+
+    document.body.classList.add(
+      "dark-theme"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "dark"
+    );
+
+  }
+
+  else{
+
+    document.body.classList.remove(
+      "dark-theme"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "light"
+    );
+
+  }
+
+}, [darkMode]);
 
   return (
 
@@ -11,6 +50,31 @@ function Navbar() {
       <div className="logo">
         TogetherForHelp
       </div>
+      <div
+
+  className={
+    darkMode
+    ? "theme-switch active"
+    : "theme-switch"
+  }
+
+  onClick={() =>
+    setDarkMode(!darkMode)
+  }
+
+>
+
+  <div className="switch-circle">
+
+    {
+      darkMode
+      ? "☀️"
+      : "🌙"
+    }
+
+  </div>
+
+</div>
 
       <div
   className="hamburger"

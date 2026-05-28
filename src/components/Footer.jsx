@@ -4,78 +4,119 @@ function Footer() {
 
   return (
 
-    <footer>
+    <footer className="premium-footer">
 
-      <div className="footer-grid">
+      <div className="footer-container">
 
         {/* LEFT */}
-        <div>
 
-          <h3>TogetherForHelp</h3>
+        <div className="footer-brand">
+
+          <span className="footer-tag">
+            TogetherForHelp
+          </span>
+
+          <h2>
+            Humanity grows
+            when kindness spreads.
+          </h2>
 
           <p>
-            Creating positive community impact
-            through compassion,
-            support,
-            and action.
+            Supporting communities through
+            food drives,
+            education,
+            emergency relief,
+            and collective care.
           </p>
 
         </div>
 
         {/* CENTER */}
-        <div>
 
-          <h3>Quick Links</h3>
+        <div className="footer-links">
 
-          <p><Link to="/">Home</Link></p>
+          <h3>Navigation</h3>
 
-          <p><Link to="/about">About</Link></p>
+          <Link to="/">Home</Link>
 
-          <p><Link to="/volunteer">Volunteer</Link></p>
+          <Link to="/about">About</Link>
 
-          <p><Link to="/gallery">Gallery</Link></p>
+          <Link to="/team">Team</Link>
 
-          <p><Link to="/team">Team</Link></p>
+          <Link to="/gallery">Gallery</Link>
 
-          <p><Link to="/donate">Donate</Link></p>
+          <Link to="/faq">FAQs</Link>
 
-          <p><Link to="/contact">Contact</Link></p>
+          <Link to="/contact">Contact</Link>
 
         </div>
 
         {/* RIGHT */}
-        <div>
 
-          <h3>Legal</h3>
-          <p>
-  <Link to="/sitemap">
-    Site Map
-  </Link>
-</p>
+        <div className="footer-social">
 
-          <p><Link to="/faq">FAQs</Link></p>
+          <h3>Connect</h3>
 
-          <p><Link to="/terms">Terms of Use</Link></p>
+          <a href="#">
+            Instagram
+          </a>
 
-          <p><Link to="/privacy">Privacy Policy</Link></p>
+          <a href="#">
+            LinkedIn
+          </a>
 
-          <p>
-            <Link to="/copyright">
-              Copyright Policy
-            </Link>
-          </p>
+          <a href="#">
+            Twitter / X
+          </a>
+
+          <a href="#">
+            Facebook
+          </a>
+
+          <a href="#">
+            hello@togetherforhelp.org
+          </a>
 
         </div>
 
       </div>
 
-      <hr />
+      
+      {/* LEGAL */}
+
+<div className="footer-legal">
+
+  <h3>Useful Links</h3>
+
+  <Link to="/faq">
+    FAQs
+  </Link>
+
+  <Link to="/sitemap">
+    Sitemap
+  </Link>
+
+  <Link to="/privacy-policy">
+    Privacy Policy
+  </Link>
+
+  <Link to="/terms">
+    Terms of Use
+  </Link>
+
+  <Link to="/copyright">
+    Copyright Policy
+  </Link>
+
+</div>
+
+      {/* BOTTOM */}
 
       <div className="footer-bottom">
 
         <p>
           © 2026 TogetherForHelp.
-          All Rights Reserved.
+          Built with compassion & purpose.
         </p>
 
       </div>
