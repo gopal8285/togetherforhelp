@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
 
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaFacebookF,
+  FaXTwitter
+} from "react-icons/fa6";
+
 function Footer() {
 
   return (
@@ -31,7 +38,7 @@ function Footer() {
 
         </div>
 
-        {/* CENTER */}
+        {/* NAVIGATION */}
 
         <div className="footer-links">
 
@@ -51,27 +58,31 @@ function Footer() {
 
         </div>
 
-        {/* RIGHT */}
+        {/* SOCIAL */}
 
         <div className="footer-social">
 
           <h3>Connect</h3>
 
-          <a href="#">
-            Instagram
-          </a>
+          <div className="footer-icons">
 
-          <a href="#">
-            LinkedIn
-          </a>
+            <a href="#">
+              <FaInstagram />
+            </a>
 
-          <a href="#">
-            Twitter / X
-          </a>
+            <a href="#">
+              <FaLinkedin />
+            </a>
 
-          <a href="#">
-            Facebook
-          </a>
+            <a href="#">
+              <FaXTwitter />
+            </a>
+
+            <a href="#">
+              <FaFacebookF />
+            </a>
+
+          </div>
 
           <a href="#">
             hello@togetherforhelp.org
@@ -79,36 +90,35 @@ function Footer() {
 
         </div>
 
+        {/* LEGAL */}
+
+        <div className="footer-legal">
+
+          <h3>Useful Links</h3>
+
+          <Link to="/faq">
+            FAQs
+          </Link>
+
+          <Link to="/sitemap">
+            Sitemap
+          </Link>
+
+          <Link to="/privacy-policy">
+            Privacy Policy
+          </Link>
+
+          <Link to="/terms">
+            Terms of Use
+          </Link>
+
+          <Link to="/copyright">
+            Copyright Policy
+          </Link>
+
+        </div>
+
       </div>
-
-      
-      {/* LEGAL */}
-
-<div className="footer-legal">
-
-  <h3>Useful Links</h3>
-
-  <Link to="/faq">
-    FAQs
-  </Link>
-
-  <Link to="/sitemap">
-    Sitemap
-  </Link>
-
-  <Link to="/privacy-policy">
-    Privacy Policy
-  </Link>
-
-  <Link to="/terms">
-    Terms of Use
-  </Link>
-
-  <Link to="/copyright">
-    Copyright Policy
-  </Link>
-
-</div>
 
       {/* BOTTOM */}
 
@@ -124,6 +134,7 @@ function Footer() {
     </footer>
 
   )
+
 }
 
-export default Footer
+export default Footer;
