@@ -2,8 +2,12 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import HomeFaq
+from "../components/HomeFaq";
+
 
 import { motion } from "framer-motion";
+
 
 function Home() {
 
@@ -238,25 +242,39 @@ function Home() {
 
         <div className="stats">
 
-          <div className="stat-box">
-            <h3>250+</h3>
-            <p>Lives Supported</p>
-          </div>
+<div className="stat-box">
+  <h3>250+</h3>
+  <p>Lives Supported</p>
+</div>
 
-          <div className="stat-box">
-            <h3>20+</h3>
-            <p>Community Drives</p>
-          </div>
+<div className="stat-box">
+  <h3>20+</h3>
+  <p>Community Drives</p>
+</div>
 
-          <div className="stat-box">
-            <h3>500+</h3>
-            <p>Meals Distributed</p>
-          </div>
+<div className="stat-box">
+  <h3>500+</h3>
+  <p>Meals Distributed</p>
+</div>
 
-          <div className="stat-box">
-            <h3>20+</h3>
-            <p>Active Volunteers</p>
-          </div>
+<div className="stat-box">
+  <h3>20+</h3>
+  <p>Active Volunteers</p>
+</div>
+
+  
+ 
+
+
+   
+
+
+  
+  
+
+          
+
+          
 
         </div>
 
@@ -432,7 +450,7 @@ function Home() {
         </div>
 
       </section>
-
+<HomeFaq />
       {/* FOOTER */}
       <Footer />
 
