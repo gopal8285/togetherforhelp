@@ -413,43 +413,210 @@ function Home() {
 
       </section>
 
-      {/* DONATE */}
-      <section
-        className="fade-in"
-        id="donate"
-      >
+      {/* SUPPORT SECTION */}
+<section
+  className="support-section"
+  id="donate"
+>
 
-        <h2 className="center">
-          Support Our Mission
-        </h2>
+  {/* TOP TEXT */}
+  <motion.div
 
-        <div className="card donate-card">
+    className="support-top"
 
-          <p className="donate-message">
-            Every contribution helps us provide
-            food, education and care.
-          </p>
+    initial={{
+      opacity:0,
+      y:60
+    }}
 
-          <div className="qr-box">
+    whileInView={{
+      opacity:1,
+      y:0
+    }}
 
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=together4help@upi"
-              alt="QR Code"
-            />
+    transition={{
+      duration:1
+    }}
 
-          </div>
+    viewport={{
+      once:true
+    }}
 
-          <h3>
-            UPI ID: together4help@upi
-          </h3>
+  >
 
-          <p className="paytm-info">
-            📱 Paytm: +91 9876543210
-          </p>
+    <span>
 
-        </div>
+      SUPPORT OUR MISSION
 
-      </section>
+    </span>
+
+    <h2>
+
+      One Small Act
+      Of Kindness
+      Can Change
+      A Life.
+
+    </h2>
+
+    <p>
+
+      Your support helps provide meals,
+      education,
+      blankets,
+      emergency relief,
+      and hope to families
+      who need it most.
+
+    </p>
+
+  </motion.div>
+
+  {/* FAQ STYLE */}
+  <div className="support-faq">
+
+    {/* ITEM 1 */}
+    <motion.div
+
+      className="support-item"
+
+      initial={{
+        opacity:0,
+        y:40
+      }}
+
+      whileInView={{
+        opacity:1,
+        y:0
+      }}
+
+      transition={{
+        duration:0.6
+      }}
+
+      viewport={{
+        once:true
+      }}
+
+    >
+
+      <h3>
+
+        Where Does Your Donation Go?
+
+      </h3>
+
+      <p>
+
+        Your contributions support
+        food drives,
+        education programs,
+        winter blanket distributions,
+        and emergency community support.
+
+      </p>
+
+    </motion.div>
+
+    {/* ITEM 2 */}
+    <motion.div
+
+      className="support-item"
+
+      initial={{
+        opacity:0,
+        y:40
+      }}
+
+      whileInView={{
+        opacity:1,
+        y:0
+      }}
+
+      transition={{
+        duration:0.6,
+        delay:0.15
+      }}
+
+      viewport={{
+        once:true
+      }}
+
+    >
+
+      <h3>
+
+        How Can You Support?
+
+      </h3>
+
+      <p>
+
+        You can contribute through donations,
+        volunteering,
+        spreading awareness,
+        or collaborating with our initiatives.
+
+      </p>
+
+    </motion.div>
+
+    {/* ITEM 3 */}
+    <motion.div
+
+      className="support-item"
+
+      initial={{
+        opacity:0,
+        y:40
+      }}
+
+      whileInView={{
+        opacity:1,
+        y:0
+      }}
+
+      transition={{
+        duration:0.6,
+        delay:0.3
+      }}
+
+      viewport={{
+        once:true
+      }}
+
+    >
+
+      <h3>
+
+        Donation Details
+
+      </h3>
+
+      <p>
+
+        UPI ID:
+        together4help@upi
+
+        <br /><br />
+
+        Paytm:
+        +91 9876543210
+
+      </p>
+
+    </motion.div>
+
+  </div>
+
+</section>
+
+     
+     
+
+       
+           
+          
 <HomeFaq />
       {/* FOOTER */}
       <Footer />
