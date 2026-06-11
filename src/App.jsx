@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomeTest from "./pages/HomeTest";
 
 
 
@@ -38,7 +39,10 @@ function App() {
           path="/about"
           element={<About />}
         />
-
+<Route
+  path="/hometest"
+  element={<HomeTest />}
+/>
         {/* VOLUNTEER PAGE */}
         <Route
       path="/volunteer"
