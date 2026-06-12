@@ -1191,7 +1191,7 @@ section h2::after {
 ========================= */
 
 .support-section {
-  padding: 140px 8%;
+  padding: 80px 8%;
 
   background: var(--bg);
 }
@@ -1201,7 +1201,7 @@ section h2::after {
 .support-top {
   max-width: 900px;
 
-  margin-bottom: 90px;
+  margin-bottom:30px;
 }
 
 .support-top span {
@@ -1297,24 +1297,31 @@ section h2::after {
 } */
 @media (max-width: 768px) {
   .support-section {
-    padding: 60px 18px !important;
+    padding: 35px 18px 30px !important;
   }
   .support-top {
-    margin-bottom: 30px;
+    margin-bottom: 15px !important;
   }
   .support-top h2 {
-    font-size: 28px !important;
-    line-height: 1.25;
+    font-size: 22px !important;
+    line-height: 1.2;
+    margin-top: 8px;
+  }
+  .support-top p {
+    font-size: 13px !important;
+    line-height: 1.6;
+    margin-top: 8px;
   }
   .support-item {
-    padding: 25px 0;
+    padding: 14px 0;
   }
   .support-item h3 {
-    font-size: 18px !important;
+    font-size: 15px !important;
+    margin-bottom: 5px;
   }
   .support-item p {
-    font-size: 14px !important;
-    line-height: 1.7;
+    font-size: 13px !important;
+    line-height: 1.5;
   }
 }
 
@@ -2566,7 +2573,7 @@ section h2::after {
 ========================= */
 
 .home-faq {
-  padding: 120px 8%;
+  padding: 70px 8%;
 
   background: var(--bg);
 }
@@ -2675,7 +2682,7 @@ section h2::after {
 
 @media (max-width: 768px) {
   .home-faq {
-    padding: 60px 18px;
+    padding: 35px 18px;
   }
   .home-faq-top h2 {
     font-size: 28px !important;
@@ -2939,33 +2946,43 @@ nav a.active {
 
     margin-top: 20px;
   }
-  @media (max-width: 480px) {
-    .hero-buttons {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: 6px;
-    }
-    .hero-buttons .btn {
-      padding: 10px 14px !important;
-      font-size: 12px !important;
-      margin: 0 !important;
-    }
-  }
-
+@media (max-width: 768px) {
+  .hero-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 15px;
+  }}
+  .hero-buttons .btn,
   .hero-buttons button {
-    padding: 10px 18px;
-
-    font-size: 14px;
+    padding: 9px 12px !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    border-radius: 30px;
   }
 }
+
+ 
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 }
 
+
+@media (max-width: 768px) {
+  .support-top p,
+  .support-item p {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Section vertical padding globally kam karo */
+  section {
+    padding: 45px 18px !important;
+  }
+}
 
 
 
