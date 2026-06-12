@@ -1,5 +1,147 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
+// import {
+//   FaInstagram,
+//   FaLinkedin,
+//   FaFacebookF,
+//   FaXTwitter
+// } from "react-icons/fa6";
+
+// function Footer() {
+
+//   return (
+
+//     <footer className="premium-footer">
+
+//       <div className="footer-container">
+
+//         {/* LEFT */}
+
+//         <div className="footer-brand">
+
+//           <span className="footer-tag">
+//             TogetherForHelp
+//           </span>
+
+//           <h2>
+//             Humanity grows
+//             when kindness spreads.
+//           </h2>
+
+//           <p>
+//             Supporting communities through
+//             food drives,
+//             education,
+//             emergency relief,
+//             and collective care.
+//           </p>
+
+//         </div>
+
+//         {/* NAVIGATION */}
+
+//         <div className="footer-links">
+
+//           <h3>Navigation</h3>
+
+//           <Link to="/">Home</Link>
+
+//           <Link to="/about">About</Link>
+
+//           <Link to="/team">Team</Link>
+
+//           <Link to="/gallery">Gallery</Link>
+
+//           <Link to="/faq">FAQs</Link>
+
+//           <Link to="/contact">Contact</Link>
+
+//         </div>
+
+//         {/* SOCIAL */}
+
+//         <div className="footer-social">
+
+//           <h3>Connect</h3>
+
+//           <div className="footer-icons">
+
+//             <a href="#">
+//               <FaInstagram />
+//             </a>
+
+//             <a href="#">
+//               <FaLinkedin />
+//             </a>
+
+//             <a href="#">
+//               <FaXTwitter />
+//             </a>
+
+//             <a href="#">
+//               <FaFacebookF />
+//             </a>
+
+//           </div>
+
+//           <a href="#">
+//             hello@togetherforhelp.org
+//           </a>
+
+//         </div>
+
+//         {/* LEGAL */}
+
+//         <div className="footer-legal">
+
+//           <h3>Useful Links</h3>
+
+//           <Link to="/faq">
+//             FAQs
+//           </Link>
+
+//           <Link to="/sitemap">
+//             Sitemap
+//           </Link>
+
+//           <Link to="/privacy-policy">
+//             Privacy Policy
+//           </Link>
+
+//           <Link to="/terms">
+//             Terms of Use
+//           </Link>
+
+//           <Link to="/copyright">
+//             Copyright Policy
+//           </Link>
+
+//         </div>
+
+//       </div>
+
+//       {/* BOTTOM */}
+
+//       <div className="footer-bottom">
+
+//         <p>
+//           © 2026 TogetherForHelp.
+//           Built with compassion & purpose.
+//         </p>
+
+//       </div>
+
+//     </footer>
+
+//   )
+
+// }
+
+// export default Footer;
+
+
+
+import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaLinkedin,
@@ -8,133 +150,59 @@ import {
 } from "react-icons/fa6";
 
 function Footer() {
-
   return (
-
     <footer className="premium-footer">
-
       <div className="footer-container">
 
-        {/* LEFT */}
-
+        {/* BRAND — full width top */}
         <div className="footer-brand">
+          <span className="footer-tag">TOGETHERFORHELP</span>
+          <h2>Humanity grows when kindness spreads.</h2>
+          <p>Supporting communities through food drives, education, emergency relief, and collective care.</p>
 
-          <span className="footer-tag">
-            TogetherForHelp
-          </span>
-
-          <h2>
-            Humanity grows
-            when kindness spreads.
-          </h2>
-
-          <p>
-            Supporting communities through
-            food drives,
-            education,
-            emergency relief,
-            and collective care.
-          </p>
-
-        </div>
-
-        {/* NAVIGATION */}
-
-        <div className="footer-links">
-
-          <h3>Navigation</h3>
-
-          <Link to="/">Home</Link>
-
-          <Link to="/about">About</Link>
-
-          <Link to="/team">Team</Link>
-
-          <Link to="/gallery">Gallery</Link>
-
-          <Link to="/faq">FAQs</Link>
-
-          <Link to="/contact">Contact</Link>
-
-        </div>
-
-        {/* SOCIAL */}
-
-        <div className="footer-social">
-
-          <h3>Connect</h3>
-
+          {/* Social icons seedha brand ke neeche */}
           <div className="footer-icons">
-
-            <a href="#">
-              <FaInstagram />
-            </a>
-
-            <a href="#">
-              <FaLinkedin />
-            </a>
-
-            <a href="#">
-              <FaXTwitter />
-            </a>
-
-            <a href="#">
-              <FaFacebookF />
-            </a>
-
+            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="#" aria-label="Twitter"><FaXTwitter /></a>
+            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
           </div>
-
-          <a href="#">
+          <a href="mailto:hello@togetherforhelp.org" className="footer-email">
             hello@togetherforhelp.org
           </a>
-
         </div>
 
-        {/* LEGAL */}
+        {/* LINKS ROW */}
+        <div className="footer-links-row">
 
-        <div className="footer-legal">
+          <div className="footer-col">
+            <h3>Navigation</h3>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/team">Team</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/faq">FAQs</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
 
-          <h3>Useful Links</h3>
-
-          <Link to="/faq">
-            FAQs
-          </Link>
-
-          <Link to="/sitemap">
-            Sitemap
-          </Link>
-
-          <Link to="/privacy-policy">
-            Privacy Policy
-          </Link>
-
-          <Link to="/terms">
-            Terms of Use
-          </Link>
-
-          <Link to="/copyright">
-            Copyright Policy
-          </Link>
+          <div className="footer-col">
+            <h3>Useful Links</h3>
+            <Link to="/faq">FAQs</Link>
+            <Link to="/sitemap">Sitemap</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Use</Link>
+            <Link to="/copyright">Copyright Policy</Link>
+          </div>
 
         </div>
 
       </div>
-
-      {/* BOTTOM */}
 
       <div className="footer-bottom">
-
-        <p>
-          © 2026 TogetherForHelp.
-          Built with compassion & purpose.
-        </p>
-
+        <p>© 2026 TogetherForHelp. Built with compassion & purpose.</p>
       </div>
-
     </footer>
-
-  )
-
+  );
 }
 
 export default Footer;
