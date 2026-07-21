@@ -3,6 +3,18 @@ import '../styles/style.css'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import teamManish from "../assets/team-manish-face.jpeg";
+import teamDaksh from "../assets/team-daksh-face.jpeg";
+import teamGagan from "../assets/team-gagan-face.jpeg";
+import teamKrishna from "../assets/team-krishna-face.jpeg";
+import teamNishant from "../assets/team-nishant-face.jpeg";
+import teamDhruv from "../assets/team-dhruv-face.jpeg";
+import teamPriya from "../assets/team-priya-face.jpeg";
+import teamRajni from "../assets/team-rajni-face.jpeg";
+import teamNeha from "../assets/team-neha-face.jpeg";
+import teamShivam from "../assets/team-shivam-face.jpeg";
+import teamUnnati from "../assets/team-unnati-face.jpeg";
+
 import { motion } from "framer-motion";
 
 function Team() {
@@ -11,38 +23,69 @@ function Team() {
   const members = [
 
     {
-      name: "Aarav Sharma",
-      role: "Founder",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+      name: "Manish Thakur",
+      role: "Founder & President",
+      image: teamManish
     },
 
     {
-      name: "Priya Verma",
-      role: "Co-Founder",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop"
+      name: "Daksh Gandotra",
+      role: "Co-founder & CTO",
+      image: teamDaksh
     },
 
     {
-      name: "Rohan Mehta",
-      role: "Volunteer Lead",
-      image:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop"
+      name: "Gagan Sharma",
+      role: "Trustee",
+      image: teamGagan
     },
 
     {
-      name: "Ananya Singh",
-      role: "Education Lead",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1200&auto=format&fit=crop"
+      name: "Krishna",
+      role: "Web Development Manager",
+      image: teamKrishna
     },
 
     {
-      name: "Kabir Khan",
-      role: "Operations Manager",
-      image:
-        "https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop"
+      name: "Nishant Jain",
+      role: "Core Member",
+      image: teamNishant
+    },
+
+    {
+      name: "Dhruv Bharti",
+      role: "Core Member",
+      image: teamDhruv
+    },
+
+    {
+      name: "Priya",
+      role: "Core Member",
+      image: teamPriya
+    },
+
+    {
+      name: "Rajni",
+      role: "Core Member",
+      image: teamRajni
+    },
+
+    {
+      name: "Unnati Jha",
+      role: "Coordinator",
+      image: teamUnnati
+    },
+
+    {
+      name: "Neha",
+      role: "Advisor",
+      image: teamNeha
+    },
+
+    {
+      name: "Shivam Jha",
+      role: "Legal Advisor",
+      image: teamShivam
     }
 
   ];
@@ -73,15 +116,9 @@ function Team() {
 
           <h2>Our Core Team</h2>
 
-          <p>
-            Behind every successful initiative
-            is a dedicated team driven by compassion,
-            leadership, and community spirit.
-          </p>
-
         </div>
 
-        {/* TEAM GRID */}
+        {/* TEAM POLAROID GRID */}
         <div className="team-grid">
 
           {members.map((member, index) => (
@@ -91,6 +128,8 @@ function Team() {
               className="team-member"
 
               key={index}
+
+              style={{ "--i": index }}
 
               initial={{
                 opacity: 0,
@@ -104,7 +143,7 @@ function Team() {
 
               transition={{
                 duration: 0.7,
-                delay: index * 0.15
+                delay: index * 0.1
               }}
 
               viewport={{
@@ -113,8 +152,12 @@ function Team() {
 
             >
 
-              {/* IMAGE */}
+              {/* POLAROID CARD */}
               <div className="team-img">
+
+                <span className="team-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
                 <img
                   src={member.image}

@@ -7,30 +7,57 @@ from "../components/HomeFaq";
 
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaSeedling,
+  FaHandshake,
+  FaClipboardList,
+  FaBolt,
+  FaHeart
+} from "react-icons/fa6";
+
+import spreadKindnessImg from "../assets/spread-kindness.jpeg";
+import giveUnusedItemsImg from "../assets/give-unused-items.jpeg";
+import celebrateBdayImg from "../assets/celebrate-bday.jpeg";
+import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
+import shareOurWorkImg from "../assets/share-our-work.jpeg";
+
+import initiativeBlindStick from "../assets/initiative-blind-stick.jpeg";
+import initiativeDogFeeder from "../assets/initiative-dog-feeder.jpeg";
+import initiativeProjectUdhan from "../assets/initiative-project-udhan.jpeg";
+import initiativeKitOfHope from "../assets/initiative-kit-of-hope.jpeg";
+import initiativeChabeelSewa from "../assets/initiative-chabeel-sewa.jpeg";
+import initiativeEducation from "../assets/initiative-education.jpeg";
 
 
 function Home() {
 
-  const toggleDrives = () => {
+  const [showInitiatives, setShowInitiatives] = useState(false);
 
-    const section =
-      document.getElementById("recent-drives");
+  const goToInitiatives = () => {
 
-    if (section.style.display === "block") {
+    setShowInitiatives(true);
 
-      section.style.display = "none";
+  };
 
-    } else {
+  useEffect(() => {
 
-      section.style.display = "block";
+    if (showInitiatives) {
 
-      section.scrollIntoView({
-        behavior: "smooth",
-      });
+      const section = document.getElementById("initiatives");
+
+      if (section) {
+
+        section.scrollIntoView({
+          behavior: "smooth",
+        });
+
+      }
 
     }
 
-  };
+  }, [showInitiatives]);
 
   return (
 
@@ -74,18 +101,12 @@ function Home() {
           {/* HERO BUTTONS */}
           <div className="hero-buttons">
 
-            <button
+            <Link
+              to="/volunteer"
               className="btn primary"
-              onClick={() =>
-                document
-                  .getElementById('volunteer')
-                  .scrollIntoView({
-                    behavior: 'smooth'
-                  })
-              }
             >
               Join Volunteer
-            </button>
+            </Link>
 
             <button
               className="btn secondary"
@@ -100,18 +121,12 @@ function Home() {
               View Our Work
             </button>
 
-            <button
+            <Link
+              to="/donate"
               className="btn secondary"
-              onClick={() =>
-                document
-                  .getElementById('donate')
-                  .scrollIntoView({
-                    behavior: 'smooth'
-                  })
-              }
             >
               Donate Now
-            </button>
+            </Link>
 
           </div>
 
@@ -131,13 +146,15 @@ function Home() {
           <div className="about-left">
 
             <img
-              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop"
-              alt="Children helping"
+              src={waysToHelpTeamImg}
+              alt="TogetherForHelp volunteer team at a community drive"
+              loading="lazy"
             />
 
             <img
-              src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop"
-              alt="Food drive"
+              src={initiativeEducation}
+              alt="Education support for underprivileged children"
+              loading="lazy"
             />
 
           </div>
@@ -169,7 +186,7 @@ function Home() {
 
             <button
               className="btn primary"
-              onClick={toggleDrives}
+              onClick={goToInitiatives}
             >
               Read More
             </button>
@@ -196,17 +213,18 @@ function Home() {
           <div className="drive-card">
 
             <img
-              src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop"
-              alt="Winter Drive"
+              src={celebrateBdayImg}
+              alt="Celebrating a birthday with community elders"
+              loading="lazy"
             />
 
             <h3>
-              Winter Blanket Distribution
+              Celebrate Your B'day With Them
             </h3>
 
             <p>
-              Helping people survive harsh winters
-              by distributing blankets.
+              Sharing joy and creating memories that
+              truly matter with our community elders.
             </p>
 
           </div>
@@ -215,17 +233,18 @@ function Home() {
           <div className="drive-card">
 
             <img
-              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop"
-              alt="Food Drive"
+              src={giveUnusedItemsImg}
+              alt="Child receiving a donated toy"
+              loading="lazy"
             />
 
             <h3>
-              Food Distribution Drive
+              Give Unused Items
             </h3>
 
             <p>
-              Providing warm meals and food support
-              to families facing hardship.
+              Old books, clothes, toys, and stationery
+              create new opportunities for someone else.
             </p>
 
           </div>
@@ -236,49 +255,178 @@ function Home() {
 
       {/* IMPACT */}
       <section
-        className="fade-in"
+        className="impact-stats-section"
         id="impact"
       >
 
+        <motion.span
+
+          className="impact-stats-tag"
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+
+        >
+          By The Numbers
+        </motion.span>
+
+        <motion.h2
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+
+        >
+          Our Impact
+        </motion.h2>
+
         <div className="stats">
 
-<div className="stat-box">
-  <h3>250+</h3>
-  <p>Lives Supported</p>
-</div>
+          {[
+            { end: 250, label: "Lives Supported" },
+            { end: 20, label: "Community Drives" },
+            { end: 500, label: "Meals Distributed" },
+            { end: 20, label: "Active Volunteers" }
+          ].map((stat, index) => (
 
-<div className="stat-box">
-  <h3>20+</h3>
-  <p>Community Drives</p>
-</div>
+            <motion.div
 
-<div className="stat-box">
-  <h3>500+</h3>
-  <p>Meals Distributed</p>
-</div>
+              className="stat-box"
+              key={index}
 
-<div className="stat-box">
-  <h3>20+</h3>
-  <p>Active Volunteers</p>
-</div>
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.12 }}
+              viewport={{ once: true }}
 
-  
- 
+            >
 
+              <h3>{stat.end}+</h3>
 
-   
+              <p>{stat.label}</p>
 
+            </motion.div>
 
-  
-  
-
-          
-
-          
+          ))}
 
         </div>
 
       </section>
+
+      {/* OUR INITIATIVES */}
+      {showInitiatives && (
+      <section className="initiatives-section" id="initiatives">
+
+        <motion.span
+
+          className="initiatives-tag"
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+
+        >
+          Ongoing Campaigns
+        </motion.span>
+
+        <motion.h2
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+
+        >
+          Our Initiatives
+        </motion.h2>
+
+        <motion.p
+
+          className="initiatives-subtext"
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+
+        >
+          Real campaigns, driven by real people —
+          here's what we're working on right now.
+        </motion.p>
+
+        <div className="initiatives-grid">
+
+          {[
+            {
+              img: initiativeBlindStick,
+              label: "Distribution of sticks for the blind",
+              alt: "Be the reason someone can walk with dignity - distribution of sticks for the blind"
+            },
+            {
+              img: initiativeDogFeeder,
+              label: "Community dog feeder & water pot drive",
+              alt: "Community dog feeder and water pot installation drive"
+            },
+            {
+              img: initiativeProjectUdhan,
+              label: "Project Udhan — pad distribution",
+              alt: "Project Udhan - a step towards dignity, sanitary pad distribution drive"
+            },
+            {
+              img: initiativeKitOfHope,
+              label: "Kit of Hope — school supplies",
+              alt: "Kit of Hope - school supplies kit for children"
+            },
+            {
+              img: initiativeChabeelSewa,
+              label: "Chabeel Sewa — free drinks drive",
+              alt: "Chabeel Sewa - free drinks distribution drive for the thirsty"
+            },
+            {
+              img: initiativeEducation,
+              label: "Education support for children",
+              alt: "Education changes everything - teaching underprivileged children"
+            }
+          ].map((item, index) => (
+
+            <motion.div
+
+              className="initiative-card"
+              key={index}
+
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+
+            >
+
+              <div className="initiative-card-media">
+
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  loading="lazy"
+                />
+
+              </div>
+
+              <div className="initiative-card-label">
+                {item.label}
+              </div>
+
+            </motion.div>
+
+          ))}
+
+        </div>
+
+      </section>
+      )}
 
       {/* GALLERY */}
       <section className="fade-in">
@@ -289,75 +437,121 @@ function Home() {
 
         <div className="gallery">
 
-          <div
-            className="gallery-item"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1542810634-71277d95dcbb')"
-            }}
-          >
-            <div className="overlay">
-              Food Distribution | Delhi Slums
-            </div>
+          <div className="gallery-item">
+            <img
+              src={celebrateBdayImg}
+              alt="Celebrating birthdays with community elders"
+              loading="lazy"
+            />
           </div>
 
-          <div
-            className="gallery-item"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c')"
-            }}
-          >
-            <div className="overlay">
-              Education Support | Children
-            </div>
+          <div className="gallery-item">
+            <img
+              src={spreadKindnessImg}
+              alt="Spreading kindness at a community event"
+              loading="lazy"
+            />
           </div>
 
-          <div
-            className="gallery-item"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1497486751825-1233686d5d80')"
-            }}
-          >
-            <div className="overlay">
-              Clothes Donation | Smiling Kids
-            </div>
+          <div className="gallery-item">
+            <img
+              src={giveUnusedItemsImg}
+              alt="Clothes and toy donation to a smiling child"
+              loading="lazy"
+            />
           </div>
 
         </div>
 
       </section>
 
-      {/* VIDEO */}
+      {/* JOURNEY MAP */}
       <section
-        className="fade-in"
+        className="journey-map-section"
         id="journey-video"
       >
 
-        <h2>
+        <motion.h2
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+
+        >
           Our Journey in Action
-        </h2>
+        </motion.h2>
 
-        <p className="journey-subtext">
-          Real moments from our community work.
-        </p>
+        <motion.p
 
-        <div className="video-wrapper">
+          className="journey-subtext"
 
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
 
-            <source
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              type="video/mp4"
-            />
+        >
+          How a small act of kindness turns into real, lasting impact.
+        </motion.p>
 
-          </video>
+        <div className="journey-map">
+
+          {[
+            {
+              icon: <FaSeedling />,
+              title: "Someone Needs Help",
+              text: "It usually starts with one message — a cold night on the street, a family that hasn't eaten, a kid who dropped out because there was no money for books."
+            },
+            {
+              icon: <FaHandshake />,
+              title: "We Talk to Them",
+              text: "Before we do anything, we go meet the person. No assumptions — we ask what they actually need, because that's rarely what we'd guess from the outside."
+            },
+            {
+              icon: <FaClipboardList />,
+              title: "The Team Gets Moving",
+              text: "A few calls, a WhatsApp group, some volunteers who say yes. Within days we've figured out who's bringing what and when we're showing up."
+            },
+            {
+              icon: <FaBolt />,
+              title: "We Show Up",
+              text: "This is the part that matters — blankets in hand, meals served hot, a class actually taught. No middlemen, we hand it over ourselves."
+            },
+            {
+              icon: <FaHeart />,
+              title: "It Doesn't End There",
+              text: "More often than not, the people we've helped come back — not for help, but to help the next family in line. That's the part we're proudest of."
+            }
+          ].map((step, index) => (
+
+            <motion.div
+
+              className="journey-step"
+              key={index}
+
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.12 }}
+              viewport={{ once: true }}
+
+            >
+
+              <span className="journey-step-mood">
+                {step.icon}
+              </span>
+
+              <div className="journey-step-card">
+
+                <h3>{step.title}</h3>
+
+                <p>{step.text}</p>
+
+              </div>
+
+            </motion.div>
+
+          ))}
 
         </div>
 
@@ -388,8 +582,9 @@ function Home() {
             </p>
 
             <img
-              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1200&auto=format&fit=crop"
-              alt="Volunteer"
+              src={waysToHelpTeamImg}
+              alt="TogetherForHelp volunteer team standing together"
+              loading="lazy"
             />
 
           </div>
@@ -618,6 +813,52 @@ function Home() {
            
           
 <HomeFaq />
+
+      {/* SHARE OUR WORK */}
+      <section className="share-work fade-in" id="share-work">
+
+        <div className="share-work-layout">
+
+          <img
+            src={shareOurWorkImg}
+            alt="Follow @_togetherforhelp_ on Instagram"
+            className="share-work-img"
+            loading="lazy"
+          />
+
+          <div className="share-work-content">
+
+            <span className="share-work-tag">
+              Follow Our Journey
+            </span>
+
+            <h2>
+              Share Our Work
+            </h2>
+
+            <p>
+              Like, comment, save, and share our posts
+              with your network. Most importantly,
+              don't forget to follow
+              <strong> @_togetherforhelp_ </strong>
+              on Instagram.
+            </p>
+
+            <a
+              href="https://instagram.com/_togetherforhelp_"
+              target="_blank"
+              rel="noreferrer"
+              className="btn primary"
+            >
+              Follow on Instagram
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* FOOTER */}
       <Footer />
 

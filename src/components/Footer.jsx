@@ -189,7 +189,7 @@ function Footer() {
             <h3>Useful Links</h3>
             <Link to="/faq">FAQs</Link>
             <Link to="/sitemap">Sitemap</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Use</Link>
             <Link to="/copyright">Copyright Policy</Link>
           </div>

@@ -2,6 +2,7 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
 
 function Volunteer() {
 
@@ -49,8 +50,9 @@ function Volunteer() {
             </p>
 
             <img
-              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1200&auto=format&fit=crop"
-              alt="Volunteer"
+              src={waysToHelpTeamImg}
+              alt="TogetherForHelp volunteer team standing together"
+              loading="lazy"
             />
 
           </div>

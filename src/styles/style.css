@@ -264,6 +264,8 @@ section h2:hover {
   margin: 10px;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
 
   /* Smooth animation ke liye */
   transition: all 0.4s ease;
@@ -334,6 +336,8 @@ section {
 
 .about-left img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   border-radius: 20px;
   object-fit: cover;
   display: block;
@@ -343,14 +347,6 @@ section {
 
 .about-left img:hover {
   transform: scale(1.02);
-}
-
-.about-left img:first-child {
-  height: 420px;
-}
-
-.about-left img:last-child {
-  height: 240px;
 }
 
 .about-right {
@@ -417,7 +413,8 @@ section {
 
 .drive-card img {
   width: 100%;
-  height: 220px;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
@@ -460,12 +457,6 @@ section {
   .about-right {
     width: 100% !important;
   }
-  .about-left img:first-child {
-    height: 220px;
-  }
-  .about-left img:last-child {
-    height: 150px;
-  }
   .about-right {
     text-align: center;
   }
@@ -482,143 +473,99 @@ section {
 }
 
 /* IMPACT / STATS SECTION */
-#impact {
-  padding: 80px 20px;
-  background: var(--bg);
+.impact-stats-section {
+  padding: 60px 20px;
+  background: var(--card);
+  text-align: center;
+}
+
+.impact-stats-tag {
+  display: inline-block;
+  color: #ff6b00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.impact-stats-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 40px;
 }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .stat-box {
-  position: relative;
-  padding: 45px 20px;
-  border-radius: 22px;
   text-align: center;
-  overflow: hidden;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* dark overlay */
-.stat-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-/* content above overlay */
-.stat-box h3,
-.stat-box p {
-  position: relative;
-  z-index: 2;
-}
-
-/* individual NGO images */
-.stat-box:nth-child(1) {
-  background-image: url("https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop");
-}
-
-.stat-box:nth-child(2) {
-  background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop");
-}
-
-.stat-box:nth-child(3) {
-  background-image: url("https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop");
-}
-
-.stat-box:nth-child(4) {
-  background-image: url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1200&auto=format&fit=crop");
-}
-
-/* hover */
-.stat-box:hover {
-  transform: translateY(-8px) scale(1.02);
 }
 
 /* numbers */
 .stat-box h3 {
-  font-size: 42px;
-  font-weight: 800;
-  color: #ffd400;
-  margin-bottom: 12px;
+  font-size: clamp(34px, 9vw, 52px);
+  font-weight: 900;
+  color: #ff6b00;
+  margin-bottom: 8px;
   font-family: "Trebuchet MS", sans-serif;
+  line-height: 1;
 }
 
 /* text */
 .stat-box p {
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: var(--secondary);
   line-height: 1.5;
   margin: 0;
-  font-family: Arial, sans-serif;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* responsive */
-/* @media(max-width:900px){
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
+@media (min-width: 700px) {
 
-@media(max-width:500px){
-  .stats{
-    grid-template-columns:1fr;
+  .impact-stats-section {
+    padding: 100px 8%;
   }
-} */
 
-@media (max-width: 900px) {
+  .impact-stats-tag {
+    font-size: 15px;
+  }
+
+  .impact-stats-section h2 {
+    font-size: 42px;
+    margin-bottom: 55px;
+  }
+
   .stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
-  .stat-box {
-    min-height: 180px;
-    padding: 30px 15px;
-  }
-  .stat-box h3 {
-    font-size: 32px;
-  }
+
   .stat-box p {
     font-size: 15px;
   }
-}
-@media (max-width: 500px) {
-  .stats {
-    grid-template-columns: repeat(2, 1fr); /* 1 ki jagah 2 rakho */
-  }
+
 }
 
 /* GALLERY */
 
 .gallery {
   display: flex;
-  height: 400px;
+  height: 520px;
   gap: 12px;
   padding: 20px 0;
 }
 
 .gallery-item {
   flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   transition: 0.25s ease; /* faster hover */
   border-radius: 20px;
@@ -626,22 +573,16 @@ section {
   cursor: pointer;
 }
 
-/* dark overlay for readability */
-.gallery-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.25),
-    rgba(0, 0, 0, 0.05)
-  );
-  z-index: 1;
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .gallery-item:hover {
-  flex: 2.2; /* realistic expansion, not too much */
+  flex: 1.5; /* expand on hover, image scales via cover */
 }
 
 .overlay {
@@ -840,31 +781,12 @@ section {
 } */
 
 /* OUR JOURNEY VIDEO SECTION START yeh mene timeline ki jagah rakha hai agar timeline add krna hua toh comment kro isko then out kro html css me sab  */
-#journey-video {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  padding: 80px 0 0 0;
-  background: var(--bg);
-  text-align: center;
-}
-#journey-video h2 {
-  width: 100%;
-  padding: 0 8%;
-  font-size: 46px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 18px;
-}
-
-.journey-subtext {
-  width: 100%;
-  max-width: none;
-  padding: 0 8%;
-  margin: 0 0 40px 0;
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--secondary);
-}
+/* NOTE: #journey-video is legacy from the old video-based section. The live
+   markup now uses .journey-map-section (see "JOURNEY MAP" rules further
+   below) but still carries id="journey-video" for the scroll anchor, so the
+   ID rules below were previously beating the class rules on specificity and
+   stripping the section's side padding on mobile + inflating the heading.
+   Only .video-wrapper (unused now) keeps the old full-bleed treatment. */
 
 .video-wrapper {
   width: 100vw;
@@ -884,14 +806,6 @@ section {
 @media (max-width: 768px) {
   .video-wrapper video {
     height: 50vh;
-  }
-
-  #journey-video h2 {
-    font-size: 34px;
-  }
-
-  .journey-subtext {
-    font-size: 16px;
   }
 }
 /* OUR JOURNEY VIDEO SECTION END */
@@ -1001,7 +915,8 @@ section h2::after {
 
 .volunteer-left img {
   width: 100%;
-  height: 420px;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 16px;
   display: block;
@@ -1048,10 +963,6 @@ section h2::after {
   .volunteer-left h2 {
     font-size: 34px;
   }
-
-  .volunteer-left img {
-    height: 280px;
-  }
 }
 /* VOLUNTEER NEW SECTION END */
 
@@ -1085,64 +996,102 @@ section h2::after {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 46px 32px;
   max-width: 1300px;
   margin: auto;
 }
 
 .team-member {
   background: transparent;
-  transition: 0.35s ease;
+  transition: transform 0.35s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
+/* alternating tilt, polaroid-scatter style */
+.team-member:nth-child(4n+1) { transform: rotate(-3deg); }
+.team-member:nth-child(4n+2) { transform: rotate(2.5deg); }
+.team-member:nth-child(4n+3) { transform: rotate(-2deg); }
+.team-member:nth-child(4n+4) { transform: rotate(3.5deg); }
+
 .team-img {
+  position: relative;
   width: 100%;
-  height: 320px;
-  border-radius: 24px;
+  max-width: 230px;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
   overflow: hidden;
   background: var(--card);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 8px solid var(--card);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .team-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
   transition:
     transform 0.4s ease,
-    opacity 0.4s ease;
+    filter 0.4s ease;
+}
+
+.team-index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #111;
+  background: #ffd400;
+  padding: 3px 8px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .team-member h3 {
-  font-size: 30px;
+  font-size: 20px;
   color: var(--text);
   margin-top: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   font-family: Georgia, serif;
   font-weight: 600;
 }
 
 .team-member p {
-  font-size: 18px;
-  color: var(--secondary);
+  font-size: 14px;
+  color: #ff6b00;
+  font-weight: 600;
   margin-bottom: 16px;
 }
 
 .team-member:hover {
-  transform: translateY(-12px);
+  transform: rotate(0deg) translateY(-10px);
+  z-index: 3;
+}
+
+.team-member:hover .team-img {
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
 }
 
 .team-member:hover .team-img img {
   transform: scale(1.08);
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.12));
+  filter: grayscale(0%) contrast(1);
 }
 
 /* TABLET */
 @media (max-width: 1000px) {
   .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1161,20 +1110,23 @@ section h2::after {
   }
 
   .team-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
   }
 
-  .team-img {
-    height: 280px;
-  }
+  .team-member:nth-child(4n+1) { transform: rotate(-2deg); }
+  .team-member:nth-child(4n+2) { transform: rotate(1.5deg); }
+  .team-member:nth-child(4n+3) { transform: rotate(-1.5deg); }
+  .team-member:nth-child(4n+4) { transform: rotate(2deg); }
 
   .team-member h3 {
-    font-size: 24px;
+    font-size: 16px;
+    margin-top: 14px;
+    margin-bottom: 4px;
   }
 
   .team-member p {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .team-linkedin {
@@ -1331,6 +1283,37 @@ section h2::after {
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* DONATE PAGE CARD (mobile) — .donate-card has no dedicated padding, so its
+   text/QR sat flush against the rounded corners; also ".card img" (width
+   100% / height 220px / object-fit cover) was cropping the square QR code
+   since it applies to any <img> inside .card, QR included. */
+@media (max-width: 768px) {
+  .donate-card {
+    padding: 26px 20px;
+    text-align: center;
+  }
+
+  .donate-card .qr-box img {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 18px auto;
+    display: block;
+  }
+
+  .donate-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .donate-card .paytm-info,
+  .donate-card .donate-note {
+    font-size: 14px;
+    margin-top: 10px;
   }
 }
 
@@ -1615,7 +1598,7 @@ section h2::after {
 
   .gallery-item {
     flex: 0 0 85%;
-    height: 320px;
+    height: 440px;
     scroll-snap-align: center;
     border-radius: 20px;
   }
@@ -1996,6 +1979,8 @@ section h2::after {
 
 .about-story-left img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   border-radius: 22px;
   object-fit: cover;
   display: block;
@@ -2005,14 +1990,6 @@ section h2::after {
 
 .about-story-left img:hover {
   transform: scale(1.02);
-}
-
-.about-story-left img:first-child {
-  height: 420px;
-}
-
-.about-story-left img:last-child {
-  height: 260px;
 }
 
 /* RIGHT CONTENT */
@@ -2284,7 +2261,10 @@ section h2::after {
   .minimal-contact {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 120px 20px 60px;
+    /* !important: a later global "section{padding:45px 18px !important}"
+       rule was defeating this top clearance and pushing the heading up
+       under the fixed navbar on mobile */
+    padding: 120px 20px 60px !important;
   }
   .contact-left h1 {
     font-size: 32px !important;
@@ -2559,8 +2539,15 @@ section h2::after {
 /* MOBILE */
 
 @media (max-width: 768px) {
+  /* !important: the base 170px 8% 70px padding was being collapsed to
+     45px 18px by a later global "section{padding...!important}" rule,
+     pushing "Sitemap" up under the fixed navbar on mobile */
+  .sitemap-hero {
+    padding: 120px 20px 50px !important;
+  }
+
   .sitemap-hero h1 {
-    font-size: 52px;
+    font-size: 42px;
   }
 
   .sitemap-link {
@@ -2815,8 +2802,12 @@ nav a.active {
 }
 
 @media (max-width: 768px) {
+  /* !important: a later global "section{padding:45px 18px !important}"
+     rule was defeating this top clearance and pushing the hero heading
+     up under the fixed navbar on mobile (About/Team/Volunteer/Gallery/
+     Donate all use .about-hero as their first section) */
   .about-hero {
-    padding: 120px 20px 50px;
+    padding: 120px 20px 50px !important;
   }
 
   .about-hero h1 {
@@ -2840,18 +2831,11 @@ nav a.active {
 }
 
 @media (max-width: 768px) {
+  /* !important: without it, a later global
+     "section{padding:45px 18px !important}" rule wins and collapses the
+     top clearance, hiding the heading behind the fixed navbar */
   .faq-hero {
-    padding: 120px 20px 50px;
-  }
-
-  .faq-hero h1 {
-    font-size: 38px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .faq-hero {
-    padding: 120px 20px 50px;
+    padding: 120px 20px 50px !important;
   }
 
   .faq-hero h1 {
@@ -2874,8 +2858,23 @@ nav a.active {
     white-space: nowrap;
   }
 
-  .theme-toggle {
-    transform: scale(0.85);
+  /* was ".theme-toggle" (typo — component renders .theme-switch, so this
+     never applied and the toggle stayed full-size, crowding the navbar) */
+  .theme-switch {
+    width: 54px;
+    height: 24px;
+    padding: 3px;
+    margin-left: 10px;
+  }
+
+  .switch-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .theme-switch.active .switch-circle {
+    transform: translateX(27px);
   }
 }
 
@@ -2946,28 +2945,50 @@ nav a.active {
 
     margin-top: 20px;
   }
-@media (max-width: 768px) {
-  .hero-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 15px;
-  }}
+
   .hero-buttons .btn,
   .hero-buttons button {
-    padding: 9px 12px !important;
-    font-size: 11px !important;
+    padding: 12px 18px !important;
+    font-size: 13px !important;
     margin: 0 !important;
     white-space: nowrap;
     border-radius: 30px;
   }
 }
 
- 
+/* small phones: keep buttons readable with a real touch target */
+@media (max-width: 420px) {
+  .hero-buttons {
+    gap: 8px;
+  }
+
+  .hero-buttons .btn,
+  .hero-buttons button {
+    padding: 11px 14px !important;
+    font-size: 12px !important;
+  }
+}
+
+
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
+  }
+}
+
+/* small phones: logo + theme switch + hamburger were crowding/overflowing
+   the 360-375px navbar row */
+@media (max-width: 420px) {
+  nav {
+    padding: 10px 14px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .hamburger {
+    font-size: 26px;
   }
 }
 
@@ -3234,4 +3255,890 @@ nav a.active {
   background: #2a1800;
 
   color: white;
+}
+
+/* =========================
+   SHARE OUR WORK SECTION
+   (mobile-first)
+========================= */
+
+.share-work {
+  padding: 50px 18px;
+  background: var(--bg);
+}
+
+.share-work-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.share-work-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.share-work-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-work-tag {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.share-work-content h2 {
+  font-size: 28px;
+  color: var(--text);
+}
+
+.share-work-content p {
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.share-work-content strong {
+  color: var(--text);
+}
+
+/* Tablet and up: side by side */
+@media (min-width: 768px) {
+
+  .share-work-layout {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 50px;
+  }
+
+  .share-work-img {
+    max-width: 480px;
+    flex-shrink: 0;
+  }
+
+  .share-work-content {
+    align-items: flex-start;
+  }
+
+  .share-work-content p {
+    max-width: 520px;
+  }
+
+}
+
+@media (min-width: 1100px) {
+
+  .share-work {
+    padding: 90px 8%;
+  }
+
+  .share-work-img {
+    max-width: 560px;
+  }
+
+  .share-work-content h2 {
+    font-size: 38px;
+  }
+
+}
+
+/* =========================
+   TEAM BANNER PHOTO
+   (mobile-first)
+========================= */
+
+/* =========================
+   OUR INITIATIVES SECTION
+   (mobile-first)
+========================= */
+
+.initiatives-section {
+  padding: 60px 18px;
+  background: var(--bg);
+  text-align: center;
+  position: relative;
+}
+
+.initiatives-tag {
+  display: inline-block;
+  color: #ff6b00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.initiatives-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.initiatives-subtext {
+  color: var(--secondary);
+  font-size: 15px;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.initiative-card {
+  background: var(--card);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.initiative-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
+.initiative-card-media {
+  overflow: hidden;
+  position: relative;
+}
+
+.initiative-card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.55s ease;
+}
+
+.initiative-card:hover .initiative-card-media img {
+  transform: scale(1.07);
+}
+
+.initiative-card-label {
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.initiative-card-label::before {
+  content: "";
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd400, #00aeef);
+}
+
+/* tablet: 2 columns */
+@media (min-width: 640px) {
+
+  .initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* laptop/desktop: 3 columns */
+@media (min-width: 1000px) {
+
+  .initiatives-section {
+    padding: 90px 8%;
+  }
+
+  .initiatives-tag {
+    font-size: 15px;
+  }
+
+  .initiatives-section h2 {
+    font-size: 42px;
+  }
+
+  .initiatives-subtext {
+    font-size: 17px;
+  }
+
+  .initiatives-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .initiative-card-label {
+    font-size: 16px;
+    padding: 20px 22px;
+  }
+
+}
+
+/* =========================
+   RECOGNITION SECTION
+   (mobile-first)
+========================= */
+
+.recognition-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.recognition-img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.recognition-content {
+  text-align: center;
+}
+
+.recognition-content p {
+  color: var(--secondary);
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+
+  .recognition-layout {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 50px;
+  }
+
+  .recognition-img {
+    max-width: 320px;
+    flex-shrink: 0;
+  }
+
+  .recognition-content {
+    text-align: left;
+  }
+
+}
+
+/* =========================
+   LEGAL PAGES
+   (Privacy / Terms / Copyright)
+   mobile-first
+========================= */
+
+.legal-page {
+  background: var(--bg);
+}
+
+.legal-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 130px 20px 80px;
+  color: var(--text);
+}
+
+/* !important: a later global "section{padding:45px 18px !important}" rule
+   was defeating this top clearance and pushing the Privacy/Terms/Copyright
+   heading up under the fixed navbar on mobile */
+@media (max-width: 768px) {
+  .legal-section {
+    padding: 130px 20px 80px !important;
+  }
+}
+
+.legal-section h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.legal-updated {
+  color: var(--secondary);
+  font-size: 14px;
+  margin-bottom: 36px;
+  display: block;
+}
+
+.legal-section h2 {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 34px;
+  margin-bottom: 12px;
+}
+
+/* legal pages use a left-aligned small underline, not the centered gradient bar */
+.legal-section h2::after {
+  content: "";
+  width: 46px;
+  height: 3px;
+  background: linear-gradient(to right, #ffd400, #00aeef);
+  display: block;
+  margin: 8px 0 0;
+}
+
+.legal-section p {
+  color: var(--secondary);
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.legal-section ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  color: var(--secondary);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.legal-section li {
+  margin-bottom: 8px;
+}
+
+.legal-section strong {
+  color: var(--text);
+}
+
+.legal-section a {
+  color: #00aeef;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+
+  .legal-section {
+    padding: 170px 20px 100px;
+  }
+
+  .legal-section h1 {
+    font-size: 44px;
+  }
+
+  .legal-section h2 {
+    font-size: 25px;
+  }
+
+}
+
+/* =========================
+   GALLERY PAGE — MASONRY
+   (mobile-first)
+========================= */
+
+.gallery-masonry-section {
+  padding: 40px 18px 80px;
+  background: var(--bg);
+}
+
+.gallery-masonry {
+  columns: 1;
+  column-gap: 18px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.gallery-masonry-item {
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: 18px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.gallery-masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+.gallery-masonry-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-masonry-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 16px 14px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transform: translateY(8px);
+  opacity: 0.92;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.gallery-masonry-item:hover .gallery-masonry-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+
+  .gallery-masonry {
+    columns: 2;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .gallery-masonry-section {
+    padding: 50px 8% 100px;
+  }
+
+  .gallery-masonry {
+    columns: 3;
+    column-gap: 26px;
+  }
+
+  .gallery-masonry-item {
+    margin-bottom: 26px;
+    border-radius: 24px;
+  }
+
+  .gallery-masonry-caption {
+    font-size: 16px;
+    padding: 40px 20px 18px;
+  }
+
+}
+
+/* =========================
+   ABOUT — OUR STORY
+   (mobile-first)
+========================= */
+
+.story-text-block {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.story-text-block h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 14px 0 22px;
+  line-height: 1.35;
+}
+
+.story-text-block p {
+  color: var(--secondary);
+  line-height: 1.9;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.about-quote {
+  border-left: 4px solid #ffd400;
+  padding: 16px 20px;
+  margin: 28px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  font-style: italic;
+  background: var(--card);
+  border-radius: 12px;
+}
+
+.about-quote span {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary);
+  font-style: normal;
+}
+
+@media (min-width: 768px) {
+
+  .story-text-block h2 {
+    font-size: 42px;
+  }
+
+  .story-text-block p {
+    font-size: 18px;
+  }
+
+  .about-quote {
+    font-size: 24px;
+    padding: 24px 32px;
+  }
+
+}
+
+/* =========================
+   ABOUT — WHAT WE DO
+   (mobile-first)
+========================= */
+
+.activities-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 36px;
+}
+
+.activities-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  margin-top: 10px;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.activity-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 26px 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+}
+
+.activity-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #ffd400, #00aeef);
+  margin-bottom: 14px;
+}
+
+.activity-card h3 {
+  font-size: 19px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.activity-card p {
+  font-size: 15px;
+  color: var(--secondary);
+  line-height: 1.7;
+}
+
+@media (min-width: 640px) {
+
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .activities-header h2 {
+    font-size: 38px;
+  }
+
+  .activities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+}
+
+/* =========================
+   JOURNEY MAP
+   (mobile-first)
+========================= */
+
+.journey-map-section {
+  padding: 60px 18px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.journey-map-section h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.journey-subtext {
+  color: var(--secondary);
+  font-size: 15px;
+  max-width: 520px;
+  margin: 0 auto 44px;
+  line-height: 1.6;
+}
+
+.journey-map {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: left;
+}
+
+/* wavy vertical connector — mobile */
+.journey-map::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  bottom: 12px;
+  width: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='40' viewBox='0 0 20 40'%3E%3Cpath d='M10 0 C2 8 18 12 10 20 C2 28 18 32 10 40' stroke='%2300aeef' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-size: 20px 40px;
+  z-index: 0;
+}
+
+.journey-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.journey-step-mood {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid #ffd400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #d97706;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.journey-step-card {
+  flex: 1;
+  border-radius: 18px;
+  padding: 20px 22px;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.journey-step-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.journey-step-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+/* progression gradient — cool to warm */
+.journey-step:nth-child(1) .journey-step-card {
+  background: linear-gradient(135deg, #12294a, #1a3a63);
+}
+.journey-step:nth-child(2) .journey-step-card {
+  background: linear-gradient(135deg, #123c5e, #175178);
+}
+.journey-step:nth-child(3) .journey-step-card {
+  background: linear-gradient(135deg, #0d6a86, #0e83a3);
+}
+.journey-step:nth-child(4) .journey-step-card {
+  background: linear-gradient(135deg, #c97d00, #e8991a);
+}
+.journey-step:nth-child(5) .journey-step-card {
+  background: linear-gradient(135deg, #e8991a, #ffc233);
+}
+
+/* desktop: horizontal zigzag flow */
+@media (min-width: 1000px) {
+
+  .journey-map-section {
+    padding: 100px 8%;
+  }
+
+  .journey-map-section h2 {
+    font-size: 42px;
+  }
+
+  .journey-subtext {
+    font-size: 17px;
+    margin-bottom: 70px;
+  }
+
+  .journey-map {
+    max-width: 1300px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .journey-map::before {
+    left: 0;
+    right: 0;
+    top: 12px;
+    bottom: auto;
+    width: auto;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 10 C8 2 12 18 20 10 C28 2 32 18 40 10' stroke='%2300aeef' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 40px 20px;
+  }
+
+  .journey-step {
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  /* zigzag vertical offset */
+  .journey-step:nth-child(even) {
+    margin-top: 54px;
+  }
+
+  .journey-step-card {
+    margin-top: 18px;
+    text-align: left;
+    width: 100%;
+  }
+
+}
+
+/* =========================
+   FLOATING DONATE BUTTON
+   (mobile-first)
+========================= */
+
+.floating-donate-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1500;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 14px 18px;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #ffd400, #ff9800);
+  color: #111;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.25),
+    0 0 0 0 rgba(255, 152, 0, 0.6);
+
+  animation: donate-pulse 2.2s infinite;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-donate-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.floating-donate-icon {
+  font-size: 16px;
+  color: #d32f2f;
+}
+
+@keyframes donate-pulse {
+  0% {
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.25),
+      0 0 0 0 rgba(255, 152, 0, 0.55);
+  }
+  70% {
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.25),
+      0 0 0 14px rgba(255, 152, 0, 0);
+  }
+  100% {
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.25),
+      0 0 0 0 rgba(255, 152, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .floating-donate-btn {
+    right: 28px;
+    bottom: 28px;
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+
 }

@@ -1,6 +1,5 @@
 
 
-import sun from "../assets/doodles/sun.png";
 import { useState, useEffect } from "react";
 
 import {
@@ -62,12 +61,6 @@ function HomeTest() {
       {/* LEFT */}
 
       <div className="hero-left">
-
-         <img
-    src={sun}
-    alt="Sun Doodle"
-    className="hero-sun"
-  />
 
         <span className="hero-tag">
           TogetherForHelp
