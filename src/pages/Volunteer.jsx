@@ -3,6 +3,7 @@ import '../styles/style.css'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
+import VolunteerPerks from "../components/VolunteerPerks";
 
 function Volunteer() {
 
@@ -60,17 +61,52 @@ function Volunteer() {
           {/* RIGHT FORM */}
           <div className="volunteer-form-box">
 
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfDUMMYFORM/viewform?embedded=true"
-              width="100%"
-              height="850"
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-              title="Volunteer Form"
-            ></iframe>
+            <div className="volunteer-form-fallback">
+
+              <h3>
+                Ready To Join Us?
+              </h3>
+
+              <p>
+                Our online volunteer form is being set up.
+                In the meantime, reach out directly and
+                we'll get you started right away.
+              </p>
+
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noreferrer"
+                className="btn primary"
+              >
+                Message Us On WhatsApp
+              </a>
+
+              <a
+                href="mailto:hello@togetherforhelp.org"
+                className="volunteer-form-email"
+              >
+                hello@togetherforhelp.org
+              </a>
+
+            </div>
 
           </div>
+
+        </div>
+
+        {/* WHY VOLUNTEER — PERKS */}
+        <div className="perks-wrap">
+
+          <span className="perks-tag">
+            Why Volunteer With Us
+          </span>
+
+          <h3 className="perks-heading">
+            More Than Just Giving Back
+          </h3>
+
+          <VolunteerPerks />
 
         </div>
 

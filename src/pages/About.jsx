@@ -4,6 +4,13 @@ import Footer from "../components/Footer";
 import awardRecognitionImg from "../assets/award-recognition.jpeg";
 
 import { motion } from "framer-motion";
+import {
+  FaSeedling,
+  FaHandshake,
+  FaClipboardList,
+  FaBolt,
+  FaHeart
+} from "react-icons/fa6";
 
 function About() {
 
@@ -155,6 +162,98 @@ function About() {
             </p>
 
           </motion.div>
+
+        </section>
+
+        {/* JOURNEY MAP */}
+        <section
+          className="journey-map-section"
+          id="journey-video"
+        >
+
+          <motion.h2
+
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+
+          >
+            Our Journey in Action
+          </motion.h2>
+
+          <motion.p
+
+            className="journey-subtext"
+
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+
+          >
+            How a small act of kindness turns into real, lasting impact.
+          </motion.p>
+
+          <div className="journey-map">
+
+            {[
+              {
+                icon: <FaSeedling />,
+                title: "Someone Needs Help",
+                text: "It usually starts with one message — a cold night on the street, a family that hasn't eaten, a kid who dropped out because there was no money for books."
+              },
+              {
+                icon: <FaHandshake />,
+                title: "We Talk to Them",
+                text: "Before we do anything, we go meet the person. No assumptions — we ask what they actually need, because that's rarely what we'd guess from the outside."
+              },
+              {
+                icon: <FaClipboardList />,
+                title: "The Team Gets Moving",
+                text: "A few calls, a WhatsApp group, some volunteers who say yes. Within days we've figured out who's bringing what and when we're showing up."
+              },
+              {
+                icon: <FaBolt />,
+                title: "We Show Up",
+                text: "This is the part that matters — blankets in hand, meals served hot, a class actually taught. No middlemen, we hand it over ourselves."
+              },
+              {
+                icon: <FaHeart />,
+                title: "It Doesn't End There",
+                text: "More often than not, the people we've helped come back — not for help, but to help the next family in line. That's the part we're proudest of."
+              }
+            ].map((step, index) => (
+
+              <motion.div
+
+                className="journey-step"
+                key={index}
+
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.12 }}
+                viewport={{ once: true }}
+
+              >
+
+                <span className="journey-step-mood">
+                  {step.icon}
+                </span>
+
+                <div className="journey-step-card">
+
+                  <h3>{step.title}</h3>
+
+                  <p>{step.text}</p>
+
+                </div>
+
+              </motion.div>
+
+            ))}
+
+          </div>
 
         </section>
 
