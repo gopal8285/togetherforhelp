@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import JournalGallery from "../components/JournalGallery";
 import VolunteerPerks from "../components/VolunteerPerks";
+import ParallaxQuotes from "../components/ParallaxQuotes";
 import HomeFaq
 from "../components/HomeFaq";
 
@@ -139,7 +140,8 @@ function Home() {
         >
 
           <h1>
-            Together We Can Change Lives
+            Let's Be A <span className="hero-accent">Saarthi</span> In
+            Someone's Life
           </h1>
 
           <p>
@@ -253,6 +255,9 @@ function Home() {
 
       </section>
 
+      {/* PARALLAX QUOTES */}
+      <ParallaxQuotes image={initiativeEducation} />
+
       {/* RECENT DRIVES */}
       <section
         id="recent-drives"
@@ -304,69 +309,6 @@ function Home() {
             </p>
 
           </div>
-
-        </div>
-
-      </section>
-
-      {/* IMPACT */}
-      <section
-        className="impact-stats-section"
-        id="impact"
-      >
-
-        <motion.span
-
-          className="impact-stats-tag"
-
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-
-        >
-          By The Numbers
-        </motion.span>
-
-        <motion.h2
-
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-
-        >
-          Our Impact
-        </motion.h2>
-
-        <div className="stats">
-
-          {[
-            { end: 250, label: "Lives Supported" },
-            { end: 20, label: "Community Drives" },
-            { end: 500, label: "Meals Distributed" },
-            { end: 20, label: "Active Volunteers" }
-          ].map((stat, index) => (
-
-            <motion.div
-
-              className="stat-box"
-              key={index}
-
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.12 }}
-              viewport={{ once: true }}
-
-            >
-
-              <h3>{stat.end}+</h3>
-
-              <p>{stat.label}</p>
-
-            </motion.div>
-
-          ))}
 
         </div>
 
@@ -537,7 +479,7 @@ function Home() {
       )}
 
       {/* OUR EVENTS — JOURNAL STYLE */}
-      <section className="journal-section fade-in">
+      <section className="journal-section fade-in" id="impact">
 
         <span className="journal-tag">
           From Our Diary
@@ -674,6 +616,9 @@ function Home() {
   className="support-section"
   id="donate"
 >
+
+  <div className="support-section-bg" />
+  <div className="support-section-overlay" />
 
   {/* TOP TEXT */}
   <motion.div
