@@ -19,6 +19,14 @@ import shareOurWorkImg from "../assets/share-our-work.jpeg";
 import aboutChildCandid from "../assets/about-child-candid.jpeg";
 import eventSchoolSupport from "../assets/event-school-support.jpeg";
 import eventSupermanKid from "../assets/event-superman-kid.jpeg";
+import initiativeTreePlantation from "../assets/initiative-tree-plantation.jpeg";
+import eventStreetKidsVisit from "../assets/event-street-kids-visit.jpeg";
+import initiativeAnimalFeeding from "../assets/initiative-animal-feeding.jpeg";
+import eventBlessingElder from "../assets/event-blessing-elder.jpeg";
+import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-drive.jpeg";
+import eventFamilyFoodDistribution from "../assets/event-family-food-distribution.jpeg";
+import eventMealDistributionBranded from "../assets/event-meal-distribution-branded.jpeg";
+import eventTeachingSupport from "../assets/event-teaching-support.jpeg";
 
 function MarqueeItem({ img, alt, label }) {
 
@@ -120,6 +128,46 @@ function Gallery() {
       img: awardRecognitionImg,
       label: "Honored by Hansraj College WDC",
       alt: "TogetherForHelp honored by Women's Development Cell, Hansraj College"
+    },
+    {
+      img: initiativeTreePlantation,
+      label: "Planting saplings for a greener tomorrow",
+      alt: "Volunteers and children planting a tree sapling together"
+    },
+    {
+      img: eventStreetKidsVisit,
+      label: "Spending an afternoon with the kids on the street",
+      alt: "Volunteer spending time with children living on the street"
+    },
+    {
+      img: initiativeAnimalFeeding,
+      label: "Feeding the strays and calves in our neighbourhood",
+      alt: "Volunteer feeding calves with fresh greens"
+    },
+    {
+      img: eventBlessingElder,
+      label: "A quiet moment of gratitude",
+      alt: "An elder folding her hands in gratitude during a drive"
+    },
+    {
+      img: initiativeWinterBlanketDrive,
+      label: "Winter blanket drive — warmth for the cold nights",
+      alt: "Winter blanket distribution drive for people sleeping on the streets"
+    },
+    {
+      img: eventFamilyFoodDistribution,
+      label: "Delivering food and essentials straight to families",
+      alt: "Volunteers distributing food and essentials to a family"
+    },
+    {
+      img: eventMealDistributionBranded,
+      label: "A warm meal, served with care",
+      alt: "A child receiving a hot meal packed by TogetherForHelp"
+    },
+    {
+      img: eventTeachingSupport,
+      label: "One-on-one learning support for our students",
+      alt: "Volunteer helping a child with her writing practice"
     }
 
   ];

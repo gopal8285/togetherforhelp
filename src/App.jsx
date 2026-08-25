@@ -18,6 +18,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Copyright from "./pages/Copyright";
 import Sitemap from "./pages/Sitemap";
+import Recycle from "./pages/Recycle";
 
 
 function App() {
@@ -90,6 +91,11 @@ function App() {
 <Route
   path="/sitemap"
   element={<Sitemap />}
+/>
+
+<Route
+  path="/recycle"
+  element={<Recycle />}
 />
         
     

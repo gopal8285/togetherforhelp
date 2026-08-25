@@ -40,6 +40,17 @@
   scroll-behavior: smooth;
 }
 
+/* html needs overflow-x:hidden too — on iOS Safari, overflow-x:hidden on
+   body alone does NOT reliably stop the page from being laid out wider
+   than the device (any un-clipped overflowing descendant, e.g. a
+   translateX'd carousel card, widens the layout viewport), which makes
+   the whole page render zoomed-out: content squeezed into a narrow
+   left-aligned column with blank space on the right. */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background: var(--bg);
 
@@ -49,6 +60,7 @@ body {
     background 0.4s ease,
     color 0.4s ease;
   overflow-x: hidden;
+  width: 100%;
 }
 /* body{
   margin:0;
@@ -175,7 +187,7 @@ nav a:hover::after {
 
 .hero {
   height: 100vh;
-  background: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c")
+  background: url("../assets/hero-bg.jpeg")
     center/cover;
   display: flex;
   align-items: center;
@@ -183,6 +195,62 @@ nav a:hover::after {
   text-align: center;
   color: white;
   position: relative;
+}
+
+/* HOPE TICKER — auto-scrolling marquee line right below the hero */
+.hope-ticker {
+  overflow: hidden;
+  background: linear-gradient(90deg, #ffd400, #ff9800, #ff6b00);
+  padding: 14px 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.hope-ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: hope-ticker-scroll 70s linear infinite;
+}
+
+.hope-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #1a1400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hope-ticker-dot {
+  color: #1a1400;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+@keyframes hope-ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .hope-ticker {
+    padding: 18px 0;
+  }
+
+  .hope-ticker-item {
+    font-size: 18px;
+    padding: 0 30px;
+  }
+
 }
 
 .hero::after {
@@ -489,7 +557,7 @@ section {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  background-position: center;
+  background-position: center 55%;
   background-attachment: fixed;
   overflow: hidden;
   padding: 80px 8%;
@@ -1076,6 +1144,8 @@ section h2::after {
 }
 
 .perk-card {
+  position: relative;
+  overflow: hidden;
   background: color-mix(in srgb, var(--card) 65%, transparent);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1083,15 +1153,130 @@ section h2::after {
   border-radius: 18px;
   padding: 26px 22px;
   text-align: left;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* alternating playful tilt, like loose cards on a table */
+.perk-card:nth-child(3n+1) { transform: rotate(-1.2deg); }
+.perk-card:nth-child(3n+2) { transform: rotate(0.8deg); }
+.perk-card:nth-child(3n+3) { transform: rotate(-0.6deg); }
+
 .perk-card:hover {
+  transform: rotate(0deg) translateY(-8px) !important;
   box-shadow: 0 20px 40px rgba(255, 152, 0, 0.3);
   border-color: rgba(255, 152, 0, 0.5);
+  z-index: 2;
+}
+
+/* big faint index number, decorative */
+.perk-card::after {
+  content: attr(data-index);
+  position: absolute;
+  top: -14px;
+  right: -6px;
+  font-size: 64px;
+  font-weight: 900;
+  font-family: Georgia, serif;
+  color: color-mix(in srgb, var(--text) 6%, transparent);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* first card — featured, filled with brand gradient */
+.perk-card:first-child {
+  background: linear-gradient(150deg, #ffd400, #ff8a00);
+  border-color: transparent;
+}
+
+.perk-card:first-child h3,
+.perk-card:first-child p {
+  color: #1a1400;
+  position: relative;
+  z-index: 2;
+}
+
+.perk-card:first-child::after {
+  color: rgba(255, 255, 255, 0.35);
+  z-index: 2;
+}
+
+.perk-card:first-child .perk-icon {
+  background: #1a1400;
+  color: #ffd400;
+  z-index: 2;
+}
+
+/* small real-photo backing the featured card */
+.perk-card-bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.perk-card-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 212, 0, 0.92),
+    rgba(255, 138, 0, 0.88)
+  );
+}
+
+/* small corner photo thumbnail on non-featured cards */
+.perk-photo-thumb {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 84px;
+  height: 84px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #000;
+  border: 3px solid var(--card);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  cursor: pointer;
+  transition:
+    width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-radius 0.4s ease,
+    object-fit 0s 0.15s,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* on hover/touch — the little corner photo grows to fill the card and
+   shows the whole image (no more cropping), a "premium reveal" */
+.perk-card:hover .perk-photo-thumb,
+.perk-card:focus-within .perk-photo-thumb {
+  top: 12px;
+  left: 12px;
+  bottom: 12px;
+  right: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transition:
+    width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-radius 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* leave room so the caption text never runs under the collapsed photo */
+.perk-card:has(.perk-photo-thumb) p {
+  max-width: calc(100% - 78px);
 }
 
 .perk-icon {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1110,6 +1295,7 @@ section h2::after {
 }
 
 .perk-card h3 {
+  position: relative;
   font-size: 18px;
   font-weight: 700;
   color: var(--text);
@@ -1117,6 +1303,7 @@ section h2::after {
 }
 
 .perk-card p {
+  position: relative;
   font-size: 14px;
   line-height: 1.6;
   color: var(--secondary);
@@ -1143,11 +1330,36 @@ section h2::after {
 
   .perks-grid {
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
     gap: 26px;
   }
 
   .perk-card {
     padding: 32px 26px;
+  }
+
+  .perk-card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 34px;
+  }
+
+  .perk-card:first-child h3 {
+    font-size: 26px;
+  }
+
+  .perk-card:first-child p {
+    font-size: 16px;
+    max-width: 320px;
+  }
+
+  .perk-card:first-child .perk-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
   }
 
 }
@@ -1357,7 +1569,7 @@ section h2::after {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("../assets/ways-to-help-team.jpeg");
+  background-image: url("../assets/event-meal-distribution-branded.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1674,6 +1886,36 @@ section h2::after {
   display: inline-block;
 }
 
+/* TRUST & CREDIBILITY BADGES */
+.footer-trust {
+  max-width: 1300px;
+  margin: 35px auto 0;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.footer-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.footer-trust-item svg {
+  font-size: 18px;
+  color: #ff9800;
+  flex-shrink: 0;
+}
+
 /* BOTTOM BAR */
 .footer-bottom {
   max-width: 1300px;
@@ -1757,6 +1999,18 @@ section h2::after {
   .footer-bottom p {
     font-size: 12px;
     line-height: 1.6;
+  }
+
+  .footer-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+    margin-top: 28px;
+  }
+
+  .footer-trust-item {
+    font-size: 12.5px;
   }
 }
 
@@ -3604,6 +3858,14 @@ nav a.active {
   background: var(--bg);
   text-align: center;
   position: relative;
+  /* the carousel cards below are translateX'd up to +/-136% of their own
+     width to fan out; on mobile the track is barely wider than a single
+     card, so those "peek" cards render far outside the section and, with
+     no ancestor clipping them, widen the page's horizontal scroll extent
+     — this is what makes the whole layout viewport render zoomed out
+     (content squeezed left, blank strip on the right). Clip at the
+     section boundary so the fan effect stays contained. */
+  overflow: hidden;
 }
 
 .initiatives-tag {
@@ -4009,18 +4271,49 @@ nav a.active {
   padding: 0 18px;
 }
 
+.journal-gallery-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .journal-track {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   padding: 16px 16px 24px;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 16px;
   -webkit-overflow-scrolling: touch;
+  flex: 1;
 }
 
 .journal-track::-webkit-scrollbar {
   display: none;
+}
+
+.journal-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.journal-arrow:hover {
+  background: #ffd400;
+  transform: scale(1.08);
 }
 
 .journal-page {
@@ -4034,7 +4327,7 @@ nav a.active {
     0 10px 22px rgba(0, 0, 0, 0.16),
     inset -1px 0 0 rgba(0, 0, 0, 0.06);
   cursor: default;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -4108,6 +4401,317 @@ nav a.active {
 
   .journal-caption {
     font-size: 17px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .journal-arrow {
+    display: none;
+  }
+
+  .journal-gallery-wrap {
+    gap: 0;
+  }
+
+}
+
+/* =========================
+   BIRTHDAY CELEBRATION FEATURE
+   (mobile-first)
+========================= */
+
+.bday-feature {
+  padding: 40px 18px 50px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.bday-feature-tag {
+  display: inline-block;
+  color: #ff6b00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.bday-feature h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-family: Georgia, serif;
+}
+
+.bday-feature-subtext {
+  color: var(--secondary);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.bday-feature-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bday-video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  background: #000;
+}
+
+.bday-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bday-insta-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  font-size: 19px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease;
+}
+
+.bday-insta-btn:hover {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.bday-photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.bday-photo-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.bday-feature-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease;
+}
+
+.bday-feature-cta:hover {
+  transform: translateY(-3px);
+}
+
+.bday-feature-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 34px auto 0;
+}
+
+.bday-celebrate-btn {
+  font-size: 15px;
+}
+
+@media (min-width: 1000px) {
+
+  .bday-feature {
+    padding: 60px 8% 70px;
+  }
+
+  .bday-feature h2 {
+    font-size: 38px;
+  }
+
+  .bday-feature-subtext {
+    font-size: 17px;
+  }
+
+  .bday-feature-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .bday-video-wrap,
+  .bday-photo-wrap {
+    flex: 1;
+    max-width: 300px;
+    margin: 0;
+  }
+
+}
+
+/* =========================
+   RECYCLE / DOORSTEP PICKUP FEATURE
+   (mobile-first)
+========================= */
+
+.recycle-feature {
+  position: relative;
+  padding: 40px 18px 50px;
+  background: var(--card);
+  text-align: center;
+}
+
+.recycle-coming-soon {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd400, #ff9800);
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.3);
+}
+
+.recycle-tag {
+  display: block;
+  color: #ff6b00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.recycle-feature h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recycle-subtext {
+  color: var(--secondary);
+  font-size: 15px;
+  max-width: 520px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.recycle-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.recycle-item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recycle-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.recycle-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00aeef, #0077b6);
+  color: #fff;
+  font-size: 18px;
+}
+
+.recycle-item-card p {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.recycle-notify-btn {
+  opacity: 0.6;
+  cursor: not-allowed;
+  font-size: 14px;
+}
+
+.recycle-notify-btn:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: inherit !important;
+}
+
+@media (min-width: 1000px) {
+
+  .recycle-feature {
+    padding: 60px 8% 70px;
+  }
+
+  .recycle-feature h2 {
+    font-size: 32px;
+  }
+
+  .recycle-subtext {
+    font-size: 16px;
+  }
+
+  .recycle-items-grid {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 900px;
+    gap: 18px;
   }
 
 }

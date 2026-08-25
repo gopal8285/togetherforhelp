@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import JournalGallery from "../components/JournalGallery";
 import VolunteerPerks from "../components/VolunteerPerks";
 import ParallaxQuotes from "../components/ParallaxQuotes";
+import HopeTicker from "../components/HopeTicker";
 import HomeFaq
 from "../components/HomeFaq";
 
@@ -12,6 +13,7 @@ from "../components/HomeFaq";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa6";
 
 import spreadKindnessImg from "../assets/spread-kindness.jpeg";
 import giveUnusedItemsImg from "../assets/give-unused-items.jpeg";
@@ -29,6 +31,12 @@ import initiativeEducation from "../assets/initiative-education.jpeg";
 import aboutChildCandid from "../assets/about-child-candid.jpeg";
 import eventSchoolSupport from "../assets/event-school-support.jpeg";
 import eventSupermanKid from "../assets/event-superman-kid.jpeg";
+import initiativeTreePlantation from "../assets/initiative-tree-plantation.jpeg";
+import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-drive.jpeg";
+import eventMealDistributionBranded from "../assets/event-meal-distribution-branded.jpeg";
+import eventTeachingSupport from "../assets/event-teaching-support.jpeg";
+import birthdayCelebrationVideo from "../assets/birthday-celebration.mp4";
+import eventStreetKidsVisit from "../assets/event-street-kids-visit.jpeg";
 
 
 const initiativesData = [
@@ -61,6 +69,16 @@ const initiativesData = [
     img: initiativeEducation,
     label: "Education support for children",
     alt: "Education changes everything - teaching underprivileged children"
+  },
+  {
+    img: initiativeTreePlantation,
+    label: "Tree plantation drive",
+    alt: "Volunteers and children planting a tree sapling for a greener tomorrow"
+  },
+  {
+    img: initiativeWinterBlanketDrive,
+    label: "Winter blanket distribution",
+    alt: "Winter blanket distribution drive for people sleeping on the streets"
   }
 ];
 
@@ -255,8 +273,11 @@ function Home() {
 
       </section>
 
+      {/* HOPE TICKER */}
+      <HopeTicker />
+
       {/* PARALLAX QUOTES */}
-      <ParallaxQuotes image={initiativeEducation} />
+      <ParallaxQuotes image={eventTeachingSupport} />
 
       {/* RECENT DRIVES */}
       <section
@@ -519,9 +540,145 @@ function Home() {
               img: eventSupermanKid,
               alt: "A joyful moment with a child from our community",
               caption: "Every kid's a superhero when someone believes in them."
+            },
+            {
+              img: eventMealDistributionBranded,
+              alt: "A child receiving a hot meal packed by TogetherForHelp",
+              caption: "A warm meal, served with care — one tray at a time."
+            },
+            {
+              img: initiativeTreePlantation,
+              alt: "Volunteers and children planting a tree sapling for a greener tomorrow",
+              caption: "Planting saplings today for a greener tomorrow."
             }
           ]}
         />
+
+      </section>
+
+      {/* BIRTHDAY CELEBRATION FEATURE */}
+      <section className="bday-feature fade-in" id="birthday">
+
+        <span className="bday-feature-tag">
+          A Little Joy Goes A Long Way
+        </span>
+
+        <h2>
+          Let's Celebrate Birthday With Us
+        </h2>
+
+        <p className="bday-feature-subtext">
+          Every birthday drive is a small excuse for a big
+          celebration — cake, laughter, and a room full of
+          people who feel seen.
+        </p>
+
+        <div className="bday-feature-layout">
+
+          {/* VIDEO */}
+          <motion.div
+
+            className="bday-video-wrap"
+
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+
+          >
+
+            <video
+              className="bday-video"
+              src={birthdayCelebrationVideo}
+              controls
+              playsInline
+              loop
+              muted
+              preload="metadata"
+            />
+
+            <a
+              href="https://www.instagram.com/reel/DUvODxhE-De/"
+              target="_blank"
+              rel="noreferrer"
+              className="bday-insta-btn"
+              aria-label="Watch this celebration on Instagram"
+            >
+              <FaInstagram />
+            </a>
+
+          </motion.div>
+
+          {/* PHOTO 1 */}
+          <motion.div
+
+            className="bday-photo-wrap"
+
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true }}
+
+          >
+
+            <img
+              src={celebrateBdayImg}
+              alt="Celebrating a birthday with community elders"
+              loading="lazy"
+            />
+
+            <a
+              href="https://www.instagram.com/reel/DUvODxhE-De/"
+              target="_blank"
+              rel="noreferrer"
+              className="bday-feature-cta"
+            >
+              <FaInstagram />
+              See The Full Reel
+            </a>
+
+          </motion.div>
+
+          {/* PHOTO 2 */}
+          <motion.div
+
+            className="bday-photo-wrap"
+
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+
+          >
+
+            <img
+              src={eventStreetKidsVisit}
+              alt="Volunteer spending time with children during a celebration"
+              loading="lazy"
+            />
+
+          </motion.div>
+
+        </div>
+
+        {/* ACTIONS */}
+        <div className="bday-feature-actions">
+
+          <button
+            type="button"
+            className="btn primary bday-celebrate-btn"
+            onClick={() =>
+              document
+                .getElementById('donate')
+                .scrollIntoView({
+                  behavior: 'smooth'
+                })
+            }
+          >
+            Celebrate With Us 🎉
+          </button>
+
+        </div>
 
       </section>
 

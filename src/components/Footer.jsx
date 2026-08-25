@@ -146,7 +146,10 @@ import {
   FaInstagram,
   FaLinkedin,
   FaFacebookF,
-  FaXTwitter
+  FaXTwitter,
+  FaShieldHalved,
+  FaScaleBalanced,
+  FaHandshakeAngle
 } from "react-icons/fa6";
 
 function Footer() {
@@ -196,6 +199,22 @@ function Footer() {
 
         </div>
 
+      </div>
+
+      {/* TRUST & CREDIBILITY BADGES */}
+      <div className="footer-trust">
+        <div className="footer-trust-item">
+          <FaShieldHalved />
+          <span>12A & 80G Certified</span>
+        </div>
+        <div className="footer-trust-item">
+          <FaScaleBalanced />
+          <span>Registered Under The Indian Trusts Act, 1882</span>
+        </div>
+        <div className="footer-trust-item">
+          <FaHandshakeAngle />
+          <span>Affiliated With Niti Aayog Through NGO Darpan</span>
+        </div>
       </div>
 
       <div className="footer-bottom">

@@ -8,11 +8,16 @@ import {
   FaStar
 } from "react-icons/fa6";
 
+import initiativeAnimalFeeding from "../assets/initiative-animal-feeding.jpeg";
+import eventBlessingElder from "../assets/event-blessing-elder.jpeg";
+import eventFamilyFoodDistribution from "../assets/event-family-food-distribution.jpeg";
+
 const perks = [
   {
     icon: <FaHandHoldingHeart />,
     title: "Help People In Need",
-    text: "Be the reason someone gets a meal, a blanket, or a chance they didn't have yesterday."
+    text: "Be the reason someone gets a meal, a blanket, or a chance they didn't have yesterday.",
+    photo: eventFamilyFoodDistribution
   },
   {
     icon: <FaFaceSmileBeam />,
@@ -22,7 +27,8 @@ const perks = [
   {
     icon: <FaHeart />,
     title: "Make A Real Difference",
-    text: "Your time isn't just 'volunteering' — it's a real, visible change in someone's day."
+    text: "Your time isn't just 'volunteering' — it's a real, visible change in someone's day.",
+    photo: eventBlessingElder
   },
   {
     icon: <FaUserGroup />,
@@ -32,7 +38,8 @@ const perks = [
   {
     icon: <FaSeedling />,
     title: "Grow Along The Way",
-    text: "Every drive teaches you something — patience, empathy, and a little more about the world."
+    text: "Every drive teaches you something — patience, empathy, and a little more about the world.",
+    photo: initiativeAnimalFeeding
   },
   {
     icon: <FaStar />,
@@ -61,6 +68,7 @@ function VolunteerPerks() {
 
             className="perk-card"
             key={index}
+            data-index={String(index + 1).padStart(2, "0")}
 
             initial={{
               opacity: 0,
@@ -78,13 +86,32 @@ function VolunteerPerks() {
 
             viewport={{ once: true, amount: 0.3 }}
 
-            whileHover={{
-              y: -10,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: "easeOut" }
-            }}
-
           >
+
+            {perk.photo && index === 0 && (
+
+              <>
+                <img
+                  className="perk-card-bg-photo"
+                  src={perk.photo}
+                  alt=""
+                  loading="lazy"
+                />
+                <div className="perk-card-bg-overlay" />
+              </>
+
+            )}
+
+            {perk.photo && index !== 0 && (
+
+              <img
+                className="perk-photo-thumb"
+                src={perk.photo}
+                alt=""
+                loading="lazy"
+              />
+
+            )}
 
             <span className="perk-icon">
               {perk.icon}
