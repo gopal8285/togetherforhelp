@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState , useEffect } from "react";
+import logo from "../assets/logo-tfh.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,9 +48,9 @@ useEffect(() => {
 
     <nav>
 
-      <div className="logo">
-        TogetherForHelp
-      </div>
+      <Link to="/" className="logo">
+        <img src={logo} alt="TogetherForHelp" className="logo-img" />
+      </Link>
       <div
 
   className={

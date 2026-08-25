@@ -14,6 +14,7 @@ import teamRajni from "../assets/team-rajni-face.jpeg";
 import teamNeha from "../assets/team-neha-face.jpeg";
 import teamShivam from "../assets/team-shivam-face.jpeg";
 import teamUnnati from "../assets/team-unnati-face.jpeg";
+import teamAnsh from "../assets/team-ansh-face.jpeg";
 
 import { motion } from "framer-motion";
 
@@ -86,6 +87,12 @@ function Team() {
       name: "Shivam Jha",
       role: "Legal Advisor",
       image: teamShivam
+    },
+
+    {
+      name: "Ansh Sharma",
+      role: "Legal Advisor",
+      image: teamAnsh
     }
 
   ];

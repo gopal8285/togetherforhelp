@@ -103,7 +103,7 @@ nav {
 
   width: 100%;
 
-  padding: 18px 8%;
+  padding: 12px 8%;
 
   display: flex;
 
@@ -181,6 +181,26 @@ nav a:hover::after {
   font-size: 18px;
   font-weight: 800;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* dark theme: logo PNG has soft anti-aliased edges cut against a light
+   background, which shows up as a hazy/blurred halo on a dark navbar —
+   give it a light chip so the edges blend cleanly again */
+.dark-theme .logo-img {
+  background: #f7f3eb;
+  border-radius: 10px;
+  padding: 6px 10px;
+  box-sizing: border-box;
 }
 
 /* HERO (our event wala) */
@@ -201,9 +221,10 @@ nav a:hover::after {
 .hope-ticker {
   overflow: hidden;
   background: linear-gradient(90deg, #ffd400, #ff9800, #ff6b00);
-  padding: 14px 0;
+  padding: 10px 0;
   white-space: nowrap;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  margin: 30px 0 0 0;
 }
 
 .hope-ticker-track {
@@ -243,7 +264,8 @@ nav a:hover::after {
 @media (min-width: 1000px) {
 
   .hope-ticker {
-    padding: 18px 0;
+    padding: 12px 0;
+    margin: 30px 0 0 0;
   }
 
   .hope-ticker-item {
@@ -395,6 +417,13 @@ section {
 .about-new {
   padding: 70px 8%;
   background: var(--bg);
+}
+
+/* when About sits right after the HopeTicker, the ticker's own top
+   margin already creates separation — trim the section's top padding
+   so the gap below the ticker isn't doubled up */
+.hope-ticker + .about-new {
+  padding-top: 30px;
 }
 
 .about-layout {
@@ -651,6 +680,10 @@ section {
 @media (max-width: 768px) {
   .about-new {
     padding: 44px 16px !important;
+  }
+
+  .hope-ticker + .about-new {
+    padding-top: 22px !important;
   }
   .about-layout {
     flex-direction: column !important;
@@ -3389,6 +3422,10 @@ nav a.active {
     font-size: 24px;
   }
 
+  .logo-img {
+    height: 36px;
+  }
+
   .hero {
     height: 70vh !important;
 
@@ -4839,6 +4876,14 @@ nav a.active {
 
 .gallery-marquee-item:hover .gallery-marquee-caption {
   opacity: 1;
+}
+
+/* touch devices have no :hover — caption must stay visible so it's not
+   permanently hidden on phones/tablets */
+@media (max-width: 999px) {
+  .gallery-marquee-caption {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 1000px) {

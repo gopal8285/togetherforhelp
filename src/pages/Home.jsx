@@ -203,6 +203,9 @@ function Home() {
 
       </section>
 
+      {/* HOPE TICKER */}
+      <HopeTicker />
+
       {/* ABOUT */}
       <section
         className="about-new"
@@ -272,9 +275,6 @@ function Home() {
         </div>
 
       </section>
-
-      {/* HOPE TICKER */}
-      <HopeTicker />
 
       {/* PARALLAX QUOTES */}
       <ParallaxQuotes image={eventTeachingSupport} />
