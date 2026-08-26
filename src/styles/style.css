@@ -4541,6 +4541,34 @@ nav a.active {
   transform: scale(1.1) rotate(-6deg);
 }
 
+/* sound toggle — sits on the left so it's easy to reach with a thumb
+   on mobile, mirrors the instagram button on the right */
+.bday-sound-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bday-sound-btn:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.75);
+}
+
 .bday-photo-wrap {
   position: relative;
   width: 100%;

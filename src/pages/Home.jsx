@@ -11,9 +11,9 @@ from "../components/HomeFaq";
 
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaXmark } from "react-icons/fa6";
+import { FaInstagram, FaXmark, FaVolumeHigh, FaVolumeXmark } from "react-icons/fa6";
 
 import spreadKindnessImg from "../assets/spread-kindness.jpeg";
 import giveUnusedItemsImg from "../assets/give-unused-items.jpeg";
@@ -86,6 +86,55 @@ function Home() {
 
   const [showInitiatives, setShowInitiatives] = useState(false);
   const [activeInitiative, setActiveInitiative] = useState(0);
+
+  const bdayVideoRef = useRef(null);
+  const [bdayVideoMuted, setBdayVideoMuted] = useState(false);
+
+  useEffect(() => {
+
+    const video = bdayVideoRef.current;
+
+    if (!video) return;
+
+    // try autoplay with sound on first — most mobile browsers block
+    // this unless the user already interacted with the page, so fall
+    // back to a muted autoplay (still visible, tap the icon to unmute)
+    video.muted = false;
+
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+
+      playPromise.catch(() => {
+
+        video.muted = true;
+        setBdayVideoMuted(true);
+        video.play().catch(() => {});
+
+      });
+
+    }
+
+  }, []);
+
+  const toggleBdayVideoSound = () => {
+
+    const video = bdayVideoRef.current;
+
+    if (!video) return;
+
+    const nextMuted = !video.muted;
+
+    video.muted = nextMuted;
+    setBdayVideoMuted(nextMuted);
+
+    if (!nextMuted) {
+
+      video.play().catch(() => {});
+
+    }
+
+  };
 
   const [showBdayForm, setShowBdayForm] = useState(false);
   const [bdayForm, setBdayForm] = useState({
@@ -627,14 +676,28 @@ function Home() {
           >
 
             <video
+              ref={bdayVideoRef}
               className="bday-video"
               src={birthdayCelebrationVideo}
-              controls
+              autoPlay
               playsInline
               loop
-              muted
+              muted={bdayVideoMuted}
               preload="metadata"
             />
+
+            <button
+              type="button"
+              className="bday-sound-btn"
+              onClick={toggleBdayVideoSound}
+              aria-label={
+                bdayVideoMuted
+                  ? "Unmute video"
+                  : "Mute video"
+              }
+            >
+              {bdayVideoMuted ? <FaVolumeXmark /> : <FaVolumeHigh />}
+            </button>
 
             <a
               href="https://www.instagram.com/reel/DUvODxhE-De/"
