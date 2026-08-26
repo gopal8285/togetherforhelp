@@ -13,7 +13,7 @@ from "../components/HomeFaq";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa6";
+import { FaInstagram, FaXmark } from "react-icons/fa6";
 
 import spreadKindnessImg from "../assets/spread-kindness.jpeg";
 import giveUnusedItemsImg from "../assets/give-unused-items.jpeg";
@@ -86,6 +86,45 @@ function Home() {
 
   const [showInitiatives, setShowInitiatives] = useState(false);
   const [activeInitiative, setActiveInitiative] = useState(0);
+
+  const [showBdayForm, setShowBdayForm] = useState(false);
+  const [bdayForm, setBdayForm] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    message: ""
+  });
+
+  const handleBdayFormChange = (e) => {
+
+    setBdayForm({
+      ...bdayForm,
+      [e.target.name]: e.target.value
+    });
+
+  };
+
+  const handleBdayFormSubmit = (e) => {
+
+    e.preventDefault();
+
+    const text =
+      `Hi! I'd like to celebrate a birthday with TogetherForHelp.%0A%0A` +
+      `Name: ${bdayForm.name}%0A` +
+      `Phone: ${bdayForm.phone}%0A` +
+      `Preferred Date: ${bdayForm.date}%0A` +
+      `Message: ${bdayForm.message}`;
+
+    window.open(
+      `https://wa.me/919876543210?text=${text}`,
+      "_blank",
+      "noreferrer"
+    );
+
+    setShowBdayForm(false);
+    setBdayForm({ name: "", phone: "", date: "", message: "" });
+
+  };
 
   const goToInitiatives = () => {
 
@@ -667,13 +706,7 @@ function Home() {
           <button
             type="button"
             className="btn primary bday-celebrate-btn"
-            onClick={() =>
-              document
-                .getElementById('donate')
-                .scrollIntoView({
-                  behavior: 'smooth'
-                })
-            }
+            onClick={() => setShowBdayForm(true)}
           >
             Celebrate With Us 🎉
           </button>
@@ -681,6 +714,109 @@ function Home() {
         </div>
 
       </section>
+
+      {/* BIRTHDAY BOOKING FORM MODAL */}
+      {showBdayForm && (
+
+        <div
+          className="bday-modal-overlay"
+          onClick={() => setShowBdayForm(false)}
+        >
+
+          <motion.div
+
+            className="bday-modal"
+            onClick={(e) => e.stopPropagation()}
+
+            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.3 }}
+
+          >
+
+            <button
+              type="button"
+              className="bday-modal-close"
+              onClick={() => setShowBdayForm(false)}
+              aria-label="Close form"
+            >
+              <FaXmark />
+            </button>
+
+            <span className="bday-modal-tag">
+              Let's Plan It Together
+            </span>
+
+            <h3>
+              Book Your Celebration
+            </h3>
+
+            <p className="bday-modal-subtext">
+              Share a few details and we'll reach out on WhatsApp
+              to plan the perfect celebration with our community.
+            </p>
+
+            <form
+              className="bday-modal-form"
+              onSubmit={handleBdayFormSubmit}
+            >
+
+              <label htmlFor="bday-name">Your Name</label>
+              <input
+                id="bday-name"
+                type="text"
+                name="name"
+                required
+                value={bdayForm.name}
+                onChange={handleBdayFormChange}
+                placeholder="e.g. Riya Sharma"
+              />
+
+              <label htmlFor="bday-phone">Phone Number</label>
+              <input
+                id="bday-phone"
+                type="tel"
+                name="phone"
+                required
+                value={bdayForm.phone}
+                onChange={handleBdayFormChange}
+                placeholder="e.g. 98765 43210"
+              />
+
+              <label htmlFor="bday-date">Preferred Date</label>
+              <input
+                id="bday-date"
+                type="date"
+                name="date"
+                required
+                value={bdayForm.date}
+                onChange={handleBdayFormChange}
+              />
+
+              <label htmlFor="bday-message">Message (Optional)</label>
+              <textarea
+                id="bday-message"
+                name="message"
+                rows="3"
+                value={bdayForm.message}
+                onChange={handleBdayFormChange}
+                placeholder="Tell us anything you'd like us to know"
+              />
+
+              <button
+                type="submit"
+                className="btn primary bday-modal-submit"
+              >
+                Send On WhatsApp
+              </button>
+
+            </form>
+
+          </motion.div>
+
+        </div>
+
+      )}
 
       {/* VOLUNTEER */}
       <section
