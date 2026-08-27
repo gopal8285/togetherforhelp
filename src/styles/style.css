@@ -40,6 +40,21 @@
   scroll-behavior: smooth;
 }
 
+/* IMAGE PROTECTION (deterrent only — not foolproof, see note below)
+   -webkit-touch-callout:none stops iOS Safari's long-press "Save Image"
+   menu; user-select:none + -webkit-user-drag:none stop drag-to-desktop
+   and the desktop long-press/drag save gesture. A determined user can
+   still screenshot or use devtools — nothing client-side can fully
+   prevent that — this just removes the one-tap "Save Image" shortcut
+   for casual visitors across the whole site. */
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 /* html needs overflow-x:hidden too — on iOS Safari, overflow-x:hidden on
    body alone does NOT reliably stop the page from being laid out wider
    than the device (any un-clipped overflowing descendant, e.g. a
@@ -4375,10 +4390,18 @@ nav a.active {
 .journal-page:nth-child(4n+3) { transform: rotate(-1.5deg); }
 .journal-page:nth-child(4n+4) { transform: rotate(3deg); }
 
-.journal-page:hover {
-  transform: rotate(0deg) translateY(-6px) !important;
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-  z-index: 3;
+/* un-rotate + lift on hover is for real mouse pointers only — on
+   touchscreens ":hover" fires on tap, so every card a finger touched
+   would visibly rotate and jump, which read as the whole row
+   "spreading out". Scope to hover-capable devices. */
+@media (hover: hover) and (pointer: fine) {
+
+  .journal-page:hover {
+    transform: rotate(0deg) translateY(-6px) !important;
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
+    z-index: 3;
+  }
+
 }
 
 .journal-photo {

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import HomeTest from "./pages/HomeTest";
 
 
@@ -22,6 +23,32 @@ import Recycle from "./pages/Recycle";
 
 
 function App() {
+
+  useEffect(() => {
+
+    // deterrent only — blocks the desktop right-click "Save Image As"
+    // shortcut on <img> elements. A determined visitor can still get
+    // to the file another way (devtools, screenshot); this just
+    // removes the casual one-click download option.
+    const blockImageContextMenu = (e) => {
+
+      if (e.target.tagName === "IMG") {
+
+        e.preventDefault();
+
+      }
+
+    };
+
+    document.addEventListener("contextmenu", blockImageContextMenu);
+
+    return () => {
+
+      document.removeEventListener("contextmenu", blockImageContextMenu);
+
+    };
+
+  }, []);
 
   return (
 
