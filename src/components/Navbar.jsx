@@ -69,85 +69,96 @@ useEffect(() => {
 
     <nav className={scrolled ? "nav-scrolled" : ""}>
 
-      <Link to="/" className="logo">
+      {/* plain <a> (not <Link>) on purpose — logo should always take
+          you to the home landing with a full refresh, even if you're
+          already on the home page or mid-scroll somewhere on it */}
+      <a href="/togetherforhelp/" className="logo">
         <img src={logo} alt="TogetherForHelp" className="logo-img" />
-      </Link>
-      <div
+      </a>
 
-  className={
-    darkMode
-    ? "theme-switch active"
-    : "theme-switch"
-  }
+      {/* theme switch + links grouped together on the right so the
+          toggle sits right next to "Home" instead of floating in the
+          middle of the navbar */}
+      <div className="nav-right">
 
-  onClick={() =>
-    setDarkMode(!darkMode)
-  }
+        <div
 
->
-
-  <div className="switch-circle">
-
-    {
+    className={
       darkMode
-      ? "☀️"
-      : "🌙"
+      ? "theme-switch active"
+      : "theme-switch"
     }
+
+    onClick={() =>
+      setDarkMode(!darkMode)
+    }
+
+  >
+
+    <div className="switch-circle">
+
+      {
+        darkMode
+        ? "☀️"
+        : "🌙"
+      }
+
+    </div>
 
   </div>
 
-</div>
+        <div
+    className="hamburger"
+    onClick={() => setMenuOpen(!menuOpen)}
+  >
 
-      <div
-  className="hamburger"
-  onClick={() => setMenuOpen(!menuOpen)}
->
+    ☰
 
-  ☰
+  </div>
 
-</div>
+        <ul
+          className={menuOpen ? "nav-links active" : "nav-links"}
+          onClick={() => setMenuOpen(false)}
+        >
 
-      <ul
-        className={menuOpen ? "nav-links active" : "nav-links"}
-        onClick={() => setMenuOpen(false)}
-      >
+          <li>
+            <Link to="/">Home</Link>
+          </li>
 
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
 
-        <li>
-          <Link to="/about">About</Link>
-        </li>
+          <li>
+           <Link to="/team">Team</Link>
+          </li>
 
-        <li>
-         <Link to="/team">Team</Link>
-        </li>
+          <li>
+            <Link to="/volunteer">Volunteer</Link>
+          </li>
 
-        <li>
-          <Link to="/volunteer">Volunteer</Link>
-        </li>
+          <li>
+            <Link to="/gallery">Gallery</Link>
+          </li>
 
-        <li>
-          <Link to="/gallery">Gallery</Link>
-        </li>
+          <li>
+            <Link to="/recycle">Recycle</Link>
+          </li>
 
-        <li>
-          <Link to="/recycle">Recycle</Link>
-        </li>
+          <li>
+    <Link to="/faq">FAQs</Link>
+  </li>
 
-        <li>
-  <Link to="/faq">FAQs</Link>
-</li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+         <Link to="/donate">Donate</Link>
+           </li>
 
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li>
-       <Link to="/donate">Donate</Link>
-         </li>
+        </ul>
 
-      </ul>
+      </div>
 
     </nav>
 

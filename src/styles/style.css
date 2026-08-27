@@ -161,6 +161,14 @@ nav .logo {
   color: var(--text);
 }
 
+/* groups the theme switch + links together on the right, next to
+   "Home", instead of the switch floating in the middle of the navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 /* nav list */
 nav ul {
   display: flex;
@@ -3413,8 +3421,11 @@ nav a.active {
     width: 54px;
     height: 24px;
     padding: 3px;
-    margin-left: auto;
-    margin-right: 14px;
+    margin-right: 10px;
+  }
+
+  .nav-right {
+    gap: 0;
   }
 
   .switch-circle {
