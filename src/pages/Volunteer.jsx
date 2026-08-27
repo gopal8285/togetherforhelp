@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
 import VolunteerPerks from "../components/VolunteerPerks";
+import StickyCtaBar from "../components/StickyCtaBar";
 
 function Volunteer() {
 
@@ -13,6 +14,12 @@ function Volunteer() {
 
       {/* NAVBAR */}
       <Navbar />
+
+      <StickyCtaBar
+        label="Join As Volunteer"
+        href="https://wa.me/919876543210"
+        external
+      />
 
       {/* HERO */}
       <section className="about-hero">

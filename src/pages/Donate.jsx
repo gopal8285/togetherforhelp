@@ -2,6 +2,7 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import StickyCtaBar from "../components/StickyCtaBar";
 
 function Donate() {
 
@@ -11,6 +12,8 @@ function Donate() {
 
       {/* NAVBAR */}
       <Navbar />
+
+      <StickyCtaBar label="Donate Now" href="#donate" />
 
       {/* HERO */}
       <section className="about-hero">

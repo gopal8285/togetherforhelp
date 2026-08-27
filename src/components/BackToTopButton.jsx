@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaArrowUp } from "react-icons/fa6";
 
-function FloatingWhatsAppButton() {
+function BackToTopButton() {
 
   const [visible, setVisible] = useState(false);
 
@@ -25,28 +25,31 @@ function FloatingWhatsAppButton() {
 
   }, []);
 
+  const scrollToTop = () => {
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  };
+
   return (
 
-    <a
-      href="https://wa.me/919876543210"
-      target="_blank"
-      rel="noreferrer"
+    <button
+      type="button"
       className={
         visible
-          ? "floating-whatsapp-btn visible"
-          : "floating-whatsapp-btn"
+          ? "back-to-top-btn visible"
+          : "back-to-top-btn"
       }
-      aria-label="Chat with us on WhatsApp"
+      onClick={scrollToTop}
+      aria-label="Back to top"
     >
 
-      <FaWhatsapp className="floating-whatsapp-icon" />
+      <FaArrowUp />
 
-      <span>Chat</span>
-
-    </a>
+    </button>
 
   );
 
 }
 
-export default FloatingWhatsAppButton;
+export default BackToTopButton;

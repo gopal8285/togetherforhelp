@@ -13,6 +13,7 @@ import ScrollToTop
 from "./components/ScrollToTop";
 import FloatingDonateButton from "./components/FloatingDonateButton";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
+import BackToTopButton from "./components/BackToTopButton";
 import Donate from "./pages/Donate";
 import Team from "./pages/Team";
 import Faq from "./pages/Faq";
@@ -132,6 +133,7 @@ function App() {
 
       <FloatingDonateButton />
       <FloatingWhatsAppButton />
+      <BackToTopButton />
 
     </BrowserRouter>
    

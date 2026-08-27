@@ -136,7 +136,20 @@ nav {
 
   transition:
     transform 0.4s ease,
-    opacity 0.4s ease;
+    opacity 0.4s ease,
+    padding 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* compact navbar once scrolled past the hero — reclaims screen space,
+   especially useful on mobile where every pixel of height counts */
+nav.nav-scrolled {
+  padding: 7px 8%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+nav.nav-scrolled .logo-img {
+  height: 44px;
 }
 
 /* logo text if any */
@@ -206,16 +219,20 @@ nav a:hover::after {
   width: auto;
   display: block;
   object-fit: contain;
+  transition: height 0.3s ease;
 }
 
 /* dark theme: logo PNG has soft anti-aliased edges cut against a light
    background, which shows up as a hazy/blurred halo on a dark navbar —
-   give it a light chip so the edges blend cleanly again */
+   give it a light chip so the edges blend cleanly again.
+   box-sizing:content-box here (overriding the sitewide border-box
+   reset) so the padding adds to the chip's size instead of eating
+   into the fixed height and shrinking the logo itself. */
 .dark-theme .logo-img {
   background: #f7f3eb;
   border-radius: 10px;
   padding: 6px 10px;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 /* HERO (our event wala) */
@@ -3442,6 +3459,14 @@ nav a.active {
     height: 36px;
   }
 
+  nav.nav-scrolled .logo-img {
+    height: 28px;
+  }
+
+  nav.nav-scrolled {
+    padding: 8px 16px;
+  }
+
   .hero {
     height: 70vh !important;
 
@@ -4328,23 +4353,20 @@ nav a.active {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
-}
-
-.journal-track {
-  display: flex;
-  align-items: flex-start;
+  justify-content: center;
   gap: 10px;
-  padding: 16px 16px 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 16px;
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
 }
 
-.journal-track::-webkit-scrollbar {
-  display: none;
+/* 3D coverflow — same offset-driven fan carousel pattern used by
+   "Our Initiatives" on the home page: a centered flat card with the
+   rest receding into depth on either side via perspective + rotateY. */
+.journal-track {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  height: 420px;
+  perspective: 1400px;
+  touch-action: pan-y;
 }
 
 .journal-arrow {
@@ -4362,6 +4384,7 @@ nav a.active {
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 20;
 }
 
 .journal-arrow:hover {
@@ -4370,38 +4393,20 @@ nav a.active {
 }
 
 .journal-page {
-  position: relative;
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 240px;
+  margin-left: -120px;
   background: #fbf6ea;
   border-radius: 4px 10px 10px 4px;
   padding: 10px 10px 16px;
   box-shadow:
     0 10px 22px rgba(0, 0, 0, 0.16),
     inset -1px 0 0 rgba(0, 0, 0, 0.06);
-  cursor: default;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* alternating page tilt, like loose scrapbook pages */
-.journal-page:nth-child(4n+1) { transform: rotate(-3deg); }
-.journal-page:nth-child(4n+2) { transform: rotate(2deg); }
-.journal-page:nth-child(4n+3) { transform: rotate(-1.5deg); }
-.journal-page:nth-child(4n+4) { transform: rotate(3deg); }
-
-/* un-rotate + lift on hover is for real mouse pointers only — on
-   touchscreens ":hover" fires on tap, so every card a finger touched
-   would visibly rotate and jump, which read as the whole row
-   "spreading out". Scope to hover-capable devices. */
-@media (hover: hover) and (pointer: fine) {
-
-  .journal-page:hover {
-    transform: rotate(0deg) translateY(-6px) !important;
-    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-    z-index: 3;
-  }
-
+  cursor: pointer;
+  will-change: transform;
+  touch-action: pan-y;
 }
 
 .journal-photo {
@@ -4410,6 +4415,7 @@ nav a.active {
   aspect-ratio: 4 / 5;
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
 }
 
 .journal-photo img {
@@ -4450,13 +4456,13 @@ nav a.active {
   }
 
   .journal-track {
-    gap: 20px;
-    padding: 24px 30px 30px;
-    justify-content: center;
+    max-width: 940px;
+    height: 500px;
   }
 
   .journal-page {
     width: 300px;
+    margin-left: -150px;
     padding: 16px 16px 22px;
   }
 
@@ -4468,12 +4474,24 @@ nav a.active {
 
 @media (max-width: 768px) {
 
-  .journal-arrow {
-    display: none;
+  .journal-track {
+    height: 360px;
   }
 
-  .journal-gallery-wrap {
-    gap: 0;
+  .journal-page {
+    width: 210px;
+    margin-left: -105px;
+    padding: 8px 8px 14px;
+  }
+
+  .journal-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .journal-caption {
+    font-size: 13px;
   }
 
 }
@@ -5528,9 +5546,23 @@ nav a.active {
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+
+/* only appears once the visitor scrolls past the hero — keeps the
+   first screen focused on the donate CTA alone */
+.floating-whatsapp-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
 }
 
 .floating-whatsapp-btn:hover {
@@ -5549,6 +5581,123 @@ nav a.active {
     padding: 16px 24px;
     min-width: 132px;
     font-size: 15px;
+  }
+
+}
+
+/* BACK TO TOP — opposite corner from donate/chat, same scroll-reveal
+   pattern (hidden until the visitor has scrolled past the hero) */
+.back-to-top-btn {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+
+  background: var(--card);
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #ffd400;
+  color: #111;
+}
+
+@media (min-width: 768px) {
+
+  .back-to-top-btn {
+    left: 28px;
+    bottom: 28px;
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+
+}
+
+/* STICKY CTA BAR — a slim strip just under the navbar that appears
+   once the visitor scrolls past the hero, so the page's main action
+   (Donate Now / Join As Volunteer) stays reachable without scrolling
+   back up. */
+.sticky-cta-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  display: flex;
+  justify-content: center;
+
+  background: linear-gradient(90deg, #ffd400, #ff9800, #ff6b00);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+
+  padding: 10px 16px;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.sticky-cta-bar.visible {
+  transform: translateY(78px);
+  opacity: 1;
+}
+
+.sticky-cta-btn {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 8px 22px;
+  border-radius: 50px;
+  transition: transform 0.2s ease;
+}
+
+.sticky-cta-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+
+  .sticky-cta-bar.visible {
+    transform: translateY(88px);
+  }
+
+  .sticky-cta-btn {
+    font-size: 14px;
+    padding: 10px 26px;
   }
 
 }
