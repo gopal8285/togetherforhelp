@@ -86,7 +86,10 @@ useEffect(() => {
 
 </div>
 
-      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
+      <ul
+        className={menuOpen ? "nav-links active" : "nav-links"}
+        onClick={() => setMenuOpen(false)}
+      >
 
         <li>
           <Link to="/">Home</Link>

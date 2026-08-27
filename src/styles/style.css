@@ -4962,8 +4962,12 @@ nav a.active {
   animation: marquee-right 34s linear infinite;
 }
 
-.gallery-marquee-row:hover .gallery-marquee-track {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+
+  .gallery-marquee-row:hover .gallery-marquee-track {
+    animation-play-state: paused;
+  }
+
 }
 
 @keyframes marquee-left {
@@ -4998,9 +5002,17 @@ nav a.active {
   transition: transform 0.5s ease;
 }
 
-.gallery-marquee-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+/* hover lift + pause-on-hover are for real mouse pointers only —
+   on touchscreens ":hover" fires and un-fires as a finger crosses
+   each card while the row is still animating, which made the whole
+   strip jump/wobble on tap. Scope both to hover-capable devices. */
+@media (hover: hover) and (pointer: fine) {
+
+  .gallery-marquee-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  }
+
 }
 
 .gallery-marquee-caption {
