@@ -5441,9 +5441,11 @@ nav a.active {
 
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
   padding: 14px 18px;
+  min-width: 116px;
   border-radius: 50px;
 
   background: linear-gradient(135deg, #ffd400, #ff9800);
@@ -5495,6 +5497,57 @@ nav a.active {
     right: 28px;
     bottom: 28px;
     padding: 16px 24px;
+    min-width: 132px;
+    font-size: 15px;
+  }
+
+}
+
+/* FLOATING WHATSAPP BUTTON — stacked directly above the donate
+   button, same size/shape rhythm, always visible on every page */
+.floating-whatsapp-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 84px;
+  z-index: 1500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 18px;
+  min-width: 116px;
+  border-radius: 50px;
+
+  background: #25d366;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.floating-whatsapp-icon {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+
+  .floating-whatsapp-btn {
+    right: 28px;
+    bottom: 100px;
+    padding: 16px 24px;
+    min-width: 132px;
     font-size: 15px;
   }
 
