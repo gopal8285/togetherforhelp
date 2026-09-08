@@ -1812,88 +1812,103 @@ section h2::after {
   }
 }
 
-/* BANK TRANSFER DETAILS (Donate page) */
-.bank-details {
-  margin-top: 22px;
-  padding: 18px 20px;
-  border-radius: 14px;
+/* PAYMENT DETAILS (Donate page) — UPI / Paytm / Bank Transfer with
+   copy-to-clipboard buttons on every row. */
+.payment-details {
+  margin-top: 26px;
+  padding: 22px 22px 8px;
+  border-radius: 16px;
   background: var(--bg);
   border: 1px solid var(--border);
   text-align: left;
-  max-width: 380px;
+  max-width: 440px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.bank-details h4 {
-  font-size: 14px;
+.payment-details-tag {
+  display: block;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #ff6b00;
   margin-bottom: 12px;
-  text-align: center;
 }
 
-.bank-details-grid {
+.payment-details-tag:not(:first-child) {
+  margin-top: 18px;
+}
+
+.payment-details-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
-.bank-detail-row {
+.payment-detail-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   border-bottom: 1px dashed var(--border);
 }
 
-.bank-detail-row:last-child {
+.payment-details-grid > .payment-detail-row:last-child {
   border-bottom: none;
-  padding-bottom: 0;
+  padding-bottom: 10px;
 }
 
-.bank-detail-label {
-  font-size: 12px;
+.payment-detail-label {
+  display: block;
+  font-size: 11px;
   color: var(--secondary);
-  flex-shrink: 0;
 }
 
-.bank-detail-value {
-  font-size: 14px;
+.payment-detail-value {
+  display: block;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text);
-  text-align: right;
   word-break: break-word;
+  margin-top: 2px;
+}
+
+.payment-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.payment-copy-btn:hover {
+  background: #ff6b00;
+  border-color: #ff6b00;
+  color: #fff;
 }
 
 /* DONATE PAGE CARD (mobile) — .donate-card has no dedicated padding, so its
-   text/QR sat flush against the rounded corners; also ".card img" (width
-   100% / height 220px / object-fit cover) was cropping the square QR code
-   since it applies to any <img> inside .card, QR included. */
+   text sat flush against the rounded corners. */
 @media (max-width: 768px) {
   .donate-card {
     padding: 26px 20px;
     text-align: center;
   }
 
-  .donate-card .qr-box img {
-    width: 180px;
-    height: 180px;
-    max-width: 100%;
-    object-fit: contain;
-    margin: 18px auto;
-    display: block;
+  .payment-details {
+    padding: 18px 16px 6px;
   }
 
-  .donate-card h3 {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-
-  .donate-card .paytm-info,
   .donate-card .donate-note {
     font-size: 14px;
     margin-top: 10px;

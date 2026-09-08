@@ -166,7 +166,7 @@ function Home() {
       `Message: ${bdayForm.message}`;
 
     window.open(
-      `https://wa.me/919876543210?text=${text}`,
+      `https://wa.me/919810811439?text=${text}`,
       "_blank",
       "noreferrer"
     );
@@ -990,7 +990,7 @@ function Home() {
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919810811439"
                 target="_blank"
                 rel="noreferrer"
                 className="volunteer-form-whatsapp"
@@ -1219,7 +1219,7 @@ function Home() {
         <br /><br />
 
         Paytm:
-        +91 9876543210
+        +91 9810811439
 
         <br /><br />
 

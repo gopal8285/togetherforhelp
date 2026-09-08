@@ -4,7 +4,33 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import StickyCtaBar from "../components/StickyCtaBar";
 
+import { useState } from "react";
+import { FaRegCopy, FaCheck } from "react-icons/fa6";
+
 function Donate() {
+
+  const [copiedField, setCopiedField] = useState(null);
+
+  const copyValue = (label, value) => {
+
+    navigator.clipboard.writeText(value);
+    setCopiedField(label);
+
+    setTimeout(() => {
+      setCopiedField((current) => (current === label ? null : current));
+    }, 1800);
+
+  };
+
+  const paymentRows = [
+    { label: "UPI ID", value: "together4help@upi" },
+    { label: "Paytm", value: "+91 9810811439" },
+    { label: "Account Name", value: "TOGETHERFORHELP TRUST" },
+    { label: "Account No.", value: "309032003941" },
+    { label: "IFSC Code", value: "RATN0000190" },
+    { label: "Branch", value: "Pitampura" },
+    { label: "Bank", value: "RBL Bank" }
+  ];
 
   return (
 
@@ -43,56 +69,68 @@ function Donate() {
 
           </p>
 
-          {/* QR CODE */}
-          <div className="qr-box">
+          {/* PAYMENT DETAILS */}
+          <div className="payment-details">
 
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=together4help@upi"
-              alt="Donation QR"
-            />
+            <span className="payment-details-tag">
+              UPI / Paytm
+            </span>
 
-          </div>
+            <div className="payment-details-grid">
 
-          {/* PAYMENT INFO */}
-          <h3>
-            UPI ID: together4help@upi
-          </h3>
+              {paymentRows.slice(0, 2).map((row) => (
 
-          <p className="paytm-info">
-            📱 Paytm: +91 9876543210
-          </p>
+                <div className="payment-detail-row" key={row.label}>
 
-          {/* BANK TRANSFER DETAILS */}
-          <div className="bank-details">
+                  <div>
+                    <span className="payment-detail-label">{row.label}</span>
+                    <span className="payment-detail-value">{row.value}</span>
+                  </div>
 
-            <h4>Bank Transfer Details</h4>
+                  <button
+                    type="button"
+                    className="payment-copy-btn"
+                    onClick={() => copyValue(row.label, row.value)}
+                    aria-label={`Copy ${row.label}`}
+                  >
+                    {copiedField === row.label ? <FaCheck /> : <FaRegCopy />}
+                    {copiedField === row.label ? "Copied" : "Copy"}
+                  </button>
 
-            <div className="bank-details-grid">
+                </div>
 
-              <div className="bank-detail-row">
-                <span className="bank-detail-label">Account Name</span>
-                <span className="bank-detail-value">TOGETHERFORHELP TRUST</span>
-              </div>
+              ))}
 
-              <div className="bank-detail-row">
-                <span className="bank-detail-label">Account No.</span>
-                <span className="bank-detail-value">309032003941</span>
-              </div>
+            </div>
 
-              <div className="bank-detail-row">
-                <span className="bank-detail-label">IFSC Code</span>
-                <span className="bank-detail-value">RATN0000190</span>
-              </div>
+            <span className="payment-details-tag">
+              Bank Transfer
+            </span>
 
-              <div className="bank-detail-row">
-                <span className="bank-detail-label">Branch</span>
-                <span className="bank-detail-value">Pitampura</span>
-              </div>
+            <div className="payment-details-grid">
 
-              <div className="bank-detail-row">
-                <span className="bank-detail-label">Bank</span>
-                <span className="bank-detail-value">RBL Bank</span>
-              </div>
+              {paymentRows.slice(2).map((row) => (
+
+                <div className="payment-detail-row" key={row.label}>
+
+                  <div>
+                    <span className="payment-detail-label">{row.label}</span>
+                    <span className="payment-detail-value">{row.value}</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="payment-copy-btn"
+                    onClick={() => copyValue(row.label, row.value)}
+                    aria-label={`Copy ${row.label}`}
+                  >
+                    {copiedField === row.label ? <FaCheck /> : <FaRegCopy />}
+                    {copiedField === row.label ? "Copied" : "Copy"}
+                  </button>
+
+                </div>
+
+              ))}
 
             </div>
 

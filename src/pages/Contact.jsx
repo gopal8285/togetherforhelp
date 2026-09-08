@@ -12,14 +12,14 @@ function Contact() {
 
     {
       title: "Phone",
-      value: "+91 9876543210",
-      link: "tel:+919876543210"
+      value: "+91 9810811439",
+      link: "tel:+919810811439"
     },
 
     {
       title: "WhatsApp",
       value: "Chat With Us",
-      link: "https://wa.me/919876543210"
+      link: "https://wa.me/919810811439"
     },
 
     {
