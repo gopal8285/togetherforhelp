@@ -1185,6 +1185,18 @@ section h2::after {
   color: var(--text);
 }
 
+.volunteer-form-whatsapp {
+  font-size: 14px;
+  font-weight: 700;
+  color: #25d366;
+  text-decoration: none;
+  margin-top: -6px;
+}
+
+.volunteer-form-whatsapp:hover {
+  text-decoration: underline;
+}
+
 /* WHY VOLUNTEER — PERKS */
 .perks-wrap {
   max-width: 1300px;
@@ -3928,6 +3940,104 @@ nav a.active {
 
   .share-work-content h2 {
     font-size: 38px;
+  }
+
+}
+
+/* =========================
+   RECENT POST
+   (mobile-first)
+========================= */
+
+.recent-post {
+  padding: 40px 18px 10px;
+  background: var(--bg);
+}
+
+.recent-post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+}
+
+.recent-post-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.recent-post-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 4px 22px 26px;
+}
+
+.recent-post-tag {
+  display: inline-block;
+  color: #ff6b00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.recent-post-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  font-family: Georgia, serif;
+}
+
+.recent-post-content p {
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.recent-post-content .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+@media (min-width: 768px) {
+
+  .recent-post {
+    padding: 55px 8% 20px;
+  }
+
+  .recent-post-card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .recent-post-card img {
+    width: 46%;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+
+  .recent-post-content {
+    justify-content: center;
+    padding: 30px 40px 30px 0;
+  }
+
+  .recent-post-content h2 {
+    font-size: 30px;
+  }
+
+  .recent-post-content p {
+    max-width: 440px;
   }
 
 }

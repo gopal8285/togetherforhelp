@@ -68,8 +68,8 @@ function Copyright() {
           If you believe any content on this website infringes your
           copyright, or if you are featured in one of our photographs
           and would like it removed, please contact us at{" "}
-          <a href="mailto:gopalkumarsingh2004@gmail.com">
-            gopalkumarsingh2004@gmail.com
+          <a href="mailto:Togetherforhelp01@gmail.com">
+            Togetherforhelp01@gmail.com
           </a>{" "}
           with details, and we will review and respond promptly.
         </p>

@@ -24,32 +24,32 @@ function Contact() {
 
     {
       title: "Email",
-      value: "gopalkumarsingh2004@gmail.com",
-      link: "mailto:gopalkumarsingh2004@gmail.com"
+      value: "Togetherforhelp01@gmail.com",
+      link: "mailto:Togetherforhelp01@gmail.com"
     },
 
     {
       title: "Instagram",
-      value: "@together4help",
-      link: "https://instagram.com"
+      value: "@_togetherforhelp_",
+      link: "https://www.instagram.com/_togetherforhelp_?igsi=MXNreDF2Y3lvb2RjaA%3D%3D&utm_source=qr"
     },
 
     {
       title: "LinkedIn",
-      value: "TogetherForHelp NGO",
-      link: "https://linkedin.com"
+      value: "TogetherForHelp",
+      link: "https://www.linkedin.com/company/togetherforhelp/"
     },
 
     {
       title: "Facebook",
       value: "TogetherForHelp",
-      link: "https://facebook.com"
+      link: "https://www.facebook.com/share/1DWdRFqPWU/?mibextid=wwXIfr"
     },
 
     {
-      title: "Twitter / X",
-      value: "@Together4Help",
-      link: "https://x.com"
+      title: "YouTube",
+      value: "@Togetherforhelp",
+      link: "https://www.youtube.com/@Togetherforhelp"
     },
 
     {

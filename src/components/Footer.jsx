@@ -146,7 +146,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaFacebookF,
-  FaXTwitter,
+  FaYoutube,
   FaShieldHalved,
   FaScaleBalanced,
   FaHandshakeAngle
@@ -165,13 +165,13 @@ function Footer() {
 
           {/* Social icons seedha brand ke neeche */}
           <div className="footer-icons">
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
-            <a href="#" aria-label="Twitter"><FaXTwitter /></a>
-            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/_togetherforhelp_?igsi=MXNreDF2Y3lvb2RjaA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/company/togetherforhelp/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="https://www.youtube.com/@Togetherforhelp" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
+            <a href="https://www.facebook.com/share/1DWdRFqPWU/?mibextid=wwXIfr" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebookF /></a>
           </div>
-          <a href="mailto:hello@togetherforhelp.org" className="footer-email">
-            hello@togetherforhelp.org
+          <a href="mailto:Togetherforhelp01@gmail.com" className="footer-email">
+            Togetherforhelp01@gmail.com
           </a>
         </div>
 

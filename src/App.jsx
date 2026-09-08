@@ -54,7 +54,7 @@ function App() {
 
   return (
 
-    <BrowserRouter basename="/togetherforhelp">
+    <BrowserRouter basename="/">
       <ScrollToTop />
 
       <Routes>

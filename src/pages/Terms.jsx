@@ -122,8 +122,8 @@ function Terms() {
         <p>
           For any questions about these Terms of Use, reach out to us
           at{" "}
-          <a href="mailto:gopalkumarsingh2004@gmail.com">
-            gopalkumarsingh2004@gmail.com
+          <a href="mailto:Togetherforhelp01@gmail.com">
+            Togetherforhelp01@gmail.com
           </a>{" "}
           or through our <a href="/contact">Contact page</a>.
         </p>

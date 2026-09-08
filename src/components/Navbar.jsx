@@ -72,7 +72,7 @@ useEffect(() => {
       {/* plain <a> (not <Link>) on purpose — logo should always take
           you to the home landing with a full refresh, even if you're
           already on the home page or mid-scroll somewhere on it */}
-      <a href="/togetherforhelp/" className="logo">
+      <a href="/" className="logo">
         <img src={logo} alt="TogetherForHelp" className="logo-img" />
       </a>
 

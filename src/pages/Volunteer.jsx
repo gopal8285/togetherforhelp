@@ -75,25 +75,33 @@ function Volunteer() {
               </h3>
 
               <p>
-                Our online volunteer form is being set up.
-                In the meantime, reach out directly and
+                Fill out our quick volunteer form and
                 we'll get you started right away.
               </p>
+
+              <a
+                href="https://forms.gle/RdB8mfrZjrPUvwgr5"
+                target="_blank"
+                rel="noreferrer"
+                className="btn primary"
+              >
+                Fill Volunteer Form
+              </a>
 
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noreferrer"
-                className="btn primary"
+                className="volunteer-form-whatsapp"
               >
-                Message Us On WhatsApp
+                Or Message Us On WhatsApp
               </a>
 
               <a
-                href="mailto:hello@togetherforhelp.org"
+                href="mailto:Togetherforhelp01@gmail.com"
                 className="volunteer-form-email"
               >
-                hello@togetherforhelp.org
+                Togetherforhelp01@gmail.com
               </a>
 
             </div>

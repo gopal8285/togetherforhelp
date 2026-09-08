@@ -27,6 +27,11 @@ import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-dr
 import eventFamilyFoodDistribution from "../assets/event-family-food-distribution.jpeg";
 import eventMealDistributionBranded from "../assets/event-meal-distribution-branded.jpeg";
 import eventTeachingSupport from "../assets/event-teaching-support.jpeg";
+import eventNightRationDistribution from "../assets/event-night-ration-distribution.jpeg";
+import eventRationDistributionWoman from "../assets/event-ration-distribution-woman.jpeg";
+import eventRationDistributionElder from "../assets/event-ration-distribution-elder.jpeg";
+import eventJanmashtamiToddler from "../assets/event-janmashtami-toddler.jpeg";
+import eventVolunteerGroupKids from "../assets/event-volunteer-group-kids.jpeg";
 
 function MarqueeItem({ img, alt, label }) {
 
@@ -168,6 +173,31 @@ function Gallery() {
       img: eventTeachingSupport,
       label: "One-on-one learning support for our students",
       alt: "Volunteer helping a child with her writing practice"
+    },
+    {
+      img: eventNightRationDistribution,
+      label: "Ration packets delivered late into the night",
+      alt: "A woman receiving a ration packet during a night distribution drive"
+    },
+    {
+      img: eventRationDistributionWoman,
+      label: "Essentials reaching families where they live",
+      alt: "A woman receiving a ration packet at her home"
+    },
+    {
+      img: eventRationDistributionElder,
+      label: "A smile that says it all",
+      alt: "An elderly man smiling while receiving a ration packet"
+    },
+    {
+      img: eventJanmashtamiToddler,
+      label: "Celebrating Janmashtami with our little ones",
+      alt: "A toddler dressed as Krishna during a Janmashtami celebration"
+    },
+    {
+      img: eventVolunteerGroupKids,
+      label: "An afternoon full of laughter with the kids",
+      alt: "A volunteer surrounded by a group of smiling children"
     }
 
   ];

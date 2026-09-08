@@ -37,6 +37,7 @@ import eventMealDistributionBranded from "../assets/event-meal-distribution-bran
 import eventTeachingSupport from "../assets/event-teaching-support.jpeg";
 import birthdayCelebrationVideo from "../assets/birthday-celebration.mp4";
 import eventStreetKidsVisit from "../assets/event-street-kids-visit.jpeg";
+import eventVolunteerGroupKids from "../assets/event-volunteer-group-kids.jpeg";
 
 
 const initiativesData = [
@@ -644,6 +645,58 @@ function Home() {
 
       </section>
 
+      {/* RECENT POST */}
+      <section className="recent-post fade-in">
+
+        <motion.div
+
+          className="recent-post-card"
+
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+
+        >
+
+          <img
+            src={eventVolunteerGroupKids}
+            alt="Volunteer spending an afternoon with a group of smiling children"
+            loading="lazy"
+          />
+
+          <div className="recent-post-content">
+
+            <span className="recent-post-tag">
+              Latest From The Ground
+            </span>
+
+            <h2>
+              An Afternoon Full Of Laughter
+            </h2>
+
+            <p>
+              Some of the best moments happen off-camera —
+              just us, the kids, and a lot of laughter.
+              Here's a little glimpse from our most recent visit.
+            </p>
+
+            <a
+              href="https://www.instagram.com/_togetherforhelp_?igsi=MXNreDF2Y3lvb2RjaA%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noreferrer"
+              className="btn primary"
+            >
+              <FaInstagram />
+              See More On Instagram
+            </a>
+
+          </div>
+
+        </motion.div>
+
+      </section>
+
       {/* BIRTHDAY CELEBRATION FEATURE */}
       <section className="bday-feature fade-in" id="birthday">
 
@@ -923,25 +976,33 @@ function Home() {
               </h3>
 
               <p>
-                Our online volunteer form is being set up.
-                In the meantime, reach out directly and
+                Fill out our quick volunteer form and
                 we'll get you started right away.
               </p>
+
+              <a
+                href="https://forms.gle/RdB8mfrZjrPUvwgr5"
+                target="_blank"
+                rel="noreferrer"
+                className="btn primary"
+              >
+                Fill Volunteer Form
+              </a>
 
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noreferrer"
-                className="btn primary"
+                className="volunteer-form-whatsapp"
               >
-                Message Us On WhatsApp
+                Or Message Us On WhatsApp
               </a>
 
               <a
-                href="mailto:hello@togetherforhelp.org"
+                href="mailto:Togetherforhelp01@gmail.com"
                 className="volunteer-form-email"
               >
-                hello@togetherforhelp.org
+                Togetherforhelp01@gmail.com
               </a>
 
             </div>
@@ -1207,7 +1268,7 @@ function Home() {
             </p>
 
             <a
-              href="https://instagram.com/_togetherforhelp_"
+              href="https://www.instagram.com/_togetherforhelp_?igsi=MXNreDF2Y3lvb2RjaA%3D%3D&utm_source=qr"
               target="_blank"
               rel="noreferrer"
               className="btn primary"
