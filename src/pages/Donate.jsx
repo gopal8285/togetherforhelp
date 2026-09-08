@@ -62,6 +62,42 @@ function Donate() {
             📱 Paytm: +91 9876543210
           </p>
 
+          {/* BANK TRANSFER DETAILS */}
+          <div className="bank-details">
+
+            <h4>Bank Transfer Details</h4>
+
+            <div className="bank-details-grid">
+
+              <div className="bank-detail-row">
+                <span className="bank-detail-label">Account Name</span>
+                <span className="bank-detail-value">TOGETHERFORHELP TRUST</span>
+              </div>
+
+              <div className="bank-detail-row">
+                <span className="bank-detail-label">Account No.</span>
+                <span className="bank-detail-value">309032003941</span>
+              </div>
+
+              <div className="bank-detail-row">
+                <span className="bank-detail-label">IFSC Code</span>
+                <span className="bank-detail-value">RATN0000190</span>
+              </div>
+
+              <div className="bank-detail-row">
+                <span className="bank-detail-label">Branch</span>
+                <span className="bank-detail-value">Pitampura</span>
+              </div>
+
+              <div className="bank-detail-row">
+                <span className="bank-detail-label">Bank</span>
+                <span className="bank-detail-value">RBL Bank</span>
+              </div>
+
+            </div>
+
+          </div>
+
           <p className="donate-note">
 
             Every small contribution creates

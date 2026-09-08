@@ -1221,6 +1221,16 @@ function Home() {
         Paytm:
         +91 9876543210
 
+        <br /><br />
+
+        Bank: RBL Bank, Pitampura
+        <br />
+        A/C Name: TOGETHERFORHELP TRUST
+        <br />
+        A/C No.: 309032003941
+        <br />
+        IFSC: RATN0000190
+
       </p>
 
     </motion.div>
