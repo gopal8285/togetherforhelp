@@ -74,7 +74,7 @@ function Team() {
 
     {
       name: "Unnati Jha",
-      role: "Coordinator",
+      role: "Core Member",
       image: teamUnnati
     },
 
