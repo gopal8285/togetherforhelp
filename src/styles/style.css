@@ -1949,8 +1949,14 @@ section h2::after {
   color: #fff;
 }
 
-/* DONATE SECTION LAYOUT */
-section#donate {
+/* DONATE SECTION LAYOUT — scoped to .about-page (Donate.jsx's wrapper)
+   because "#donate" is also used as the id on the Home page's
+   "Support Our Mission" section (as a #donate scroll-link anchor); an
+   earlier version of this rule used a bare "#donate" ID selector, which
+   has higher specificity than ".support-section" and was silently
+   overriding that section's padding and forcing it into a flex row,
+   breaking its two-column text onto one broken row on mobile. */
+.about-page section#donate {
   padding: 60px 8% 90px;
   display: flex;
   justify-content: center;
@@ -1959,6 +1965,7 @@ section#donate {
 .donate-card {
   width: 100%;
   max-width: 640px;
+  margin: 0 auto;
   padding: 46px 48px;
   text-align: center;
 }
@@ -1980,7 +1987,7 @@ section#donate {
 /* DONATE PAGE CARD (mobile) — .donate-card has no dedicated padding, so its
    text sat flush against the rounded corners. */
 @media (max-width: 768px) {
-  section#donate {
+  .about-page section#donate {
     padding: 36px 18px 50px;
   }
 
