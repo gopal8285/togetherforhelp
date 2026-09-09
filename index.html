@@ -8,6 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ff6b00" />
 
+    <!-- GitHub Pages SPA redirect handshake: decodes the path 404.html
+         encoded into the query string, and restores the real URL before
+         React Router mounts, so a hard refresh / direct link on any
+         route (e.g. /donate) works instead of showing a 404. -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+
     <title>TogetherForHelp | NGO In Delhi For Food, Education &amp; Community Support</title>
     <meta name="description" content="TogetherForHelp is a Delhi-based NGO trust running blanket drives, food distribution, free education for children, and support for the elderly and visually impaired. Volunteer or donate today." />
     <meta name="keywords" content="NGO Delhi, TogetherForHelp, donate India, volunteer Delhi, blanket drive, food distribution, education for children, community support, charity trust India" />
@@ -51,8 +65,8 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DkTyLClG.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DYi7rW_F.css">
+    <script type="module" crossorigin src="/assets/index-BixKEkof.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C8986mh4.css">
   </head>
   <body>
     <div id="root"></div>
