@@ -24,7 +24,7 @@ function Donate() {
 
   const paymentRows = [
     { label: "UPI ID", value: "together4help@upi" },
-    { label: "Paytm", value: "+91 9810811439" },
+    { label: "Paytm", value: "+91 9220744575" },
     { label: "Account Name", value: "TOGETHERFORHELP TRUST" },
     { label: "Account No.", value: "309032003941" },
     { label: "IFSC Code", value: "RATN0000190" },

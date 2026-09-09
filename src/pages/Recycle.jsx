@@ -28,7 +28,7 @@ function Recycle() {
         <h1>Give It A Second Life</h1>
 
         <p>
-          Old clothes, books, blankets, toys, pens, or gifts —
+          Old clothes, books, blankets, toys, pens, or gifts,
           your unused items can still mean the world to someone else.
         </p>
 
@@ -50,7 +50,7 @@ function Recycle() {
         </h2>
 
         <p className="recycle-subtext">
-          Clothes, books, blankets, toys, pens, gifts — anything
+          Clothes, books, blankets, toys, pens, gifts, anything
           lying unused at home can still mean the world to someone
           else. Soon, you'll be able to just reach out and we'll
           come pick it up from your doorstep and get it straight
@@ -97,7 +97,7 @@ function Recycle() {
           className="btn primary recycle-notify-btn"
           disabled
         >
-          Doorstep Pickup — Coming Soon
+          Doorstep Pickup, Coming Soon
         </button>
 
       </section>

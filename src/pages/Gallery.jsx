@@ -96,17 +96,17 @@ function Gallery() {
     },
     {
       img: initiativeProjectUdhan,
-      label: "Project Udhan — pad distribution",
+      label: "Project Udhan, pad distribution",
       alt: "Project Udhan sanitary pad distribution drive"
     },
     {
       img: initiativeKitOfHope,
-      label: "Kit of Hope — school supplies",
+      label: "Kit of Hope, school supplies",
       alt: "Kit of Hope school supplies kit for children"
     },
     {
       img: initiativeChabeelSewa,
-      label: "Chabeel Sewa — free drinks drive",
+      label: "Chabeel Sewa, free drinks drive",
       alt: "Chabeel Sewa free drinks distribution drive"
     },
     {
@@ -156,7 +156,7 @@ function Gallery() {
     },
     {
       img: initiativeWinterBlanketDrive,
-      label: "Winter blanket drive — warmth for the cold nights",
+      label: "Winter blanket drive, warmth for the cold nights",
       alt: "Winter blanket distribution drive for people sleeping on the streets"
     },
     {

@@ -1066,7 +1066,7 @@ section h2::after {
 /* VOLUNTEER NEW SECTION START */
 
 .volunteer-new {
-  padding: 70px 8%;
+  padding: 70px 8% 30px;
   background: var(--bg);
   transition:
     transform 0.4s ease,
@@ -1246,11 +1246,13 @@ section h2::after {
 .perk-card:nth-child(3n+2) { transform: rotate(0.8deg); }
 .perk-card:nth-child(3n+3) { transform: rotate(-0.6deg); }
 
-.perk-card:hover {
-  transform: rotate(0deg) translateY(-8px) !important;
-  box-shadow: 0 20px 40px rgba(255, 152, 0, 0.3);
-  border-color: rgba(255, 152, 0, 0.5);
-  z-index: 2;
+@media (hover: hover) and (pointer: fine) {
+  .perk-card:hover {
+    transform: rotate(0deg) translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(255, 152, 0, 0.3);
+    border-color: rgba(255, 152, 0, 0.5);
+    z-index: 2;
+  }
 }
 
 /* big faint index number, decorative */
@@ -1375,8 +1377,10 @@ section h2::after {
   transition: transform 0.3s ease;
 }
 
-.perk-card:hover .perk-icon {
-  transform: rotate(-10deg) scale(1.12);
+@media (hover: hover) and (pointer: fine) {
+  .perk-card:hover .perk-icon {
+    transform: rotate(-10deg) scale(1.12);
+  }
 }
 
 .perk-card h3 {
@@ -1644,7 +1648,7 @@ section h2::after {
 ========================= */
 
 .support-section {
-  padding: 55px 8%;
+  padding: 30px 8% 55px;
 
   position: relative;
   overflow: hidden;
@@ -1772,7 +1776,7 @@ section h2::after {
 } */
 @media (max-width: 768px) {
   .support-section {
-    padding: 35px 18px 30px !important;
+    padding: 20px 18px 30px !important;
   }
   .support-section-bg {
     background-attachment: scroll;
@@ -4851,6 +4855,23 @@ nav a.active {
 
 .bday-celebrate-btn {
   font-size: 15px;
+  position: relative;
+  animation: bdayBtnPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes bdayBtnPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bday-celebrate-btn:hover {
+    animation-play-state: paused;
+  }
 }
 
 /* BIRTHDAY BOOKING FORM MODAL */
@@ -5479,7 +5500,7 @@ nav a.active {
 ========================= */
 
 .journey-map-section {
-  padding: 60px 18px;
+  padding: 44px 18px;
   background: var(--bg);
   text-align: center;
 }
@@ -5495,7 +5516,7 @@ nav a.active {
   color: var(--secondary);
   font-size: 15px;
   max-width: 520px;
-  margin: 0 auto 44px;
+  margin: 0 auto 30px;
   line-height: 1.6;
 }
 
@@ -5505,7 +5526,7 @@ nav a.active {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   text-align: left;
 }
 
@@ -5550,7 +5571,7 @@ nav a.active {
 .journey-step-card {
   flex: 1;
   border-radius: 18px;
-  padding: 20px 22px;
+  padding: 14px 18px;
   color: #fff;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
@@ -5588,7 +5609,7 @@ nav a.active {
 @media (min-width: 1000px) {
 
   .journey-map-section {
-    padding: 70px 8%;
+    padding: 54px 8%;
   }
 
   .journey-map-section h2 {

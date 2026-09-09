@@ -26,7 +26,7 @@ function About() {
     },
     {
       title: "Sunday Learning Circles",
-      text: "Free weekly classes for children who don't have access to formal schooling — because every child deserves a chance to learn."
+      text: "Free weekly classes for children who don't have access to formal schooling, because every child deserves a chance to learn."
     },
     {
       title: "Kit of Hope",
@@ -50,7 +50,7 @@ function About() {
     },
     {
       title: "Celebrating With Our Elders",
-      text: "Marking birthdays and small occasions with the elderly we support — because everyone deserves to be celebrated."
+      text: "Marking birthdays and small occasions with the elderly we support, because everyone deserves to be celebrated."
     }
 
   ];
@@ -101,7 +101,7 @@ function About() {
             </h2>
 
             <p>
-              TogetherForHelp began the way most real things do — not
+              TogetherForHelp began the way most real things do. Not
               with a business plan or a big launch, but with a group
               of friends who couldn't walk past someone in need
               without stopping. A blanket handed to a man sleeping on
@@ -116,7 +116,7 @@ function About() {
               our lives without. One drive turned into a monthly
               habit, then a weekly one. Friends brought more friends.
               Strangers started asking how they could join in. That's
-              when we realised this wasn't a phase — it was the
+              when we realised this wasn't a phase, it was the
               beginning of something we wanted to build properly.
             </p>
 
@@ -124,7 +124,7 @@ function About() {
               Today, TogetherForHelp is a registered trust under the
               Indian Trusts Act, 1882, run by a small, hands-on team
               instead of a distant office. Every person on our team
-              still shows up to the drives themselves — packing food,
+              still shows up to the drives themselves, packing food,
               distributing blankets, sitting on the floor teaching
               children on Sunday mornings. We believe that's the only
               way to stay honest about the work we do.
@@ -133,16 +133,16 @@ function About() {
             <blockquote className="about-quote">
               "Every Person Deserves A Saarthi."
               <span>
-                — the belief that's guided every drive we've run
+                The belief that's guided every drive we've run
               </span>
             </blockquote>
 
             <p>
               Our thinking has never been complicated: if you can
               help, help. Not someday, not once we have more
-              resources — now, with whatever we have. That belief has
+              resources, now, with whatever we have. That belief has
               taken us from a single blanket drive to a dozen ongoing
-              initiatives — feeding families, teaching children,
+              initiatives: feeding families, teaching children,
               supporting the elderly, standing with women through
               Project Udhan, helping the visually impaired move more
               freely, and even making sure the strays in our
@@ -154,7 +154,7 @@ function About() {
             <p>
               We're still a small team. We're still learning as we
               grow. But every drive, every rupee donated, and every
-              volunteer who shows up tells us the same thing — that
+              volunteer who shows up tells us the same thing, that
               when people come together with the simple intention of
               helping, real change follows. That's what
               "Let's be together to serve together" means to us, and
@@ -201,12 +201,12 @@ function About() {
               {
                 icon: <FaSeedling />,
                 title: "Someone Needs Help",
-                text: "It usually starts with one message — a cold night on the street, a family that hasn't eaten, a kid who dropped out because there was no money for books."
+                text: "It usually starts with one message. A cold night on the street, a family that hasn't eaten, a kid who dropped out because there was no money for books."
               },
               {
                 icon: <FaHandshake />,
                 title: "We Talk to Them",
-                text: "Before we do anything, we go meet the person. No assumptions — we ask what they actually need, because that's rarely what we'd guess from the outside."
+                text: "Before we do anything, we go meet the person. No assumptions, we ask what they actually need, because that's rarely what we'd guess from the outside."
               },
               {
                 icon: <FaClipboardList />,
@@ -216,12 +216,12 @@ function About() {
               {
                 icon: <FaBolt />,
                 title: "We Show Up",
-                text: "This is the part that matters — blankets in hand, meals served hot, a class actually taught. No middlemen, we hand it over ourselves."
+                text: "This is the part that matters. Blankets in hand, meals served hot, a class actually taught. No middlemen, we hand it over ourselves."
               },
               {
                 icon: <FaHeart />,
                 title: "It Doesn't End There",
-                text: "More often than not, the people we've helped come back — not for help, but to help the next family in line. That's the part we're proudest of."
+                text: "More often than not, the people we've helped come back, not for help, but to help the next family in line. That's the part we're proudest of."
               }
             ].map((step, index) => (
 

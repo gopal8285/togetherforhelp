@@ -27,18 +27,18 @@ const perks = [
   {
     icon: <FaHeart />,
     title: "Make A Real Difference",
-    text: "Your time isn't just 'volunteering' — it's a real, visible change in someone's day.",
+    text: "Your time isn't just 'volunteering', it's a real, visible change in someone's day.",
     photo: eventBlessingElder
   },
   {
     icon: <FaUserGroup />,
     title: "Build New Friendships",
-    text: "Meet people who care the way you do — some of our best friendships started on a drive."
+    text: "Meet people who care the way you do. Some of our best friendships started on a drive."
   },
   {
     icon: <FaSeedling />,
     title: "Grow Along The Way",
-    text: "Every drive teaches you something — patience, empathy, and a little more about the world.",
+    text: "Every drive teaches you something: patience, empathy, and a little more about the world.",
     photo: initiativeAnimalFeeding
   },
   {
@@ -59,9 +59,6 @@ function VolunteerPerks() {
 
       {perks.map((perk, index) => {
 
-        const col = index % 3;
-        const row = Math.floor(index / 3);
-
         return (
 
           <motion.div
@@ -72,15 +69,14 @@ function VolunteerPerks() {
 
             initial={{
               opacity: 0,
-              y: 40,
-              x: col === 0 ? -40 : col === 2 ? 40 : 0
+              y: 24
             }}
 
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
 
             transition={{
-              duration: 0.6,
-              delay: row * 0.25 + col * 0.15,
+              duration: 0.45,
+              delay: Math.min(index * 0.08, 0.32),
               ease: "easeOut"
             }}
 

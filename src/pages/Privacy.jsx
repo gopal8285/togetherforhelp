@@ -53,7 +53,7 @@ function Privacy() {
 
         <p>
           Any information you share with us is used only for the
-          purpose you shared it for — for example, to get in touch
+          purpose you shared it for, for example, to get in touch
           about volunteering opportunities, respond to your queries,
           or keep you updated about our community drives. We do not
           sell, rent, or trade your personal information to any

@@ -21,8 +21,8 @@ function Copyright() {
 
         <p>
           This Copyright Policy explains how the content on the
-          TogetherForHelp website — including text, photographs,
-          videos, our logo, and design elements — may and may not be
+          TogetherForHelp website (including text, photographs,
+          videos, our logo, and design elements) may and may not be
           used.
         </p>
 

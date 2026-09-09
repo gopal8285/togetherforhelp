@@ -17,7 +17,7 @@ function Volunteer() {
 
       <StickyCtaBar
         label="Join As Volunteer"
-        href="https://wa.me/919810811439"
+        href="https://wa.me/919220744575"
         external
       />
 
@@ -53,7 +53,7 @@ function Volunteer() {
             <p>
               Whether it is food distribution,
               education drives, helping children,
-              or community support —
+              or community support,
               your contribution matters.
             </p>
 
@@ -89,7 +89,7 @@ function Volunteer() {
               </a>
 
               <a
-                href="https://wa.me/919810811439"
+                href="https://wa.me/919220744575"
                 target="_blank"
                 rel="noreferrer"
                 className="volunteer-form-whatsapp"

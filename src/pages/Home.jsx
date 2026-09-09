@@ -53,17 +53,17 @@ const initiativesData = [
   },
   {
     img: initiativeProjectUdhan,
-    label: "Project Udhan — pad distribution",
+    label: "Project Udhan, pad distribution",
     alt: "Project Udhan - a step towards dignity, sanitary pad distribution drive"
   },
   {
     img: initiativeKitOfHope,
-    label: "Kit of Hope — school supplies",
+    label: "Kit of Hope, school supplies",
     alt: "Kit of Hope - school supplies kit for children"
   },
   {
     img: initiativeChabeelSewa,
-    label: "Chabeel Sewa — free drinks drive",
+    label: "Chabeel Sewa, free drinks drive",
     alt: "Chabeel Sewa - free drinks distribution drive for the thirsty"
   },
   {
@@ -166,7 +166,7 @@ function Home() {
       `Message: ${bdayForm.message}`;
 
     window.open(
-      `https://wa.me/919810811439?text=${text}`,
+      `https://wa.me/919220744575?text=${text}`,
       "_blank",
       "noreferrer"
     );
@@ -308,7 +308,7 @@ function Home() {
 
             <img
               src={initiativeEducation}
-              alt="Volunteer teaching children — education changes everything"
+              alt="Volunteer teaching children, education changes everything"
               loading="lazy"
             />
 
@@ -346,8 +346,7 @@ function Home() {
                 From blanket distribution in winter
                 to food drives,
                 teaching children every Sunday,
-                and standing with families during emergencies —
-                we believe kindness creates impact.
+                and standing with families during emergencies, we believe kindness creates impact.
               </p>
 
               <button
@@ -462,8 +461,7 @@ function Home() {
           viewport={{ once: true }}
 
         >
-          Real campaigns, driven by real people —
-          here's what we're working on right now.
+          Real campaigns, driven by real people, here's what we're working on right now.
         </motion.p>
 
         <div className="initiatives-carousel">
@@ -600,7 +598,7 @@ function Home() {
         </h2>
 
         <p className="journal-subtext">
-          A page from every drive — in our own words.
+          A page from every drive, in our own words.
         </p>
 
         <JournalGallery
@@ -613,7 +611,7 @@ function Home() {
             {
               img: celebrateBdayImg,
               alt: "Celebrating birthdays with community elders",
-              caption: "Celebrated birthdays with our elders — joy has no age."
+              caption: "Celebrated birthdays with our elders, joy has no age."
             },
             {
               img: spreadKindnessImg,
@@ -623,7 +621,7 @@ function Home() {
             {
               img: giveUnusedItemsImg,
               alt: "Clothes and toy donation to a smiling child",
-              caption: "Old toys, new smiles — nothing goes to waste here."
+              caption: "Old toys, new smiles, nothing goes to waste here."
             },
             {
               img: eventSupermanKid,
@@ -633,7 +631,7 @@ function Home() {
             {
               img: eventMealDistributionBranded,
               alt: "A child receiving a hot meal packed by TogetherForHelp",
-              caption: "A warm meal, served with care — one tray at a time."
+              caption: "A warm meal, served with care, one tray at a time."
             },
             {
               img: initiativeTreePlantation,
@@ -676,8 +674,7 @@ function Home() {
             </h2>
 
             <p>
-              Some of the best moments happen off-camera —
-              just us, the kids, and a lot of laughter.
+              Some of the best moments happen off-camera, just us, the kids, and a lot of laughter.
               Here's a little glimpse from our most recent visit.
             </p>
 
@@ -710,7 +707,7 @@ function Home() {
 
         <p className="bday-feature-subtext">
           Every birthday drive is a small excuse for a big
-          celebration — cake, laughter, and a room full of
+          celebration, cake, laughter, and a room full of
           people who feel seen.
         </p>
 
@@ -990,7 +987,7 @@ function Home() {
               </a>
 
               <a
-                href="https://wa.me/919810811439"
+                href="https://wa.me/919220744575"
                 target="_blank"
                 rel="noreferrer"
                 className="volunteer-form-whatsapp"
@@ -1219,7 +1216,7 @@ function Home() {
         <br /><br />
 
         Paytm:
-        +91 9810811439
+        +91 9220744575
 
         <br /><br />
 

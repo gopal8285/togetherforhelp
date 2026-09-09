@@ -26,6 +26,16 @@ function Navbar() {
 
   }, []);
 
+  useEffect(() => {
+
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+
+  }, [menuOpen]);
+
 const [darkMode,
 setDarkMode]
 = useState(
