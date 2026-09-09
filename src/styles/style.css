@@ -372,9 +372,11 @@ section h2::after {
 }
 
 /* optional subtle hover */
-section h2:hover {
-  transform: scale(1.02);
-  transition: 0.3s ease;
+@media (hover: hover) and (pointer: fine) {
+  section h2:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+  }
 }
 
 /* BUTTONS */
@@ -427,15 +429,17 @@ section h2:hover {
 }
 
 /* Hover effect */
-.btn:hover {
-  /* Background transparent ho jayega */
-  background: transparent;
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    /* Background transparent ho jayega */
+    background: transparent;
 
-  /* Thoda button upar aur zoom */
-  transform: translateY(-5px) scale(1.05);
+    /* Thoda button upar aur zoom */
+    transform: translateY(-5px) scale(1.05);
 
-  /* Glow effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Glow effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Hover pe text color */
@@ -490,8 +494,10 @@ section {
   transition: 0.3s ease;
 }
 
-.about-left img:hover {
-  transform: scale(1.02);
+@media (hover: hover) and (pointer: fine) {
+  .about-left img:hover {
+    transform: scale(1.02);
+  }
 }
 
 /* RIGHT — premium text-over-image card */
@@ -514,8 +520,10 @@ section {
   transition: transform 0.5s ease;
 }
 
-.about-right:hover .about-right-bg {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .about-right:hover .about-right-bg {
+    transform: scale(1.05);
+  }
 }
 
 .about-right-overlay {
@@ -601,8 +609,10 @@ section {
   transition: 0.3s ease;
 }
 
-.drive-card:hover {
-  transform: translateY(-8px);
+@media (hover: hover) and (pointer: fine) {
+  .drive-card:hover {
+    transform: translateY(-8px);
+  }
 }
 
 .drive-card img {
@@ -745,6 +755,21 @@ section {
   }
   .about-small {
     font-size: 13px;
+  }
+}
+
+/* TABLET GAP FIX: between 769-999px .about-layout was still the base
+   flex-row (48%/48% + 40px gap), which doesn't fit inside the section's
+   8% side padding at these widths and causes horizontal overflow. Stack
+   it like mobile until the 1000px "wide enough for two columns" point. */
+@media (min-width: 769px) and (max-width: 999px) {
+  .about-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .about-left,
+  .about-right {
+    width: 100%;
   }
 }
 
@@ -1579,18 +1604,20 @@ section h2::after {
   margin-bottom: 16px;
 }
 
-.team-member:hover {
-  transform: rotate(0deg) translateY(-10px);
-  z-index: 3;
-}
+@media (hover: hover) and (pointer: fine) {
+  .team-member:hover {
+    transform: rotate(0deg) translateY(-10px);
+    z-index: 3;
+  }
 
-.team-member:hover .team-img {
-  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
-}
+  .team-member:hover .team-img {
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.3);
+  }
 
-.team-member:hover .team-img img {
-  transform: scale(1.08);
-  filter: grayscale(0%) contrast(1);
+  .team-member:hover .team-img img {
+    transform: scale(1.08);
+    filter: grayscale(0%) contrast(1);
+  }
 }
 
 /* TABLET */
@@ -1774,6 +1801,27 @@ section h2::after {
   }
 
 } */
+/* TABLET GAP FIX: 769-999px had no override at all, so it inherited the
+   82px desktop heading / 34px item heading meant for wide screens, which
+   wraps awkwardly inside the 900px max-width column on tablet. */
+@media (min-width: 769px) and (max-width: 999px) {
+  .support-section {
+    padding: 26px 6% 40px;
+  }
+  .support-top h2 {
+    font-size: 46px;
+  }
+  .support-top p {
+    font-size: 17px;
+  }
+  .support-item h3 {
+    font-size: 24px;
+  }
+  .support-item p {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .support-section {
     padding: 20px 18px 30px !important;
@@ -1901,9 +1949,41 @@ section h2::after {
   color: #fff;
 }
 
+/* DONATE SECTION LAYOUT */
+section#donate {
+  padding: 60px 8% 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.donate-card {
+  width: 100%;
+  max-width: 640px;
+  padding: 46px 48px;
+  text-align: center;
+}
+
+.donate-message {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--secondary);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.donate-note {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--secondary);
+}
+
 /* DONATE PAGE CARD (mobile) — .donate-card has no dedicated padding, so its
    text sat flush against the rounded corners. */
 @media (max-width: 768px) {
+  section#donate {
+    padding: 36px 18px 50px;
+  }
+
   .donate-card {
     padding: 26px 20px;
     text-align: center;
@@ -1993,10 +2073,12 @@ section h2::after {
   text-decoration: none;
 }
 
-.footer-icons a:hover {
-  background: var(--text);
-  color: var(--bg);
-  transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  .footer-icons a:hover {
+    background: var(--text);
+    color: var(--bg);
+    transform: translateY(-3px);
+  }
 }
 
 .footer-email {
@@ -2041,10 +2123,12 @@ section h2::after {
   line-height: 1.6;
 }
 
-.footer-col a:hover {
-  color: var(--text);
-  transform: translateX(4px);
-  display: inline-block;
+@media (hover: hover) and (pointer: fine) {
+  .footer-col a:hover {
+    color: var(--text);
+    transform: translateX(4px);
+    display: inline-block;
+  }
 }
 
 /* TRUST & CREDIBILITY BADGES */
@@ -2313,9 +2397,11 @@ section h2::after {
     opacity 0.4s ease;
 }
 
-/* hover zoom */
-.cause-card:hover img {
-  transform: scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  /* hover zoom */
+  .cause-card:hover img {
+    transform: scale(1.08);
+  }
 }
 
 /* overlay */
@@ -2471,8 +2557,10 @@ section h2::after {
   transition: 0.3s ease;
 }
 
-.impact-point:hover {
-  transform: translateX(8px);
+@media (hover: hover) and (pointer: fine) {
+  .impact-point:hover {
+    transform: translateX(8px);
+  }
 }
 
 .impact-point h3 {
@@ -2632,8 +2720,10 @@ section h2::after {
   transition: 0.3s ease;
 }
 
-.about-story-left img:hover {
-  transform: scale(1.02);
+@media (hover: hover) and (pointer: fine) {
+  .about-story-left img:hover {
+    transform: scale(1.02);
+  }
 }
 
 /* RIGHT CONTENT */
@@ -2682,8 +2772,10 @@ section h2::after {
   transition: 0.3s ease;
 }
 
-.mission-card:hover {
-  transform: translateY(-8px);
+@media (hover: hover) and (pointer: fine) {
+  .mission-card:hover {
+    transform: translateY(-8px);
+  }
 }
 
 .mission-card h3 {
@@ -2697,9 +2789,11 @@ section h2::after {
   line-height: 1.8;
 }
 
-/* MOBILE */
+/* MOBILE + TABLET (widened from 900px: at 901-999px .about-story-layout
+   was still the base flex-row 48%/48%+45px gap, which overflows the
+   section's 8% side padding at those widths) */
 
-@media (max-width: 900px) {
+@media (max-width: 999px) {
   .about-story-layout {
     flex-direction: column;
   }
@@ -2871,10 +2965,12 @@ section h2::after {
   color: var(--text);
 }
 
-.contact-link-item:hover {
-  transform: translateX(10px);
+@media (hover: hover) and (pointer: fine) {
+  .contact-link-item:hover {
+    transform: translateX(10px);
 
-  border-color: var(--text);
+    border-color: var(--text);
+  }
 }
 
 /* TITLE */
@@ -2973,10 +3069,12 @@ section h2::after {
     opacity 0.4s ease;
 }
 
-.contact-link-item:hover .contact-dot {
-  transform: scale(1.4);
+@media (hover: hover) and (pointer: fine) {
+  .contact-link-item:hover .contact-dot {
+    transform: scale(1.4);
 
-  opacity: 1;
+    opacity: 1;
+  }
 }
 
 /* =========================
@@ -3174,10 +3272,12 @@ section h2::after {
   font-size: 30px;
 }
 
-.sitemap-link:hover {
-  transform: translateX(10px);
+@media (hover: hover) and (pointer: fine) {
+  .sitemap-link:hover {
+    transform: translateX(10px);
 
-  border-color: var(--text);
+    border-color: var(--text);
+  }
 }
 
 /* MOBILE */
@@ -3912,12 +4012,14 @@ nav a.active {
   transition: 0.3s ease;
 }
 
-.social-icons a:hover {
-  transform: translateY(-4px);
+@media (hover: hover) and (pointer: fine) {
+  .social-icons a:hover {
+    transform: translateY(-4px);
 
-  background: #2a1800;
+    background: #2a1800;
 
-  color: white;
+    color: white;
+  }
 }
 
 /* =========================
@@ -4211,8 +4313,10 @@ nav a.active {
   transition: transform 0.5s ease;
 }
 
-.initiatives-carousel-card:hover img {
-  transform: scale(1.06);
+@media (hover: hover) and (pointer: fine) {
+  .initiatives-carousel-card:hover img {
+    transform: scale(1.06);
+  }
 }
 
 .initiatives-carousel-caption {
@@ -4253,9 +4357,11 @@ nav a.active {
   z-index: 20;
 }
 
-.initiatives-arrow:hover {
-  transform: scale(1.1);
-  background: #ffd400;
+@media (hover: hover) and (pointer: fine) {
+  .initiatives-arrow:hover {
+    transform: scale(1.1);
+    background: #ffd400;
+  }
 }
 
 .initiatives-dots {
@@ -4584,9 +4690,11 @@ nav a.active {
   z-index: 20;
 }
 
-.journal-arrow:hover {
-  background: #ffd400;
-  transform: scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .journal-arrow:hover {
+    background: #ffd400;
+    transform: scale(1.08);
+  }
 }
 
 .journal-page {
@@ -4775,8 +4883,10 @@ nav a.active {
   transition: transform 0.25s ease;
 }
 
-.bday-insta-btn:hover {
-  transform: scale(1.1) rotate(-6deg);
+@media (hover: hover) and (pointer: fine) {
+  .bday-insta-btn:hover {
+    transform: scale(1.1) rotate(-6deg);
+  }
 }
 
 /* sound toggle — sits on the left so it's easy to reach with a thumb
@@ -4802,9 +4912,11 @@ nav a.active {
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.bday-sound-btn:hover {
-  transform: scale(1.1);
-  background: rgba(0, 0, 0, 0.75);
+@media (hover: hover) and (pointer: fine) {
+  .bday-sound-btn:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.75);
+  }
 }
 
 .bday-photo-wrap {
@@ -4840,8 +4952,10 @@ nav a.active {
   transition: transform 0.25s ease;
 }
 
-.bday-feature-cta:hover {
-  transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  .bday-feature-cta:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .bday-feature-actions {
@@ -5100,9 +5214,11 @@ nav a.active {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.recycle-item-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+@media (hover: hover) and (pointer: fine) {
+  .recycle-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .recycle-item-icon {
@@ -5442,9 +5558,11 @@ nav a.active {
     box-shadow 0.3s ease;
 }
 
-.activity-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+@media (hover: hover) and (pointer: fine) {
+  .activity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+  }
 }
 
 .activity-number {
@@ -5696,8 +5814,10 @@ nav a.active {
     box-shadow 0.3s ease;
 }
 
-.floating-donate-btn:hover {
-  transform: translateY(-4px) scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .floating-donate-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
 }
 
 .floating-donate-icon {
@@ -5779,8 +5899,10 @@ nav a.active {
   transform: translateY(0) scale(1);
 }
 
-.floating-whatsapp-btn:hover {
-  transform: translateY(-4px) scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .floating-whatsapp-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
 }
 
 .floating-whatsapp-icon {
@@ -5840,10 +5962,12 @@ nav a.active {
   transform: translateY(0) scale(1);
 }
 
-.back-to-top-btn:hover {
-  transform: translateY(-4px) scale(1.05);
-  background: #ffd400;
-  color: #111;
+@media (hover: hover) and (pointer: fine) {
+  .back-to-top-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: #ffd400;
+    color: #111;
+  }
 }
 
 @media (min-width: 768px) {
@@ -5899,8 +6023,10 @@ nav a.active {
   transition: transform 0.2s ease;
 }
 
-.sticky-cta-btn:hover {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .sticky-cta-btn:hover {
+    transform: scale(1.05);
+  }
 }
 
 @media (min-width: 768px) {

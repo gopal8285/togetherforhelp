@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TogetherForHelp</title>
+
+    <!-- GitHub Pages has no server-side router, so a hard refresh or a
+         direct link/bookmark to a route like /donate returns this 404
+         page instead of the app. This script saves the full URL the
+         visitor actually wanted and bounces them to the site root; the
+         matching script in index.html then restores that URL once the
+         real app (and React Router) has loaded, so the visitor still
+         lands on the right page instead of seeing an error. -->
+    <script>
+      sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body>
+    Redirecting&hellip;
+  </body>
+</html>
