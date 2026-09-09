@@ -26,12 +26,45 @@ function Navbar() {
 
   }, []);
 
+  // Simple `overflow: hidden` on the body doesn't reliably block touch
+  // scrolling on mobile Safari/Chrome, the page behind the open menu
+  // still swipes. Locking the body to `position: fixed` (and restoring
+  // the exact scroll position on close) is the technique that actually
+  // stops touch scroll on mobile.
   useEffect(() => {
 
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) {
+
+      const scrollY = window.scrollY;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+
+    } else {
+
+      const scrollY = document.body.style.top;
+
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY, 10) * -1);
+      }
+
+    }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
     };
 
   }, [menuOpen]);
