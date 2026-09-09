@@ -13,8 +13,9 @@ import teamPriya from "../assets/team-priya-face.jpeg";
 import teamRajni from "../assets/team-rajni-face.jpeg";
 import teamNeha from "../assets/team-neha-face.jpeg";
 import teamShivam from "../assets/team-shivam-face.jpeg";
-import teamUnnati from "../assets/team-unnati-face.jpeg";
+import teamUnnati from "../assets/team-unnati-face-new.jpeg";
 import teamAnsh from "../assets/team-ansh-face.jpeg";
+import teamUdit from "../assets/team-udit-face.jpeg";
 
 import { motion } from "framer-motion";
 
@@ -75,6 +76,12 @@ function Team() {
       name: "Unnati Jha",
       role: "Coordinator",
       image: teamUnnati
+    },
+
+    {
+      name: "Udit",
+      role: "Coordinator",
+      image: teamUdit
     },
 
     {
