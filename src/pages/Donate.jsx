@@ -22,9 +22,9 @@ function Donate() {
 
   };
 
-  const paymentRows = [
-    { label: "UPI ID", value: "together4help@upi" },
-    { label: "Paytm", value: "+91 9220744575" },
+  const paytmRow = { label: "Paytm", value: "+91 9220744575" };
+
+  const bankRows = [
     { label: "Account Name", value: "TOGETHERFORHELP TRUST" },
     { label: "Account No.", value: "309032003941" },
     { label: "IFSC Code", value: "RATN0000190" },
@@ -73,33 +73,29 @@ function Donate() {
           <div className="payment-details">
 
             <span className="payment-details-tag">
-              UPI / Paytm
+              Paytm
             </span>
 
             <div className="payment-details-grid">
 
-              {paymentRows.slice(0, 2).map((row) => (
+              <div className="payment-detail-row" key={paytmRow.label}>
 
-                <div className="payment-detail-row" key={row.label}>
-
-                  <div>
-                    <span className="payment-detail-label">{row.label}</span>
-                    <span className="payment-detail-value">{row.value}</span>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="payment-copy-btn"
-                    onClick={() => copyValue(row.label, row.value)}
-                    aria-label={`Copy ${row.label}`}
-                  >
-                    {copiedField === row.label ? <FaCheck /> : <FaRegCopy />}
-                    {copiedField === row.label ? "Copied" : "Copy"}
-                  </button>
-
+                <div>
+                  <span className="payment-detail-label">{paytmRow.label}</span>
+                  <span className="payment-detail-value">{paytmRow.value}</span>
                 </div>
 
-              ))}
+                <button
+                  type="button"
+                  className="payment-copy-btn"
+                  onClick={() => copyValue(paytmRow.label, paytmRow.value)}
+                  aria-label={`Copy ${paytmRow.label}`}
+                >
+                  {copiedField === paytmRow.label ? <FaCheck /> : <FaRegCopy />}
+                  {copiedField === paytmRow.label ? "Copied" : "Copy"}
+                </button>
+
+              </div>
 
             </div>
 
@@ -109,7 +105,7 @@ function Donate() {
 
             <div className="payment-details-grid">
 
-              {paymentRows.slice(2).map((row) => (
+              {bankRows.map((row) => (
 
                 <div className="payment-detail-row" key={row.label}>
 

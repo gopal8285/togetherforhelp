@@ -38,7 +38,7 @@ function Faq() {
       "How can I donate?",
 
       answer:
-      "You can donate using our UPI QR code, bank transfer, or directly contact our team."
+      "You can donate via Paytm, bank transfer, or by directly contacting our team."
     },
 
     {

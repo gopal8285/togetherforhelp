@@ -29,7 +29,7 @@ function HomeFaq() {
       "How can I donate?",
 
       answer:
-      "You can donate using our UPI QR code or directly contact our NGO team."
+      "You can donate via Paytm, bank transfer, or by directly contacting our NGO team."
     },
 
     {

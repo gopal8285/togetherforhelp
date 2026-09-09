@@ -1210,11 +1210,6 @@ function Home() {
 
       <p>
 
-        UPI ID:
-        together4help@upi
-
-        <br /><br />
-
         Paytm:
         +91 9220744575
 
