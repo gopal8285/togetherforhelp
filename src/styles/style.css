@@ -1949,6 +1949,68 @@ section h2::after {
   color: #fff;
 }
 
+/* QR CODE — used both in the Donate page's payment-details card and
+   in the sitewide Donate QR popup modal */
+.donate-qr-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.donate-qr-box img {
+  width: 180px;
+  height: 180px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  background: #fff;
+}
+
+.donate-qr-upi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 4px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.donate-qr-upi-label {
+  display: block;
+  font-size: 11px;
+  color: var(--secondary);
+}
+
+.donate-qr-upi-value {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  word-break: break-word;
+  margin-top: 2px;
+}
+
+/* DONATE QR MODAL (popup triggered by the floating Donate button /
+   navbar Donate link) — reuses .bday-modal for the shell, just needs
+   a touch more bottom padding + a link style */
+.donate-qr-modal {
+  text-align: center;
+}
+
+.donate-qr-modal .donate-qr-upi-row {
+  text-align: left;
+}
+
+.donate-qr-more-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff6b00;
+  text-decoration: underline;
+}
+
 /* DONATE SECTION LAYOUT — scoped to .about-page (Donate.jsx's wrapper)
    because "#donate" is also used as the id on the Home page's
    "Support Our Mission" section (as a #donate scroll-link anchor); an
@@ -5804,6 +5866,9 @@ nav a.active {
   padding: 14px 18px;
   min-width: 116px;
   border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 
   background: linear-gradient(135deg, #ffd400, #ff9800);
   color: #111;
@@ -6047,4 +6112,186 @@ nav a.active {
     padding: 10px 26px;
   }
 
+}
+
+/* =========================
+   URGENT CAMPAIGN BANNER
+   (thin dismissible strip under the navbar on Home, for a
+   time-sensitive relief drive — e.g. Bihar Flood Relief)
+========================= */
+
+.urgent-campaign-banner {
+  position: relative;
+  margin-top: 70px;
+  z-index: 900;
+
+  display: flex;
+  align-items: stretch;
+
+  background: linear-gradient(90deg, #b91c1c, #dc2626);
+}
+
+.urgent-campaign-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.urgent-campaign-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #ffd400;
+}
+
+.urgent-campaign-cta {
+  display: none;
+}
+
+.urgent-campaign-close {
+  flex-shrink: 0;
+  width: 42px;
+  border: none;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .urgent-campaign-close:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 640px) {
+
+  .urgent-campaign-banner {
+    margin-top: 88px;
+  }
+
+  .urgent-campaign-link {
+    padding: 12px 24px;
+    font-size: 14px;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .urgent-campaign-cta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
+}
+
+/* =========================
+   DRIVES PAGE (/drives)
+========================= */
+
+.drives-section {
+  padding: 20px 8% 70px;
+}
+
+.drives-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.drive-listing-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.drive-listing-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.drive-listing-body {
+  padding: 22px 24px 26px;
+}
+
+.drive-listing-body h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.drive-listing-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.drive-listing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.drive-listing-actions .btn {
+  margin: 0;
+  padding: 10px 22px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* urgent card gets a red accent so it stands out from the regular drives */
+.drive-listing-urgent {
+  border-color: #dc2626;
+}
+
+.drive-listing-urgent-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 700px) {
+  .drives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .drives-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .drive-listing-urgent {
+    grid-column: 1 / -1;
+  }
+
+  .drive-listing-urgent .drive-listing-body {
+    max-width: 700px;
+  }
 }

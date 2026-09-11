@@ -6,6 +6,7 @@ import StickyCtaBar from "../components/StickyCtaBar";
 
 import { useState } from "react";
 import { FaRegCopy, FaCheck } from "react-icons/fa6";
+import { UPI_ID, QR_CODE_URL } from "../utils/donateInfo";
 
 function Donate() {
 
@@ -71,6 +72,37 @@ function Donate() {
 
           {/* PAYMENT DETAILS */}
           <div className="payment-details">
+
+            <span className="payment-details-tag">
+              Scan &amp; Pay
+            </span>
+
+            <div className="donate-qr-box">
+              <img
+                src={QR_CODE_URL}
+                alt="Scan to donate via UPI"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="donate-qr-upi-row">
+
+              <div>
+                <span className="donate-qr-upi-label">UPI ID</span>
+                <span className="donate-qr-upi-value">{UPI_ID}</span>
+              </div>
+
+              <button
+                type="button"
+                className="payment-copy-btn"
+                onClick={() => copyValue("UPI ID", UPI_ID)}
+                aria-label="Copy UPI ID"
+              >
+                {copiedField === "UPI ID" ? <FaCheck /> : <FaRegCopy />}
+                {copiedField === "UPI ID" ? "Copied" : "Copy"}
+              </button>
+
+            </div>
 
             <span className="payment-details-tag">
               Paytm

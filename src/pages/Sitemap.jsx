@@ -33,6 +33,11 @@ function Sitemap() {
     },
 
     {
+      title:"Drives",
+      path:"/drives"
+    },
+
+    {
       title:"Team",
       path:"/team"
     },

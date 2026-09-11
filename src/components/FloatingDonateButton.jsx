@@ -1,9 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FaHeart } from "react-icons/fa6";
+import { useDonateModal } from "../context/useDonateModal";
 
 function FloatingDonateButton() {
 
   const location = useLocation();
+  const { openDonateModal } = useDonateModal();
 
   /* Don't show the floating button on the Donate page itself */
   if (location.pathname.endsWith("/donate")) {
@@ -12,8 +14,9 @@ function FloatingDonateButton() {
 
   return (
 
-    <Link
-      to="/donate"
+    <button
+      type="button"
+      onClick={openDonateModal}
       className="floating-donate-btn"
       aria-label="Donate Now"
     >
@@ -22,7 +25,7 @@ function FloatingDonateButton() {
 
       <span>Donate</span>
 
-    </Link>
+    </button>
 
   );
 

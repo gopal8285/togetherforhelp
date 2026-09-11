@@ -14,6 +14,8 @@ from "./components/ScrollToTop";
 import FloatingDonateButton from "./components/FloatingDonateButton";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 import BackToTopButton from "./components/BackToTopButton";
+import DonateQrModal from "./components/DonateQrModal";
+import { DonateModalProvider } from "./context/DonateModalContext";
 import Donate from "./pages/Donate";
 import Team from "./pages/Team";
 import Faq from "./pages/Faq";
@@ -22,6 +24,7 @@ import Privacy from "./pages/Privacy";
 import Copyright from "./pages/Copyright";
 import Sitemap from "./pages/Sitemap";
 import Recycle from "./pages/Recycle";
+import Drives from "./pages/Drives";
 
 
 function App() {
@@ -55,6 +58,7 @@ function App() {
   return (
 
     <BrowserRouter basename="/">
+      <DonateModalProvider>
       <ScrollToTop />
 
       <Routes>
@@ -126,6 +130,11 @@ function App() {
   path="/recycle"
   element={<Recycle />}
 />
+
+<Route
+  path="/drives"
+  element={<Drives />}
+/>
         
     
 
@@ -134,6 +143,8 @@ function App() {
       <FloatingDonateButton />
       <FloatingWhatsAppButton />
       <BackToTopButton />
+      <DonateQrModal />
+      </DonateModalProvider>
 
     </BrowserRouter>
    

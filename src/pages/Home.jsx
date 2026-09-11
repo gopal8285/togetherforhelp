@@ -8,6 +8,7 @@ import ParallaxQuotes from "../components/ParallaxQuotes";
 import HopeTicker from "../components/HopeTicker";
 import HomeFaq
 from "../components/HomeFaq";
+import UrgentCampaignBanner from "../components/UrgentCampaignBanner";
 
 
 import { motion } from "framer-motion";
@@ -222,6 +223,9 @@ function Home() {
 
       {/* NAVBAR */}
       <Navbar />
+
+      {/* URGENT CAMPAIGN BANNER */}
+      <UrgentCampaignBanner />
 
       {/* HERO */}
       <section className="hero" id="home">
