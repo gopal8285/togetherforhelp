@@ -219,6 +219,16 @@ function Footer() {
 
       <div className="footer-bottom">
         <p>© 2026 TogetherForHelp. Built with compassion & purpose.</p>
+        <p className="footer-credit">
+          Website designed &amp; built by{" "}
+          <a
+            href="https://www.linkedin.com/in/gopal-kumar-9a89a7392/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Gopal Kumar
+          </a>
+        </p>
       </div>
     </footer>
   );

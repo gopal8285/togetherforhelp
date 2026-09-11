@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import teamManish from "../assets/team-manish-face.jpeg";
 import teamDaksh from "../assets/team-daksh-face.jpeg";
 import teamGagan from "../assets/team-gagan-face.jpeg";
-import teamKrishna from "../assets/team-krishna-face.jpeg";
+import teamGopal from "../assets/gopalkumar.jpeg";
 import teamNishant from "../assets/team-nishant-face.jpeg";
 import teamDhruv from "../assets/team-dhruv-face.jpeg";
 import teamPriya from "../assets/team-priya-face.jpeg";
@@ -50,9 +50,9 @@ function Team() {
     },
 
     {
-      name: "Krishna",
+      name: "Gopal Kumar",
       role: "Web Development Manager",
-      image: teamKrishna
+      image: teamGopal
     },
 
     {

@@ -2244,6 +2244,16 @@ section h2::after {
   color: var(--secondary);
 }
 
+.footer-credit {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.footer-credit a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
 /* =========================
    FOOTER MOBILE
 ========================= */
