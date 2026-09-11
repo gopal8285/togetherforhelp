@@ -3599,14 +3599,8 @@ nav a.active {
     height: 85vh;
   }
 
-  .hero h1 {
-    font-size: 38px !important;
-    line-height: 1.15;
-    letter-spacing: -1px;
-  }
-
   .hero p {
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
 
   .btn {
@@ -3747,17 +3741,17 @@ nav a.active {
   }
 
   .hero-content h1 {
-    font-size: 42px !important;
+    font-size: 30px !important;
 
-    line-height: 1.1;
+    line-height: 1.2;
 
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .hero-content p {
-    font-size: 16px;
+    font-size: 15px;
 
     line-height: 1.5;
 

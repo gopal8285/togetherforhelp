@@ -9,6 +9,7 @@ import HopeTicker from "../components/HopeTicker";
 import HomeFaq
 from "../components/HomeFaq";
 import UrgentCampaignBanner from "../components/UrgentCampaignBanner";
+import { UPI_ID } from "../utils/donateInfo";
 
 
 import { motion } from "framer-motion";
@@ -1214,8 +1215,7 @@ function Home() {
 
       <p>
 
-        Paytm:
-        +91 9220744575
+        UPI ID: {UPI_ID}
 
         <br /><br />
 

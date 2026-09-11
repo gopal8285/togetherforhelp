@@ -16,6 +16,8 @@ import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 import BackToTopButton from "./components/BackToTopButton";
 import DonateQrModal from "./components/DonateQrModal";
 import { DonateModalProvider } from "./context/DonateModalContext";
+import VolunteerFormModal from "./components/VolunteerFormModal";
+import { VolunteerModalProvider } from "./context/VolunteerModalContext";
 import Donate from "./pages/Donate";
 import Team from "./pages/Team";
 import Faq from "./pages/Faq";
