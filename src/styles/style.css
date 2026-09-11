@@ -2917,7 +2917,12 @@ section h2::after {
   .nav-links {
     position: absolute;
 
-    top: 80px;
+    /* top: 100% (not a fixed px value) so the dropdown always starts
+       right at the navbar's actual bottom edge — a fixed px offset
+       broke when the navbar grew taller than expected (e.g. the logo
+       wrapping to two lines on some phones), which pushed the first
+       menu item ("Home") to render clipped behind the navbar. */
+    top: 100%;
     left: 0;
 
     width: 100%;
