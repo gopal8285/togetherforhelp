@@ -6162,11 +6162,34 @@ nav a.active {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .urgent-campaign-close:hover {
     background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* on narrow phones the message wraps to 2-3 lines — clamp it to 2 and
+   keep the warning icon aligned with the first line instead of
+   floating in the vertical center of the wrapped block */
+@media (max-width: 639px) {
+  .urgent-campaign-link {
+    align-items: flex-start;
+  }
+
+  .urgent-campaign-icon {
+    margin-top: 2px;
+  }
+
+  .urgent-campaign-link span:not(.urgent-campaign-cta) {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

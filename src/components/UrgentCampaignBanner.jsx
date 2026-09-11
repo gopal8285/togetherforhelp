@@ -30,8 +30,8 @@ function UrgentCampaignBanner() {
         <FaTriangleExclamation className="urgent-campaign-icon" />
 
         <span>
-          <strong>Bihar Flood Relief</strong> — help families affected by
-          the floods. See how we're responding on Instagram.
+          <strong>Bihar Flood Relief.</strong> Helping families affected
+          by the floods. See our Instagram for updates.
         </span>
 
         <span className="urgent-campaign-cta">
