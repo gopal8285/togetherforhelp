@@ -98,7 +98,10 @@ function Home() {
   const [activeInitiative, setActiveInitiative] = useState(0);
 
   const bdayVideoRef = useRef(null);
-  const [bdayVideoMuted, setBdayVideoMuted] = useState(false);
+  // Always starts muted — the page shouldn't play sound on its own the
+  // moment someone lands on it. Tapping the speaker icon (see
+  // toggleBdayVideoSound below) is what turns sound on.
+  const [bdayVideoMuted, setBdayVideoMuted] = useState(true);
 
   useEffect(() => {
 
@@ -106,24 +109,8 @@ function Home() {
 
     if (!video) return;
 
-    // try autoplay with sound on first — most mobile browsers block
-    // this unless the user already interacted with the page, so fall
-    // back to a muted autoplay (still visible, tap the icon to unmute)
-    video.muted = false;
-
-    const playPromise = video.play();
-
-    if (playPromise !== undefined) {
-
-      playPromise.catch(() => {
-
-        video.muted = true;
-        setBdayVideoMuted(true);
-        video.play().catch(() => {});
-
-      });
-
-    }
+    video.muted = true;
+    video.play().catch(() => {});
 
   }, []);
 
