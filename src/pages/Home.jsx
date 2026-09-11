@@ -341,7 +341,7 @@ function Home() {
             <div className="about-right-content">
 
               <span className="about-small">
-                About Together4Help
+                About TogetherForHelp
               </span>
 
               <h2>
@@ -349,7 +349,7 @@ function Home() {
               </h2>
 
               <p>
-                Together4Help is a community-driven initiative
+                TogetherForHelp is a community-driven initiative
                 bringing hope, support, and real change
                 to underserved communities.
               </p>
