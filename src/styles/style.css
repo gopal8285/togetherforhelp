@@ -1620,6 +1620,16 @@ section h2::after {
   }
 }
 
+/* touch devices have no real ":hover" — the grayscale-to-color reveal
+   above would never trigger, leaving every photo permanently black
+   and white on phones. Skip the grayscale filter entirely there so
+   photos are always shown in full color. */
+@media (hover: none) {
+  .team-img img {
+    filter: none;
+  }
+}
+
 /* TABLET */
 @media (max-width: 1000px) {
   .team-grid {
