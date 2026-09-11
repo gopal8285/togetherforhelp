@@ -2264,6 +2264,17 @@ section h2::after {
   text-decoration: underline;
 }
 
+.footer-credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-credit-link svg {
+  font-size: 14px;
+  color: #0a66c2;
+}
+
 /* =========================
    FOOTER MOBILE
 ========================= */

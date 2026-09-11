@@ -225,8 +225,9 @@ function Footer() {
             href="https://www.linkedin.com/in/gopal-kumar-9a89a7392/"
             target="_blank"
             rel="noreferrer"
+            className="footer-credit-link"
           >
-            Gopal Kumar
+            Gopal Kumar <FaLinkedin />
           </a>
         </p>
       </div>
