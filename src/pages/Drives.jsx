@@ -3,9 +3,21 @@ import '../styles/style.css'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaTriangleExclamation, FaInstagram } from "react-icons/fa6";
+import {
+  FaTriangleExclamation,
+  FaInstagram,
+  FaSnowflake,
+  FaBookOpen,
+  FaHeart,
+  FaPencil,
+  FaGlassWater,
+  FaEye,
+  FaDog,
+  FaTree
+} from "react-icons/fa6";
 import { useDonateModal } from "../context/useDonateModal";
 
 import initiativeBlindStick from "../assets/initiative-blind-stick.jpeg";
@@ -20,41 +32,49 @@ import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-dr
 const drives = [
   {
     img: initiativeWinterBlanketDrive,
+    icon: <FaSnowflake />,
     title: "Winter Blanket Distribution",
     text: "Distributing blankets to families and elders sleeping through harsh Delhi winters without proper warmth."
   },
   {
     img: initiativeEducation,
+    icon: <FaBookOpen />,
     title: "Education Support For Children",
     text: "Free weekly classes for children who don't have access to formal schooling."
   },
   {
     img: initiativeProjectUdhan,
+    icon: <FaHeart />,
     title: "Project Udhan",
     text: "Breaking the silence around menstruation by distributing sanitary pads and building dignity."
   },
   {
     img: initiativeKitOfHope,
+    icon: <FaPencil />,
     title: "Kit Of Hope",
     text: "Notebooks, pencils, drawing books and stationery kits handed directly to children in need."
   },
   {
     img: initiativeChabeelSewa,
+    icon: <FaGlassWater />,
     title: "Chabeel Sewa",
     text: "Setting up water and refreshment stalls in peak summer for those in need of relief from the heat."
   },
   {
     img: initiativeBlindStick,
+    icon: <FaEye />,
     title: "Sticks For The Blind",
     text: "Distributing mobility sticks that give visually impaired individuals more independence and safety."
   },
   {
     img: initiativeDogFeeder,
+    icon: <FaDog />,
     title: "Community Animal Care",
     text: "Installing dog feeders and water pots around our neighbourhoods."
   },
   {
     img: initiativeTreePlantation,
+    icon: <FaTree />,
     title: "Tree Plantation Drive",
     text: "Planting saplings with volunteers and children for a greener tomorrow."
   }
@@ -63,6 +83,14 @@ const drives = [
 function Drives() {
 
   const { openDonateModal } = useDonateModal();
+  const [revealedCards, setRevealedCards] = useState({});
+
+  const toggleReveal = (index) => {
+    setRevealedCards((current) => ({
+      ...current,
+      [index]: !current[index]
+    }));
+  };
 
   return (
 
@@ -147,12 +175,31 @@ function Drives() {
               viewport={{ once: true, amount: 0.3 }}
             >
 
-              <img
-                src={drive.img}
-                alt={drive.title}
-                loading="lazy"
-                className="drive-listing-img"
-              />
+              <button
+                type="button"
+                className={
+                  revealedCards[index]
+                    ? "drive-media revealed"
+                    : "drive-media"
+                }
+                data-color={index % 5}
+                onClick={() => toggleReveal(index)}
+                aria-label={`Show photo for ${drive.title}`}
+              >
+
+                <span className="drive-media-color">
+                  <span className="drive-media-icon">{drive.icon}</span>
+                  <span className="drive-media-topic">{drive.title}</span>
+                </span>
+
+                <img
+                  src={drive.img}
+                  alt={drive.title}
+                  loading="lazy"
+                  className="drive-media-photo"
+                />
+
+              </button>
 
               <div className="drive-listing-body">
 

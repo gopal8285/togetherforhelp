@@ -6218,12 +6218,95 @@ nav a.active {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
-.drive-listing-img {
+/* DRIVE CARD MEDIA — starts as a solid-color "topic" block (icon +
+   heading, no photo), and reveals the real photo on hover (desktop)
+   or tap (mobile/touch, toggled via the .revealed class). */
+.drive-media {
+  position: relative;
   width: 100%;
   height: 220px;
-  object-fit: contain;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
   display: block;
+}
+
+.drive-media-color {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  transition: opacity 0.35s ease;
+}
+
+.drive-media[data-color="0"] .drive-media-color {
+  background: linear-gradient(135deg, #12294a, #1a3a63);
+}
+.drive-media[data-color="1"] .drive-media-color {
+  background: linear-gradient(135deg, #123c5e, #175178);
+}
+.drive-media[data-color="2"] .drive-media-color {
+  background: linear-gradient(135deg, #0d6a86, #0e83a3);
+}
+.drive-media[data-color="3"] .drive-media-color {
+  background: linear-gradient(135deg, #c97d00, #e8991a);
+}
+.drive-media[data-color="4"] .drive-media-color {
+  background: linear-gradient(135deg, #e8991a, #ffc233);
+}
+
+.drive-media-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 19px;
+}
+
+.drive-media-topic {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.drive-media-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   background: var(--bg);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* touch/tap toggle */
+.drive-media.revealed .drive-media-color {
+  opacity: 0;
+}
+.drive-media.revealed .drive-media-photo {
+  opacity: 1;
+}
+
+/* real mouse hover also reveals, independent of tap state */
+@media (hover: hover) and (pointer: fine) {
+  .drive-media:hover .drive-media-color {
+    opacity: 0;
+  }
+  .drive-media:hover .drive-media-photo {
+    opacity: 1;
+  }
 }
 
 .drive-listing-body {
