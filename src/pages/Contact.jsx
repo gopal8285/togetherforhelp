@@ -4,8 +4,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import { motion } from "framer-motion";
+import useSeo from "../hooks/useSeo";
 
 function Contact() {
+
+  useSeo({
+    title: "Contact Us",
+    description: "Get in touch with TogetherForHelp NGO in Delhi — call, WhatsApp, or email us to volunteer, donate, or ask about our community programs.",
+    path: "/contact"
+  });
 
   /* CONTACT LINKS */
   const contacts = [

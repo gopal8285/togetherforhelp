@@ -7,8 +7,15 @@ import { useState } from "react";
 
 import { motion, AnimatePresence }
 from "framer-motion";
+import useSeo from "../hooks/useSeo";
 
 function Faq() {
+
+  useSeo({
+    title: "Frequently Asked Questions",
+    description: "Answers to common questions about volunteering, donating, and getting involved with TogetherForHelp, a Delhi-based NGO trust.",
+    path: "/faq"
+  });
 
   /* ACTIVE FAQ */
   const [activeIndex, setActiveIndex]

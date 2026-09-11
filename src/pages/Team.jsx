@@ -16,10 +16,17 @@ import teamShivam from "../assets/team-shivam-face.jpeg";
 import teamUnnati from "../assets/team-unnati-face-new.jpeg";
 import teamAnsh from "../assets/team-ansh-face.jpeg";
 import teamUdit from "../assets/team-udit-face.jpeg";
+import useSeo from "../hooks/useSeo";
 
 import { motion } from "framer-motion";
 
 function Team() {
+
+  useSeo({
+    title: "Our Team",
+    description: "Meet the team behind TogetherForHelp — the coordinators and core members leading our NGO's food, education, and community support initiatives in Delhi.",
+    path: "/team"
+  });
 
   /* TEAM MEMBERS DATA */
   const members = [

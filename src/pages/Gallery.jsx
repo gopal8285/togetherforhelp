@@ -3,6 +3,7 @@ import '../styles/style.css'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import JournalGallery from "../components/JournalGallery";
+import useSeo from "../hooks/useSeo";
 
 import celebrateBdayImg from "../assets/celebrate-bday.jpeg";
 import spreadKindnessImg from "../assets/spread-kindness.jpeg";
@@ -56,6 +57,12 @@ function MarqueeItem({ img, alt, label }) {
 }
 
 function Gallery() {
+
+  useSeo({
+    title: "Gallery",
+    description: "See photos from TogetherForHelp's blanket drives, food distribution, education initiatives, and community events across Delhi.",
+    path: "/gallery"
+  });
 
   const items = [
 

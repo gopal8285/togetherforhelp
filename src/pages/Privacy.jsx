@@ -2,8 +2,15 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import useSeo from "../hooks/useSeo";
 
 function Privacy() {
+
+  useSeo({
+    title: "Privacy Policy",
+    description: "Read TogetherForHelp's privacy policy to understand how we handle your personal information.",
+    path: "/privacy"
+  });
 
   return (
 

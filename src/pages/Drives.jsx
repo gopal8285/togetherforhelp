@@ -19,6 +19,7 @@ import {
   FaTree
 } from "react-icons/fa6";
 import { useDonateModal } from "../context/useDonateModal";
+import useSeo from "../hooks/useSeo";
 
 import initiativeBlindStick from "../assets/initiative-blind-stick.jpeg";
 import initiativeDogFeeder from "../assets/initiative-dog-feeder.jpeg";
@@ -81,6 +82,12 @@ const drives = [
 ];
 
 function Drives() {
+
+  useSeo({
+    title: "Our Drives & Campaigns",
+    description: "Explore TogetherForHelp's ongoing and past drives — from Bihar Flood Relief to blanket, food, and education campaigns. Volunteer or donate to support an active drive.",
+    path: "/drives"
+  });
 
   const { openDonateModal } = useDonateModal();
   const [revealedCards, setRevealedCards] = useState({});

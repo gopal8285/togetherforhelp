@@ -2,6 +2,7 @@ import '../styles/style.css'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import awardRecognitionImg from "../assets/award-recognition.jpeg";
+import useSeo from "../hooks/useSeo";
 
 import { motion } from "framer-motion";
 import {
@@ -13,6 +14,12 @@ import {
 } from "react-icons/fa6";
 
 function About() {
+
+  useSeo({
+    title: "About Us",
+    description: "Learn about TogetherForHelp's mission and story — a Delhi-based NGO trust working on blanket drives, education, food distribution, and community support since our founding.",
+    path: "/about"
+  });
 
   const activities = [
 

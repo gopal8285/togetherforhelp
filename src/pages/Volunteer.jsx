@@ -5,8 +5,15 @@ import Footer from "../components/Footer";
 import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
 import VolunteerPerks from "../components/VolunteerPerks";
 import StickyCtaBar from "../components/StickyCtaBar";
+import useSeo from "../hooks/useSeo";
 
 function Volunteer() {
+
+  useSeo({
+    title: "Become A Volunteer",
+    description: "Join TogetherForHelp as a volunteer in Delhi. Help with food distribution, education drives, and community support — sign up today and start making an impact.",
+    path: "/volunteer"
+  });
 
   return (
 

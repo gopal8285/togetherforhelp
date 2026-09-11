@@ -2,8 +2,15 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import useSeo from "../hooks/useSeo";
 
 function Terms() {
+
+  useSeo({
+    title: "Terms of Use",
+    description: "Read the terms of use for TogetherForHelp's website and services.",
+    path: "/terms"
+  });
 
   return (
 

@@ -10,6 +10,7 @@ import HomeFaq
 from "../components/HomeFaq";
 import UrgentCampaignBanner from "../components/UrgentCampaignBanner";
 import { UPI_ID } from "../utils/donateInfo";
+import useSeo from "../hooks/useSeo";
 
 
 import { motion } from "framer-motion";
@@ -86,6 +87,12 @@ const initiativesData = [
 ];
 
 function Home() {
+
+  useSeo({
+    title: "NGO In Delhi For Food, Education & Community Support",
+    description: "TogetherForHelp is a Delhi-based NGO trust running blanket drives, food distribution, free education for children, and support for the elderly and visually impaired. Volunteer or donate today.",
+    path: "/"
+  });
 
   const [showInitiatives, setShowInitiatives] = useState(false);
   const [activeInitiative, setActiveInitiative] = useState(0);

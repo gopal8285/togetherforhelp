@@ -2,8 +2,15 @@ import '../styles/style.css'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import useSeo from "../hooks/useSeo";
 
 function Copyright() {
+
+  useSeo({
+    title: "Copyright Policy",
+    description: "Read TogetherForHelp's copyright policy covering the use of content, images, and materials on our website.",
+    path: "/copyright"
+  });
 
   return (
 

@@ -7,8 +7,15 @@ import StickyCtaBar from "../components/StickyCtaBar";
 import { useState } from "react";
 import { FaRegCopy, FaCheck } from "react-icons/fa6";
 import { UPI_ID, QR_CODE_URL } from "../utils/donateInfo";
+import useSeo from "../hooks/useSeo";
 
 function Donate() {
+
+  useSeo({
+    title: "Donate Now",
+    description: "Support TogetherForHelp's work with families in need. Scan the UPI QR code or use our bank transfer details to donate securely and directly to our NGO trust.",
+    path: "/donate"
+  });
 
   const [copiedField, setCopiedField] = useState(null);
 
