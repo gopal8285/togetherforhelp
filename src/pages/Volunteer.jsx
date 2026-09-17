@@ -6,6 +6,7 @@ import waysToHelpTeamImg from "../assets/ways-to-help-team.jpeg";
 import VolunteerPerks from "../components/VolunteerPerks";
 import StickyCtaBar from "../components/StickyCtaBar";
 import useSeo from "../hooks/useSeo";
+import { WHATSAPP_URL } from "../utils/donateInfo";
 
 function Volunteer() {
 
@@ -24,7 +25,7 @@ function Volunteer() {
 
       <StickyCtaBar
         label="Join As Volunteer"
-        href="https://wa.me/919220744575"
+        href={WHATSAPP_URL}
         external
       />
 
@@ -96,7 +97,7 @@ function Volunteer() {
               </a>
 
               <a
-                href="https://wa.me/919220744575"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="volunteer-form-whatsapp"

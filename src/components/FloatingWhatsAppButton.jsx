@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa6";
+import { WHATSAPP_URL } from "../utils/donateInfo";
 
 function FloatingWhatsAppButton() {
 
@@ -28,7 +29,7 @@ function FloatingWhatsAppButton() {
   return (
 
     <a
-      href="https://wa.me/919220744575"
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noreferrer"
       className={

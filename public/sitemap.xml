@@ -37,10 +37,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://togetherforhelp.org/recycle</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://togetherforhelp.org/terms</loc>
     <priority>0.3</priority>
   </url>

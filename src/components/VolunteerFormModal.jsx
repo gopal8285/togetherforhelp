@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaXmark } from "react-icons/fa6";
 import { useVolunteerModal } from "../context/useVolunteerModal";
+import { WHATSAPP_URL } from "../utils/donateInfo";
 
 const initialForm = {
   name: "",
@@ -36,7 +37,7 @@ function VolunteerFormModal() {
       `Message: ${form.message}`;
 
     window.open(
-      `https://wa.me/919220744575?text=${text}`,
+      `${WHATSAPP_URL}?text=${text}`,
       "_blank",
       "noreferrer"
     );

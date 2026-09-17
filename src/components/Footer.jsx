@@ -184,12 +184,14 @@ function Footer() {
             <Link to="/about">About</Link>
             <Link to="/team">Team</Link>
             <Link to="/gallery">Gallery</Link>
-            <Link to="/faq">FAQs</Link>
+            <Link to="/volunteer">Volunteer</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/donate">Donate</Link>
           </div>
 
           <div className="footer-col">
             <h3>Useful Links</h3>
+            <Link to="/drives">Drives</Link>
             <Link to="/faq">FAQs</Link>
             <Link to="/sitemap">Sitemap</Link>
             <Link to="/privacy">Privacy Policy</Link>

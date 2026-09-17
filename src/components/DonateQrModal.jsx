@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaXmark, FaRegCopy, FaCheck } from "react-icons/fa6";
 import { useDonateModal } from "../context/useDonateModal";
-import { UPI_ID, QR_CODE_URL } from "../utils/donateInfo";
+import { UPI_ID, DONATE_QR_IMAGE } from "../utils/donateInfo";
 
 function DonateQrModal() {
 
@@ -66,9 +66,10 @@ function DonateQrModal() {
 
             <div className="donate-qr-box">
               <img
-                src={QR_CODE_URL}
+                src={DONATE_QR_IMAGE}
                 alt="Scan to donate via UPI"
-                loading="lazy"
+                width={280}
+                height={280}
               />
             </div>
 

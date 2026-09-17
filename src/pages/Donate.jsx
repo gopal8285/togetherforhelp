@@ -6,7 +6,7 @@ import StickyCtaBar from "../components/StickyCtaBar";
 
 import { useState } from "react";
 import { FaRegCopy, FaCheck } from "react-icons/fa6";
-import { UPI_ID, QR_CODE_URL } from "../utils/donateInfo";
+import { UPI_ID, DONATE_QR_IMAGE, PHONE_DISPLAY } from "../utils/donateInfo";
 import useSeo from "../hooks/useSeo";
 
 function Donate() {
@@ -30,7 +30,7 @@ function Donate() {
 
   };
 
-  const paytmRow = { label: "Paytm", value: "+91 9220744575" };
+  const paytmRow = { label: "Paytm", value: PHONE_DISPLAY };
 
   const bankRows = [
     { label: "Account Name", value: "TOGETHERFORHELP TRUST" },
@@ -86,9 +86,10 @@ function Donate() {
 
             <div className="donate-qr-box">
               <img
-                src={QR_CODE_URL}
+                src={DONATE_QR_IMAGE}
                 alt="Scan to donate via UPI"
-                loading="lazy"
+                width={280}
+                height={280}
               />
             </div>
 

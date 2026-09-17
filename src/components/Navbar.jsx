@@ -189,14 +189,6 @@ useEffect(() => {
           </li>
 
           <li>
-            <Link to="/recycle">Recycle</Link>
-          </li>
-
-          <li>
-    <Link to="/faq">FAQs</Link>
-  </li>
-
-          <li>
             <Link to="/contact">Contact</Link>
           </li>
           <li>

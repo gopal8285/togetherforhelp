@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 
 import { motion } from "framer-motion";
 import useSeo from "../hooks/useSeo";
+import { PHONE_DISPLAY, TEL_URL, WHATSAPP_URL } from "../utils/donateInfo";
 
 function Contact() {
 
@@ -19,14 +20,14 @@ function Contact() {
 
     {
       title: "Phone",
-      value: "+91 9220744575",
-      link: "tel:+919220744575"
+      value: PHONE_DISPLAY,
+      link: TEL_URL
     },
 
     {
       title: "WhatsApp",
       value: "Chat With Us",
-      link: "https://wa.me/919220744575"
+      link: WHATSAPP_URL
     },
 
     {

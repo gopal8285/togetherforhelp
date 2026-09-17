@@ -9,7 +9,7 @@ import HopeTicker from "../components/HopeTicker";
 import HomeFaq
 from "../components/HomeFaq";
 import UrgentCampaignBanner from "../components/UrgentCampaignBanner";
-import { UPI_ID } from "../utils/donateInfo";
+import { UPI_ID, WHATSAPP_URL } from "../utils/donateInfo";
 import useSeo from "../hooks/useSeo";
 
 
@@ -162,7 +162,7 @@ function Home() {
       `Message: ${bdayForm.message}`;
 
     window.open(
-      `https://wa.me/919220744575?text=${text}`,
+      `${WHATSAPP_URL}?text=${text}`,
       "_blank",
       "noreferrer"
     );
@@ -986,7 +986,7 @@ function Home() {
               </a>
 
               <a
-                href="https://wa.me/919220744575"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="volunteer-form-whatsapp"
