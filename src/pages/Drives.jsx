@@ -16,7 +16,8 @@ import {
   FaGlassWater,
   FaEye,
   FaDog,
-  FaTree
+  FaTree,
+  FaUtensils
 } from "react-icons/fa6";
 import { useDonateModal } from "../context/useDonateModal";
 import useSeo from "../hooks/useSeo";
@@ -29,8 +30,22 @@ import initiativeChabeelSewa from "../assets/initiative-chabeel-sewa.jpeg";
 import initiativeEducation from "../assets/initiative-education.jpeg";
 import initiativeTreePlantation from "../assets/initiative-tree-plantation.jpeg";
 import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-drive.jpeg";
+import childMealImg from "../assets/child-meal.jpeg";
+import dogMealImg from "../assets/dog-meal.jpeg";
 
 const drives = [
+  {
+    img: childMealImg,
+    icon: <FaUtensils />,
+    title: "Feed A Homeless Child",
+    text: "A nutritious meal for ₹50. Help us put food in a child's hands and bring a smile with every plate."
+  },
+  {
+    img: dogMealImg,
+    icon: <FaDog />,
+    title: "Feed A Stray Dog",
+    text: "A simple meal for ₹50. Help us provide nutritious food to stray dogs in our neighbourhoods."
+  },
   {
     img: initiativeWinterBlanketDrive,
     icon: <FaSnowflake />,

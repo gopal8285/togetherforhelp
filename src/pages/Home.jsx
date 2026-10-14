@@ -36,6 +36,8 @@ import eventSupermanKid from "../assets/event-superman-kid.jpeg";
 import initiativeTreePlantation from "../assets/initiative-tree-plantation.jpeg";
 import initiativeWinterBlanketDrive from "../assets/initiative-winter-blanket-drive.jpeg";
 import eventMealDistributionBranded from "../assets/event-meal-distribution-branded.jpeg";
+import childMealImg from "../assets/child-meal.jpeg";
+import dogMealImg from "../assets/dog-meal.jpeg";
 import eventTeachingSupport from "../assets/event-teaching-support.jpeg";
 import birthdayCelebrationVideo from "../assets/birthday-celebration.mp4";
 import eventStreetKidsVisit from "../assets/event-street-kids-visit.jpeg";
@@ -43,6 +45,16 @@ import eventVolunteerGroupKids from "../assets/event-volunteer-group-kids.jpeg";
 
 
 const initiativesData = [
+  {
+    img: childMealImg,
+    label: "Feed a homeless child, ₹50 per meal",
+    alt: "Feed a homeless child per meal for 50 rupees — TogetherForHelp donation campaign"
+  },
+  {
+    img: dogMealImg,
+    label: "Feed a stray dog, ₹50 per meal",
+    alt: "Feed a stray dog per meal for 50 rupees — TogetherForHelp donation campaign"
+  },
   {
     img: initiativeBlindStick,
     label: "Distribution of sticks for the blind",
@@ -373,6 +385,44 @@ function Home() {
         </h2>
 
         <div className="drive-grid">
+
+          <div className="drive-card">
+
+            <img
+              src={childMealImg}
+              alt="Feed a homeless child per meal for 50 rupees"
+              loading="lazy"
+            />
+
+            <h3>
+              Feed A Homeless Child
+            </h3>
+
+            <p>
+              A nutritious meal for ₹50. Scan the poster
+              or donate to put food in a child's hands.
+            </p>
+
+          </div>
+
+          <div className="drive-card">
+
+            <img
+              src={dogMealImg}
+              alt="Feed a stray dog per meal for 50 rupees"
+              loading="lazy"
+            />
+
+            <h3>
+              Feed A Stray Dog
+            </h3>
+
+            <p>
+              A simple meal for ₹50. Help us keep stray
+              dogs fed and cared for in our neighbourhoods.
+            </p>
+
+          </div>
 
           {/* CARD 1 */}
           <div className="drive-card">

@@ -33,6 +33,8 @@ import eventRationDistributionWoman from "../assets/event-ration-distribution-wo
 import eventRationDistributionElder from "../assets/event-ration-distribution-elder.jpeg";
 import eventJanmashtamiToddler from "../assets/event-janmashtami-toddler.jpeg";
 import eventVolunteerGroupKids from "../assets/event-volunteer-group-kids.jpeg";
+import childMealImg from "../assets/child-meal.jpeg";
+import dogMealImg from "../assets/dog-meal.jpeg";
 
 function MarqueeItem({ img, alt, label }) {
 
@@ -66,6 +68,16 @@ function Gallery() {
 
   const items = [
 
+    {
+      img: childMealImg,
+      label: "Feed a homeless child, ₹50 per meal",
+      alt: "Feed a homeless child per meal for 50 rupees — TogetherForHelp campaign"
+    },
+    {
+      img: dogMealImg,
+      label: "Feed a stray dog, ₹50 per meal",
+      alt: "Feed a stray dog per meal for 50 rupees — TogetherForHelp campaign"
+    },
     {
       img: celebrateBdayImg,
       label: "Celebrating birthdays with our elders",
