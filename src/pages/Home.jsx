@@ -8,7 +8,6 @@ import ParallaxQuotes from "../components/ParallaxQuotes";
 import HopeTicker from "../components/HopeTicker";
 import HomeFaq
 from "../components/HomeFaq";
-import UrgentCampaignBanner from "../components/UrgentCampaignBanner";
 import { UPI_ID, WHATSAPP_URL } from "../utils/donateInfo";
 import useSeo from "../hooks/useSeo";
 
@@ -218,9 +217,6 @@ function Home() {
 
       {/* NAVBAR */}
       <Navbar />
-
-      {/* URGENT CAMPAIGN BANNER */}
-      <UrgentCampaignBanner />
 
       {/* HERO */}
       <section className="hero" id="home">
